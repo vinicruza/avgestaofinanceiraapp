@@ -57,7 +57,7 @@ export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" })
         </nav>
 
         <div className="hidden lg:block">
-          <CtaPrimary>Agendar demonstração</CtaPrimary>
+          <CtaPrimary to={AV_SCHEDULE_PATH}>Agendar demonstração</CtaPrimary>
         </div>
 
         <button

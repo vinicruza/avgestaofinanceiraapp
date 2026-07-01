@@ -1,29 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Home } from "@/components/home/Home";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "AV Gestão Financeira — Operações financeiras inteligentes" },
+      {
+        name: "description",
+        content:
+          "Pessoas, processos, tecnologia própria e IA para transformar o financeiro da sua empresa em uma operação previsível, eficiente e escalável.",
+      },
+      { property: "og:title", content: "AV Gestão Financeira — Operações financeiras inteligentes" },
+      {
+        property: "og:description",
+        content:
+          "Ecossistema completo de gestão financeira: Método AV, Equipe AV, Plataforma AV e IA AV.",
+      },
     ],
   }),
-  component: Index,
+  component: Home,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}

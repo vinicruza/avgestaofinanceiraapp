@@ -1,5 +1,11 @@
 import { Plus, Users, MonitorSmartphone, BrainCircuit, Target, ClipboardCheck } from "lucide-react";
 import heroMockup from "@/assets/hero-mockup.png";
+import ipirangaLogo from "@/assets/clients/ipiranga.png.asset.json";
+import petrobrasLogo from "@/assets/clients/petrobras.png.asset.json";
+import brManiaLogo from "@/assets/clients/br-mania.png.asset.json";
+import ampmLogo from "@/assets/clients/ampm.png.asset.json";
+import redeTopLogo from "@/assets/clients/rede-top.png.asset.json";
+import topLogo from "@/assets/clients/top.png.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";

@@ -3,6 +3,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import avLogo from "@/assets/av-logo-horizontal.png.asset.json";
 import { CtaPrimary } from "./ctas";
+import { AV_SCHEDULE_PATH } from "@/lib/av-config";
 
 const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
   { label: "Soluções", to: "/solucoes", hasMenu: true },

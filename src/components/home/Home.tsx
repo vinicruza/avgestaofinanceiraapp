@@ -1,114 +1,19 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown, Menu, X, Users, ClipboardCheck, MonitorSmartphone, BrainCircuit, Target, Plus } from "lucide-react";
-import { useState } from "react";
-import avLogo from "@/assets/av-logo-horizontal.png.asset.json";
+import { Plus, Users, MonitorSmartphone, BrainCircuit, Target, ClipboardCheck } from "lucide-react";
 import heroMockup from "@/assets/hero-mockup.png";
-
-const NAV = [
-  { label: "Soluções", hasMenu: true },
-  { label: "Método AV" },
-  { label: "Plataforma AV" },
-  { label: "IA AV" },
-  { label: "Casos de Uso" },
-  { label: "Conteúdo" },
-  { label: "Sobre" },
-];
-
-function Logo({ variant = "dark" }: { variant?: "dark" | "light" }) {
-  return (
-    <div className="flex items-center">
-      <img
-        src={avLogo.url}
-        alt="AV Gestão Financeira"
-        className={`h-11 w-auto ${variant === "dark" ? "brightness-0 invert" : ""}`}
-        width={220}
-        height={44}
-      />
-    </div>
-  );
-}
-
-function CtaPrimary({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <button
-      className={`group inline-flex items-center gap-2 rounded-lg bg-brand px-5 py-3 text-sm font-semibold text-white shadow-[var(--shadow-cta)] transition hover:bg-brand-strong ${className}`}
-    >
-      {children}
-      <span className="grid h-6 w-6 place-items-center rounded-md bg-white/15 transition group-hover:translate-x-0.5">
-        <ArrowRight className="h-3.5 w-3.5" />
-      </span>
-    </button>
-  );
-}
-
-function CtaGhost({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="group inline-flex items-center gap-2 rounded-lg border border-white/25 bg-white/5 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10">
-      {children}
-      <span className="grid h-6 w-6 place-items-center rounded-md bg-white/15 transition group-hover:translate-x-0.5">
-        <ArrowRight className="h-3.5 w-3.5" />
-      </span>
-    </button>
-  );
-}
-
-function Header() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="relative z-20">
-      <div className="mx-auto flex max-w-[1360px] items-center justify-between px-6 py-6 lg:px-10">
-        <Link to="/" className="shrink-0">
-          <Logo />
-        </Link>
-
-        <nav className="hidden items-center gap-8 lg:flex">
-          {NAV.map((item) => (
-            <button
-              key={item.label}
-              className="inline-flex items-center gap-1 text-sm font-medium text-white/85 transition hover:text-white"
-            >
-              {item.label}
-              {item.hasMenu && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
-            </button>
-          ))}
-        </nav>
-
-        <div className="hidden lg:block">
-          <CtaPrimary>Agendar demonstração</CtaPrimary>
-        </div>
-
-        <button
-          className="grid h-10 w-10 place-items-center rounded-md border border-white/15 text-white lg:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
-      </div>
-
-      {open && (
-        <div className="border-t border-white/10 bg-navy-deep/95 backdrop-blur lg:hidden">
-          <div className="mx-auto flex max-w-[1360px] flex-col gap-1 px-6 py-4">
-            {NAV.map((item) => (
-              <button key={item.label} className="rounded-md px-3 py-3 text-left text-sm font-medium text-white/85 hover:bg-white/5">
-                {item.label}
-              </button>
-            ))}
-            <div className="pt-3">
-              <CtaPrimary className="w-full justify-center">Agendar demonstração</CtaPrimary>
-            </div>
-          </div>
-        </div>
-      )}
-    </header>
-  );
-}
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 
 function HeroBackdrop() {
   return (
-    <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden>
+    <svg
+      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
+      viewBox="0 0 1600 900"
+      preserveAspectRatio="none"
+      aria-hidden
+    >
       <defs>
-        <linearGradient id="l" x1="0" x2="1">
+        <linearGradient id="home-l" x1="0" x2="1">
           <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
           <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
           <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
@@ -119,7 +24,7 @@ function HeroBackdrop() {
           key={i}
           d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
           fill="none"
-          stroke="url(#l)"
+          stroke="url(#home-l)"
           strokeWidth="1"
         />
       ))}
@@ -138,7 +43,7 @@ function Hero() {
   return (
     <section className="relative hero-bg overflow-hidden">
       <HeroBackdrop />
-      <Header />
+      <SiteHeader variant="dark" />
 
       <div className="relative mx-auto grid max-w-[1360px] grid-cols-1 gap-10 px-6 pb-24 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-8 lg:px-10 lg:pt-10">
         <div className="flex flex-col justify-center">
@@ -146,9 +51,9 @@ function Hero() {
             Financial Operations
           </span>
           <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[64px]">
-            Construímos<br />
-            operações financeiras{" "}
-            <span className="text-brand">inteligentes.</span>
+            Construímos
+            <br />
+            operações financeiras <span className="text-brand">inteligentes.</span>
           </h1>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70">
             Combinamos pessoas, processos, tecnologia própria e inteligência artificial para
@@ -157,8 +62,8 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <CtaPrimary>Agendar demonstração</CtaPrimary>
-            <CtaGhost>Conheça a Plataforma AV</CtaGhost>
+            <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
+            <CtaGhost to="/plataforma-av">Conheça a Plataforma AV</CtaGhost>
           </div>
 
           <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
@@ -256,7 +161,9 @@ function Ecosystem() {
                   <item.icon className="h-6 w-6" strokeWidth={1.75} />
                 </span>
                 <h3 className="mt-6 text-lg font-bold text-navy-deep">{item.title}</h3>
-                <p className="mt-3 text-[13.5px] leading-relaxed text-muted-foreground">{item.desc}</p>
+                <p className="mt-3 text-[13.5px] leading-relaxed text-muted-foreground">
+                  {item.desc}
+                </p>
               </article>
               {i < ECOSYSTEM.length - 1 && (
                 <div className="hidden items-center justify-center px-2 xl:flex">
@@ -279,6 +186,7 @@ export function Home() {
       <Hero />
       <Clients />
       <Ecosystem />
+      <SiteFooter />
     </main>
   );
 }

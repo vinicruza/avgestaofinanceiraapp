@@ -4,19 +4,21 @@ import { Sobre } from "@/components/sobre/Sobre";
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre — AV Gestão Financeira" },
+      { title: "Sobre | AV Gestão Financeira" },
       {
         name: "description",
         content:
-          "A AV Gestão Financeira une pessoas, processos, plataforma própria e IA para transformar a rotina financeira em uma operação previsível e escalável.",
+          "Conheça a AV Gestão Financeira, nossa proposta, método, tecnologia e visão para o futuro da operação financeira.",
       },
-      { property: "og:title", content: "Sobre — AV Gestão Financeira" },
+      { property: "og:url", content: "/sobre" },
+      { property: "og:title", content: "Sobre | AV Gestão Financeira" },
       {
         property: "og:description",
         content:
-          "Conheça a AV: quem somos, o que nos torna diferentes, nossos pilares e a visão de futuro para a operação financeira.",
+          "Quem somos, o que nos torna diferentes, nossos pilares e a visão de futuro da AV Gestão Financeira.",
       },
     ],
+    links: [{ rel: "canonical", href: "/sobre" }],
   }),
   component: Sobre,
 });

@@ -4,19 +4,25 @@ import { Home } from "@/components/home/Home";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AV Gestão Financeira — Operações financeiras inteligentes" },
+      { title: "AV Gestão Financeira | Operação financeira com método, tecnologia e IA" },
       {
         name: "description",
         content:
-          "Pessoas, processos, tecnologia própria e IA para transformar o financeiro da sua empresa em uma operação previsível, eficiente e escalável.",
+          "A AV Gestão Financeira combina pessoas, processos, plataforma própria e inteligência artificial para organizar a rotina financeira de empresas.",
       },
-      { property: "og:title", content: "AV Gestão Financeira — Operações financeiras inteligentes" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      {
+        property: "og:title",
+        content: "AV Gestão Financeira | Operação financeira com método, tecnologia e IA",
+      },
       {
         property: "og:description",
         content:
-          "Ecossistema completo de gestão financeira: Método AV, Equipe AV, Plataforma AV e IA AV.",
+          "Pessoas, processos, plataforma própria e IA para transformar o financeiro em uma operação previsível e escalável.",
       },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Home,
 });

@@ -48,7 +48,7 @@ function Hero() {
       <div className="relative mx-auto grid max-w-[1360px] grid-cols-1 gap-10 px-6 pb-24 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-8 lg:px-10 lg:pt-10">
         <div className="flex flex-col justify-center">
           <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand">
-            Financial Operations
+            Operações financeiras
           </span>
           <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[64px]">
             Construímos

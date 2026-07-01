@@ -1,5 +1,11 @@
 import { Plus, Users, MonitorSmartphone, BrainCircuit, Target, ClipboardCheck } from "lucide-react";
 import heroMockup from "@/assets/hero-mockup.png";
+import ipirangaLogo from "@/assets/clients/ipiranga.png.asset.json";
+import petrobrasLogo from "@/assets/clients/petrobras.png.asset.json";
+import brManiaLogo from "@/assets/clients/br-mania.png.asset.json";
+import ampmLogo from "@/assets/clients/ampm.png.asset.json";
+import redeTopLogo from "@/assets/clients/rede-top.png.asset.json";
+import topLogo from "@/assets/clients/top.png.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
@@ -104,29 +110,35 @@ function Hero() {
   );
 }
 
-const CLIENTS = ["Bonatto", "Full", "Proalcool", "Hexa", "City", "Ana Neri", "Super Parada"];
+const CLIENTS = [
+  { name: "Ipiranga", src: ipirangaLogo.url, maxH: "h-10" },
+  { name: "Petrobras", src: petrobrasLogo.url, maxH: "h-8" },
+  { name: "BR Mania", src: brManiaLogo.url, maxH: "h-12" },
+  { name: "ampm", src: ampmLogo.url, maxH: "h-12" },
+  { name: "Rede Top", src: redeTopLogo.url, maxH: "h-12" },
+  { name: "Top", src: topLogo.url, maxH: "h-10" },
+];
 
 function Clients() {
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1360px] px-6 py-14 lg:px-10">
+      <div className="mx-auto max-w-[1360px] px-6 py-16 lg:px-10">
         <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
           Empresas que confiam na AV
         </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 lg:justify-between">
+        <div className="mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:flex lg:flex-nowrap lg:justify-between lg:gap-x-10">
           {CLIENTS.map((c) => (
-            <div
-              key={c}
-              className="text-lg font-extrabold uppercase tracking-wider text-navy-deep/60 grayscale transition hover:text-navy-deep"
-            >
-              {c}
-              <span className="ml-1 text-[10px] font-medium tracking-widest text-navy-deep/40">
-                COMBUSTÍVEIS
-              </span>
+            <div key={c.name} className="flex items-center justify-center">
+              <img
+                src={c.src}
+                alt={`Logo ${c.name}`}
+                loading="lazy"
+                className={`max-w-[160px] w-auto object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 ${c.maxH}`}
+              />
             </div>
           ))}
-          <span className="text-xs italic text-brand">e muitas outras.</span>
         </div>
+        <p className="mt-8 text-center text-xs italic text-brand">e muitas outras.</p>
       </div>
     </section>
   );

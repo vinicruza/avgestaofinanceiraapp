@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
+import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as PlataformaAvRouteImport } from './routes/plataforma-av'
 import { Route as MetodoAvRouteImport } from './routes/metodo-av'
 import { Route as IaAvRouteImport } from './routes/ia-av'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const SolucoesRoute = SolucoesRouteImport.update({
   id: '/solucoes',
   path: '/solucoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlataformaAvRoute = PlataformaAvRouteImport.update({
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
+  '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
+  '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
 }
 export interface FileRoutesById {
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
+  '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
 }
 export interface FileRouteTypes {
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
+    | '/sobre'
     | '/solucoes'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
+    | '/sobre'
     | '/solucoes'
   id:
     | '__root__'
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
+    | '/sobre'
     | '/solucoes'
   fileRoutesById: FileRoutesById
 }
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   IaAvRoute: typeof IaAvRoute
   MetodoAvRoute: typeof MetodoAvRoute
   PlataformaAvRoute: typeof PlataformaAvRoute
+  SobreRoute: typeof SobreRoute
   SolucoesRoute: typeof SolucoesRoute
 }
 
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes'
       fullPath: '/solucoes'
       preLoaderRoute: typeof SolucoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plataforma-av': {
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   IaAvRoute: IaAvRoute,
   MetodoAvRoute: MetodoAvRoute,
   PlataformaAvRoute: PlataformaAvRoute,
+  SobreRoute: SobreRoute,
   SolucoesRoute: SolucoesRoute,
 }
 export const routeTree = rootRouteImport

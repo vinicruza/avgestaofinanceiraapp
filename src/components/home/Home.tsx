@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ChevronDown, Menu, X, Users, ClipboardCheck, MonitorSmartphone, BrainCircuit, Target, Plus } from "lucide-react";
 import { useState } from "react";
-import avLogo from "@/assets/av-logo.png.asset.json";
-import heroMockup from "@/assets/hero-mockup.jpg";
+import avLogo from "@/assets/av-logo-horizontal.png.asset.json";
+import heroMockup from "@/assets/hero-mockup.png";
 
 const NAV = [
   { label: "Soluções", hasMenu: true },
@@ -16,12 +16,14 @@ const NAV = [
 
 function Logo({ variant = "dark" }: { variant?: "dark" | "light" }) {
   return (
-    <div className="flex items-center gap-3">
-      <img src={avLogo.url} alt="AV Gestão Financeira" className="h-10 w-auto" width={40} height={40} />
-      <div className={`leading-tight text-[11px] font-bold tracking-[0.14em] ${variant === "dark" ? "text-white" : "text-navy-deep"}`}>
-        <div>GESTÃO</div>
-        <div>FINANCEIRA</div>
-      </div>
+    <div className="flex items-center">
+      <img
+        src={avLogo.url}
+        alt="AV Gestão Financeira"
+        className={`h-11 w-auto ${variant === "dark" ? "brightness-0 invert" : ""}`}
+        width={220}
+        height={44}
+      />
     </div>
   );
 }
@@ -175,12 +177,21 @@ function Hero() {
         </div>
 
         <div className="relative flex items-center justify-center lg:justify-end">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-0"
+            style={{
+              background:
+                "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
+              filter: "blur(30px)",
+            }}
+          />
           <img
             src={heroMockup}
             alt="Dashboard da Plataforma AV em notebook e celular"
             width={1280}
             height={960}
-            className="w-full max-w-[780px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+            className="relative w-full max-w-[820px] drop-shadow-[0_40px_60px_rgba(0,0,0,0.55)]"
           />
         </div>
       </div>

@@ -133,7 +133,7 @@ function Clients() {
                 src={c.src}
                 alt={`Logo ${c.name}`}
                 loading="lazy"
-                className={`max-w-[160px] w-auto object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 ${c.maxH}`}
+                className={`max-w-[160px] w-auto object-contain ${c.maxH}`}
               />
             </div>
           ))}

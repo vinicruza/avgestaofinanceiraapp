@@ -198,8 +198,8 @@ function Hero() {
             que ajudam a equipe e os gestores a trabalharem com mais clareza e produtividade.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <CtaPrimary>Agendar demonstração</CtaPrimary>
-            <CtaGhost>Conhecer a Plataforma AV</CtaGhost>
+            <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
+            <CtaGhost to="/plataforma-av">Conhecer a Plataforma AV</CtaGhost>
           </div>
         </div>
         <div className="relative flex items-center justify-center">
@@ -421,7 +421,7 @@ function FinalCta() {
             inteligência artificial para tornar o financeiro mais produtivo, claro e previsível.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CtaPrimary>Agendar demonstração</CtaPrimary>
+            <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <a
               href="#"
               className="inline-flex items-center gap-1 self-center text-sm font-semibold text-white/80 hover:text-white"

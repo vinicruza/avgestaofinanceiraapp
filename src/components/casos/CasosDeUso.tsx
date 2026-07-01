@@ -206,8 +206,8 @@ function Hero() {
             e necessidade de maior previsibilidade.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <CtaPrimary>Agendar demonstração</CtaPrimary>
-            <CtaGhost>Conhecer soluções</CtaGhost>
+            <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
+            <CtaGhost to="/solucoes">Conhecer soluções</CtaGhost>
           </div>
         </div>
         <div className="relative flex items-center justify-center">
@@ -431,7 +431,7 @@ function FinalCta() {
             financeira mais organizada, previsível e eficiente para o seu negócio.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CtaPrimary>Agendar demonstração</CtaPrimary>
+            <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <a
               href="#"
               className="inline-flex items-center gap-1 self-center text-sm font-semibold text-white/80 hover:text-white"

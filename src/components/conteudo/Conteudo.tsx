@@ -164,8 +164,8 @@ function Hero() {
             e gestão para empresas que querem mais controle, clareza e previsibilidade.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <CtaPrimary>Ver conteúdos</CtaPrimary>
-            <CtaGhost>Falar com a AV</CtaGhost>
+            <CtaPrimary href="#conteudos-destaque">Ver conteúdos</CtaPrimary>
+            <CtaGhost to="/agendar-demonstracao">Falar com a AV</CtaGhost>
           </div>
         </div>
         <div className="relative flex items-center justify-center">
@@ -387,7 +387,7 @@ function FinalCta() {
             estruturação, execução e acompanhamento da rotina financeira dos clientes.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CtaPrimary>Agendar demonstração</CtaPrimary>
+            <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <a
               href="#"
               className="inline-flex items-center gap-1 self-center text-sm font-semibold text-white/80 hover:text-white"

@@ -189,8 +189,8 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <CtaPrimary>Agendar demonstração</CtaPrimary>
-            <CtaGhost>Conhecer a Plataforma AV</CtaGhost>
+            <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
+            <CtaGhost to="/plataforma-av">Conhecer a Plataforma AV</CtaGhost>
           </div>
         </div>
 
@@ -411,7 +411,7 @@ function FinalCta() {
             processo, execução, tecnologia e inteligência aplicada.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CtaPrimary>Agendar demonstração</CtaPrimary>
+            <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <a
               href="#"
               className="inline-flex items-center gap-1 self-center text-sm font-semibold text-white/80 hover:text-white"

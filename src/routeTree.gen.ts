@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as PlataformaAvRouteImport } from './routes/plataforma-av'
 import { Route as MetodoAvRouteImport } from './routes/metodo-av'
+import { Route as IaAvRouteImport } from './routes/ia-av'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SolucoesRoute = SolucoesRouteImport.update({
@@ -29,6 +30,11 @@ const MetodoAvRoute = MetodoAvRouteImport.update({
   path: '/metodo-av',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IaAvRoute = IaAvRouteImport.update({
+  id: '/ia-av',
+  path: '/ia-av',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
   '/solucoes': typeof SolucoesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
   '/solucoes': typeof SolucoesRoute
@@ -50,20 +58,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
   '/solucoes': typeof SolucoesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/metodo-av' | '/plataforma-av' | '/solucoes'
+  fullPaths: '/' | '/ia-av' | '/metodo-av' | '/plataforma-av' | '/solucoes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/metodo-av' | '/plataforma-av' | '/solucoes'
-  id: '__root__' | '/' | '/metodo-av' | '/plataforma-av' | '/solucoes'
+  to: '/' | '/ia-av' | '/metodo-av' | '/plataforma-av' | '/solucoes'
+  id:
+    | '__root__'
+    | '/'
+    | '/ia-av'
+    | '/metodo-av'
+    | '/plataforma-av'
+    | '/solucoes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  IaAvRoute: typeof IaAvRoute
   MetodoAvRoute: typeof MetodoAvRoute
   PlataformaAvRoute: typeof PlataformaAvRoute
   SolucoesRoute: typeof SolucoesRoute
@@ -92,6 +108,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MetodoAvRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ia-av': {
+      id: '/ia-av'
+      path: '/ia-av'
+      fullPath: '/ia-av'
+      preLoaderRoute: typeof IaAvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +127,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  IaAvRoute: IaAvRoute,
   MetodoAvRoute: MetodoAvRoute,
   PlataformaAvRoute: PlataformaAvRoute,
   SolucoesRoute: SolucoesRoute,

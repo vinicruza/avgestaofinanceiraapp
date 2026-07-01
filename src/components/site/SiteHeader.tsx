@@ -13,6 +13,7 @@ const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
   { label: "Casos de Uso", to: "/casos-de-uso" },
   { label: "Conteúdo", to: "/conteudo" },
   { label: "Sobre", to: "/sobre" },
+  { label: "Contato", to: "/agendar-demonstracao" },
 ];
 
 export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" }) {

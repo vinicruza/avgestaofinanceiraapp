@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
+import { Route as PlataformaAvRouteImport } from './routes/plataforma-av'
 import { Route as MetodoAvRouteImport } from './routes/metodo-av'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SolucoesRoute = SolucoesRouteImport.update({
   id: '/solucoes',
   path: '/solucoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlataformaAvRoute = PlataformaAvRouteImport.update({
+  id: '/plataforma-av',
+  path: '/plataforma-av',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MetodoAvRoute = MetodoAvRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/metodo-av': typeof MetodoAvRoute
+  '/plataforma-av': typeof PlataformaAvRoute
   '/solucoes': typeof SolucoesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/metodo-av': typeof MetodoAvRoute
+  '/plataforma-av': typeof PlataformaAvRoute
   '/solucoes': typeof SolucoesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/metodo-av': typeof MetodoAvRoute
+  '/plataforma-av': typeof PlataformaAvRoute
   '/solucoes': typeof SolucoesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/metodo-av' | '/solucoes'
+  fullPaths: '/' | '/metodo-av' | '/plataforma-av' | '/solucoes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/metodo-av' | '/solucoes'
-  id: '__root__' | '/' | '/metodo-av' | '/solucoes'
+  to: '/' | '/metodo-av' | '/plataforma-av' | '/solucoes'
+  id: '__root__' | '/' | '/metodo-av' | '/plataforma-av' | '/solucoes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   MetodoAvRoute: typeof MetodoAvRoute
+  PlataformaAvRoute: typeof PlataformaAvRoute
   SolucoesRoute: typeof SolucoesRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes'
       fullPath: '/solucoes'
       preLoaderRoute: typeof SolucoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plataforma-av': {
+      id: '/plataforma-av'
+      path: '/plataforma-av'
+      fullPath: '/plataforma-av'
+      preLoaderRoute: typeof PlataformaAvRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/metodo-av': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   MetodoAvRoute: MetodoAvRoute,
+  PlataformaAvRoute: PlataformaAvRoute,
   SolucoesRoute: SolucoesRoute,
 }
 export const routeTree = rootRouteImport

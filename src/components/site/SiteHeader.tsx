@@ -7,7 +7,7 @@ import { CtaPrimary } from "./ctas";
 const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
   { label: "Soluções", to: "/solucoes", hasMenu: true },
   { label: "Método AV", to: "/metodo-av" },
-  { label: "Plataforma AV" },
+  { label: "Plataforma AV", to: "/plataforma-av" },
   { label: "IA AV" },
   { label: "Casos de Uso" },
   { label: "Conteúdo" },

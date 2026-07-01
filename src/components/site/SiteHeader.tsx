@@ -11,7 +11,7 @@ const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
   { label: "IA AV", to: "/ia-av" },
   { label: "Casos de Uso", to: "/casos-de-uso" },
   { label: "Conteúdo" },
-  { label: "Sobre" },
+  { label: "Sobre", to: "/sobre" },
 ];
 
 export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" }) {

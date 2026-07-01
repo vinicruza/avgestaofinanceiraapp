@@ -16,6 +16,7 @@ import { Route as MetodoAvRouteImport } from './routes/metodo-av'
 import { Route as IaAvRouteImport } from './routes/ia-av'
 import { Route as ConteudoRouteImport } from './routes/conteudo'
 import { Route as CasosDeUsoRouteImport } from './routes/casos-de-uso'
+import { Route as AgendarDemonstracaoRouteImport } from './routes/agendar-demonstracao'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SolucoesRoute = SolucoesRouteImport.update({
@@ -53,6 +54,11 @@ const CasosDeUsoRoute = CasosDeUsoRouteImport.update({
   path: '/casos-de-uso',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgendarDemonstracaoRoute = AgendarDemonstracaoRouteImport.update({
+  id: '/agendar-demonstracao',
+  path: '/agendar-demonstracao',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,6 +67,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agendar-demonstracao': typeof AgendarDemonstracaoRoute
   '/casos-de-uso': typeof CasosDeUsoRoute
   '/conteudo': typeof ConteudoRoute
   '/ia-av': typeof IaAvRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agendar-demonstracao': typeof AgendarDemonstracaoRoute
   '/casos-de-uso': typeof CasosDeUsoRoute
   '/conteudo': typeof ConteudoRoute
   '/ia-av': typeof IaAvRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agendar-demonstracao': typeof AgendarDemonstracaoRoute
   '/casos-de-uso': typeof CasosDeUsoRoute
   '/conteudo': typeof ConteudoRoute
   '/ia-av': typeof IaAvRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/agendar-demonstracao'
     | '/casos-de-uso'
     | '/conteudo'
     | '/ia-av'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/agendar-demonstracao'
     | '/casos-de-uso'
     | '/conteudo'
     | '/ia-av'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/agendar-demonstracao'
     | '/casos-de-uso'
     | '/conteudo'
     | '/ia-av'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgendarDemonstracaoRoute: typeof AgendarDemonstracaoRoute
   CasosDeUsoRoute: typeof CasosDeUsoRoute
   ConteudoRoute: typeof ConteudoRoute
   IaAvRoute: typeof IaAvRoute
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasosDeUsoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agendar-demonstracao': {
+      id: '/agendar-demonstracao'
+      path: '/agendar-demonstracao'
+      fullPath: '/agendar-demonstracao'
+      preLoaderRoute: typeof AgendarDemonstracaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgendarDemonstracaoRoute: AgendarDemonstracaoRoute,
   CasosDeUsoRoute: CasosDeUsoRoute,
   ConteudoRoute: ConteudoRoute,
   IaAvRoute: IaAvRoute,

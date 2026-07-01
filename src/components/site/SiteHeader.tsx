@@ -3,6 +3,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import avLogo from "@/assets/av-logo-horizontal.png.asset.json";
 import { CtaPrimary } from "./ctas";
+import { AV_SCHEDULE_PATH } from "@/lib/av-config";
 
 const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
   { label: "Soluções", to: "/solucoes", hasMenu: true },
@@ -12,6 +13,7 @@ const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
   { label: "Casos de Uso", to: "/casos-de-uso" },
   { label: "Conteúdo", to: "/conteudo" },
   { label: "Sobre", to: "/sobre" },
+  { label: "Contato", to: "/agendar-demonstracao" },
 ];
 
 export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" }) {
@@ -56,7 +58,7 @@ export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" })
         </nav>
 
         <div className="hidden lg:block">
-          <CtaPrimary>Agendar demonstração</CtaPrimary>
+          <CtaPrimary to={AV_SCHEDULE_PATH}>Agendar demonstração</CtaPrimary>
         </div>
 
         <button
@@ -96,7 +98,7 @@ export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" })
               ),
             )}
             <div className="pt-3">
-              <CtaPrimary className="w-full justify-center">Agendar demonstração</CtaPrimary>
+              <CtaPrimary to={AV_SCHEDULE_PATH} className="w-full justify-center">Agendar demonstração</CtaPrimary>
             </div>
           </div>
         </div>

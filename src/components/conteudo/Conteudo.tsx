@@ -284,7 +284,7 @@ const ARTICLES = [
 
 function ArticlesSection() {
   return (
-    <section className="bg-[oklch(0.985_0.005_258)]">
+    <section id="conteudos-destaque" className="bg-[oklch(0.985_0.005_258)]">
       <div className="mx-auto max-w-[1360px] px-6 py-24 lg:px-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>

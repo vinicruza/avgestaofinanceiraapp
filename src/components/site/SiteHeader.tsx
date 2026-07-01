@@ -97,7 +97,7 @@ export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" })
               ),
             )}
             <div className="pt-3">
-              <CtaPrimary className="w-full justify-center">Agendar demonstração</CtaPrimary>
+              <CtaPrimary to={AV_SCHEDULE_PATH} className="w-full justify-center">Agendar demonstração</CtaPrimary>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
   { label: "Plataforma AV", to: "/plataforma-av" },
   { label: "IA AV", to: "/ia-av" },
   { label: "Casos de Uso", to: "/casos-de-uso" },
-  { label: "Conteúdo" },
+  { label: "Conteúdo", to: "/conteudo" },
   { label: "Sobre", to: "/sobre" },
 ];
 

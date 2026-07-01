@@ -14,6 +14,7 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as PlataformaAvRouteImport } from './routes/plataforma-av'
 import { Route as MetodoAvRouteImport } from './routes/metodo-av'
 import { Route as IaAvRouteImport } from './routes/ia-av'
+import { Route as ConteudoRouteImport } from './routes/conteudo'
 import { Route as CasosDeUsoRouteImport } from './routes/casos-de-uso'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const IaAvRoute = IaAvRouteImport.update({
   path: '/ia-av',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudoRoute = ConteudoRouteImport.update({
+  id: '/conteudo',
+  path: '/conteudo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasosDeUsoRoute = CasosDeUsoRouteImport.update({
   id: '/casos-de-uso',
   path: '/casos-de-uso',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/casos-de-uso': typeof CasosDeUsoRoute
+  '/conteudo': typeof ConteudoRoute
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/casos-de-uso': typeof CasosDeUsoRoute
+  '/conteudo': typeof ConteudoRoute
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/casos-de-uso': typeof CasosDeUsoRoute
+  '/conteudo': typeof ConteudoRoute
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/casos-de-uso'
+    | '/conteudo'
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/casos-de-uso'
+    | '/conteudo'
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/casos-de-uso'
+    | '/conteudo'
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CasosDeUsoRoute: typeof CasosDeUsoRoute
+  ConteudoRoute: typeof ConteudoRoute
   IaAvRoute: typeof IaAvRoute
   MetodoAvRoute: typeof MetodoAvRoute
   PlataformaAvRoute: typeof PlataformaAvRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IaAvRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudo': {
+      id: '/conteudo'
+      path: '/conteudo'
+      fullPath: '/conteudo'
+      preLoaderRoute: typeof ConteudoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/casos-de-uso': {
       id: '/casos-de-uso'
       path: '/casos-de-uso'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CasosDeUsoRoute: CasosDeUsoRoute,
+  ConteudoRoute: ConteudoRoute,
   IaAvRoute: IaAvRoute,
   MetodoAvRoute: MetodoAvRoute,
   PlataformaAvRoute: PlataformaAvRoute,

@@ -48,7 +48,7 @@ function Hero() {
       <div className="relative mx-auto grid max-w-[1360px] grid-cols-1 gap-10 px-6 pb-24 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-8 lg:px-10 lg:pt-10">
         <div className="flex flex-col justify-center">
           <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand">
-            Financial Operations
+            Operações financeiras
           </span>
           <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[64px]">
             Construímos
@@ -155,7 +155,7 @@ function Ecosystem() {
 
         <div className="flex flex-wrap items-stretch">
           {ECOSYSTEM.map((item, i) => (
-            <div key={item.title} className="flex w-full items-stretch sm:w-1/2 xl:w-1/4">
+            <div key={item.title} className="flex w-full items-stretch sm:w-1/2 2xl:w-1/4">
               <article className="group relative flex-1 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-lg">
                 <span className="grid h-11 w-11 place-items-center rounded-lg bg-brand-soft text-brand">
                   <item.icon className="h-6 w-6" strokeWidth={1.75} />
@@ -166,7 +166,7 @@ function Ecosystem() {
                 </p>
               </article>
               {i < ECOSYSTEM.length - 1 && (
-                <div className="hidden items-center justify-center px-2 xl:flex">
+                <div className="hidden items-center justify-center px-2 2xl:flex">
                   <span className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white text-brand shadow-sm">
                     <Plus className="h-4 w-4" />
                   </span>

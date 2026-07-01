@@ -323,7 +323,7 @@ function FormAndSteps() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-cta)] transition hover:bg-brand-strong disabled:opacity-70 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-cta)] transition hover:bg-brand-strong disabled:opacity-70 sm:w-auto"
               >
                 {submitting ? (
                   <>

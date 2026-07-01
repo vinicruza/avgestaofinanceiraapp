@@ -4,19 +4,21 @@ import { Solucoes } from "@/components/solucoes/Solucoes";
 export const Route = createFileRoute("/solucoes")({
   head: () => ({
     meta: [
-      { title: "Soluções — AV Gestão Financeira" },
+      { title: "Soluções | AV Gestão Financeira" },
       {
         name: "description",
         content:
-          "BPO Financeiro, Gestão de Pagamentos, Fluxo de Caixa, Plataforma AV e IA AV: soluções para empresas que precisam de controle, rotina e previsibilidade.",
+          "Conheça as soluções da AV para BPO financeiro, gestão de pagamentos, fluxo de caixa, plataforma e inteligência artificial aplicada.",
       },
-      { property: "og:title", content: "Soluções — AV Gestão Financeira" },
+      { property: "og:url", content: "/solucoes" },
+      { property: "og:title", content: "Soluções | AV Gestão Financeira" },
       {
         property: "og:description",
         content:
-          "Um ecossistema completo de soluções financeiras: pessoas, processos, tecnologia própria e IA.",
+          "BPO Financeiro, Gestão de Pagamentos, Fluxo de Caixa, Plataforma AV e IA AV em um único ecossistema.",
       },
     ],
+    links: [{ rel: "canonical", href: "/solucoes" }],
   }),
   component: Solucoes,
 });

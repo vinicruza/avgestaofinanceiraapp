@@ -9,8 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermosDeUsoRouteImport } from './routes/termos-de-uso'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
 import { Route as PlataformaAvRouteImport } from './routes/plataforma-av'
 import { Route as MetodoAvRouteImport } from './routes/metodo-av'
 import { Route as IaAvRouteImport } from './routes/ia-av'
@@ -19,6 +21,11 @@ import { Route as CasosDeUsoRouteImport } from './routes/casos-de-uso'
 import { Route as AgendarDemonstracaoRouteImport } from './routes/agendar-demonstracao'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermosDeUsoRoute = TermosDeUsoRouteImport.update({
+  id: '/termos-de-uso',
+  path: '/termos-de-uso',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolucoesRoute = SolucoesRouteImport.update({
   id: '/solucoes',
   path: '/solucoes',
@@ -27,6 +34,11 @@ const SolucoesRoute = SolucoesRouteImport.update({
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
+  id: '/politica-de-privacidade',
+  path: '/politica-de-privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlataformaAvRoute = PlataformaAvRouteImport.update({
@@ -73,8 +85,10 @@ export interface FileRoutesByFullPath {
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -84,8 +98,10 @@ export interface FileRoutesByTo {
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -96,8 +112,10 @@ export interface FileRoutesById {
   '/ia-av': typeof IaAvRoute
   '/metodo-av': typeof MetodoAvRoute
   '/plataforma-av': typeof PlataformaAvRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
+  '/termos-de-uso': typeof TermosDeUsoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -109,8 +127,10 @@ export interface FileRouteTypes {
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
+    | '/politica-de-privacidade'
     | '/sobre'
     | '/solucoes'
+    | '/termos-de-uso'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -120,8 +140,10 @@ export interface FileRouteTypes {
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
+    | '/politica-de-privacidade'
     | '/sobre'
     | '/solucoes'
+    | '/termos-de-uso'
   id:
     | '__root__'
     | '/'
@@ -131,8 +153,10 @@ export interface FileRouteTypes {
     | '/ia-av'
     | '/metodo-av'
     | '/plataforma-av'
+    | '/politica-de-privacidade'
     | '/sobre'
     | '/solucoes'
+    | '/termos-de-uso'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -143,12 +167,21 @@ export interface RootRouteChildren {
   IaAvRoute: typeof IaAvRoute
   MetodoAvRoute: typeof MetodoAvRoute
   PlataformaAvRoute: typeof PlataformaAvRoute
+  PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
   SobreRoute: typeof SobreRoute
   SolucoesRoute: typeof SolucoesRoute
+  TermosDeUsoRoute: typeof TermosDeUsoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/termos-de-uso': {
+      id: '/termos-de-uso'
+      path: '/termos-de-uso'
+      fullPath: '/termos-de-uso'
+      preLoaderRoute: typeof TermosDeUsoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solucoes': {
       id: '/solucoes'
       path: '/solucoes'
@@ -161,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-de-privacidade': {
+      id: '/politica-de-privacidade'
+      path: '/politica-de-privacidade'
+      fullPath: '/politica-de-privacidade'
+      preLoaderRoute: typeof PoliticaDePrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plataforma-av': {
@@ -223,8 +263,10 @@ const rootRouteChildren: RootRouteChildren = {
   IaAvRoute: IaAvRoute,
   MetodoAvRoute: MetodoAvRoute,
   PlataformaAvRoute: PlataformaAvRoute,
+  PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
   SobreRoute: SobreRoute,
   SolucoesRoute: SolucoesRoute,
+  TermosDeUsoRoute: TermosDeUsoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

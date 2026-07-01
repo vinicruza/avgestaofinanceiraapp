@@ -4,8 +4,8 @@ import ipirangaLogo from "@/assets/clients/ipiranga.png.asset.json";
 import petrobrasLogo from "@/assets/clients/petrobras.png.asset.json";
 import brManiaLogo from "@/assets/clients/br-mania.png.asset.json";
 import ampmLogo from "@/assets/clients/ampm.png.asset.json";
-import redeTopLogo from "@/assets/clients/rede-top.png.asset.json";
-import topLogo from "@/assets/clients/top.png.asset.json";
+import pitstopLogo from "@/assets/clients/pitstop.png.asset.json";
+import pitstopPlusLogo from "@/assets/clients/pitstop-plus.png.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
@@ -115,8 +115,8 @@ const CLIENTS = [
   { name: "Petrobras", src: petrobrasLogo.url, maxH: "h-8" },
   { name: "BR Mania", src: brManiaLogo.url, maxH: "h-12" },
   { name: "ampm", src: ampmLogo.url, maxH: "h-12" },
-  { name: "Rede Top", src: redeTopLogo.url, maxH: "h-12" },
-  { name: "Top", src: topLogo.url, maxH: "h-10" },
+  { name: "Pit Stop", src: pitstopLogo.url, maxH: "h-12" },
+  { name: "Pit Stop+ Conveniência", src: pitstopPlusLogo.url, maxH: "h-12" },
 ];
 
 function Clients() {

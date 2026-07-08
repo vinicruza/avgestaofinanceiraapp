@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/seo";
 import { LegalPage } from "@/components/site/LegalPage";
 
 function TermosDeUso() {
@@ -36,7 +37,7 @@ export const Route = createFileRoute("/termos-de-uso")({
           "Termos de Uso do site institucional da AV Gestão Financeira: regras de navegação e uso das informações.",
       },
     ],
-    links: [{ rel: "canonical", href: "/termos-de-uso" }],
+    links: [{ rel: "canonical", href: siteUrl("/termos-de-uso") }],
   }),
   component: TermosDeUso,
 });

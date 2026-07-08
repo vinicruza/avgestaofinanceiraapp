@@ -9,6 +9,7 @@ import pitstopPlusLogo from "@/assets/clients/pitstop-plus.png.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
+import { Reveal } from "@/components/site/Reveal";
 
 function HeroBackdrop() {
   return (
@@ -25,15 +26,17 @@ function HeroBackdrop() {
           <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
         </linearGradient>
       </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#home-l)"
-          strokeWidth="1"
-        />
-      ))}
+      <g className="hero-lines">
+        {Array.from({ length: 14 }).map((_, i) => (
+          <path
+            key={i}
+            d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
+            fill="none"
+            stroke="url(#home-l)"
+            strokeWidth="1"
+          />
+        ))}
+      </g>
     </svg>
   );
 }
@@ -53,28 +56,28 @@ function Hero() {
 
       <div className="relative mx-auto grid max-w-[1360px] grid-cols-1 gap-10 px-6 pb-24 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-8 lg:px-10 lg:pt-10">
         <div className="flex flex-col justify-center">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand">
+          <Reveal as="span" className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand">
             Operações financeiras
-          </span>
-          <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[64px]">
+          </Reveal>
+          <Reveal as="h1" delay={80} className="mt-5 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[64px]">
             Construímos
             <br />
             operações financeiras <span className="text-brand">inteligentes.</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70">
+          </Reveal>
+          <Reveal as="p" delay={160} className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70">
             Combinamos pessoas, processos, tecnologia própria e inteligência artificial para
             transformar o financeiro da sua empresa em uma operação{" "}
             <span className="font-semibold text-white">previsível, eficiente e escalável.</span>
-          </p>
+          </Reveal>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
             <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <CtaGhost to="/plataforma-av">Conheça a Plataforma AV</CtaGhost>
-          </div>
+          </Reveal>
 
           <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
-            {DIFFERENTIALS.map(({ icon: Icon, label, label2 }) => (
-              <div key={label} className="flex items-center gap-3">
+            {DIFFERENTIALS.map(({ icon: Icon, label, label2 }, i) => (
+              <Reveal key={label} delay={320 + i * 90} className="flex items-center gap-3">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/5 text-brand">
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
@@ -82,7 +85,7 @@ function Hero() {
                   <div>{label}</div>
                   <div className="text-white/60">{label2}</div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -102,7 +105,7 @@ function Hero() {
             alt="Dashboard da Plataforma AV em notebook e celular"
             width={1280}
             height={960}
-            className="relative w-full max-w-[820px] drop-shadow-[0_40px_60px_rgba(0,0,0,0.55)]"
+            className="float-slow relative w-full max-w-[820px] drop-shadow-[0_40px_60px_rgba(0,0,0,0.55)]"
           />
         </div>
       </div>
@@ -123,22 +126,22 @@ function Clients() {
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-[1360px] px-6 py-16 lg:px-10">
-        <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+        <Reveal as="p" className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
           Empresas que confiam na AV
-        </p>
+        </Reveal>
         <div className="mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:flex lg:flex-nowrap lg:justify-between lg:gap-x-10">
-          {CLIENTS.map((c) => (
-            <div key={c.name} className="flex items-center justify-center">
+          {CLIENTS.map((c, i) => (
+            <Reveal key={c.name} delay={i * 80} className="flex items-center justify-center">
               <img
                 src={c.src}
                 alt={`Logo ${c.name}`}
                 loading="lazy"
-                className={`max-w-[160px] w-auto object-contain ${c.maxH}`}
+                className={`client-logo max-w-[160px] w-auto object-contain ${c.maxH}`}
               />
-            </div>
+            </Reveal>
           ))}
         </div>
-        <p className="mt-8 text-center text-xs italic text-brand">e muitas outras.</p>
+        <Reveal as="p" delay={200} className="mt-8 text-center text-xs italic text-brand">e muitas outras.</Reveal>
       </div>
     </section>
   );
@@ -155,7 +158,7 @@ function Ecosystem() {
   return (
     <section className="bg-[oklch(0.985_0.005_258)]">
       <div className="mx-auto grid max-w-[1360px] grid-cols-1 gap-12 px-6 py-24 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,2fr)] lg:gap-16 lg:px-10">
-        <div>
+        <Reveal>
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
             O Ecossistema AV
           </p>
@@ -163,11 +166,11 @@ function Ecosystem() {
             Um ecossistema completo para operar o seu{" "}
             <span className="text-brand">financeiro.</span>
           </h2>
-        </div>
+        </Reveal>
 
         <div className="flex flex-wrap items-stretch">
           {ECOSYSTEM.map((item, i) => (
-            <div key={item.title} className="flex w-full items-stretch sm:w-1/2 2xl:w-1/4">
+            <Reveal key={item.title} delay={i * 110} className="flex w-full items-stretch sm:w-1/2 2xl:w-1/4">
               <article className="group relative flex-1 rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-lg">
                 <span className="grid h-11 w-11 place-items-center rounded-lg bg-brand-soft text-brand">
                   <item.icon className="h-6 w-6" strokeWidth={1.75} />
@@ -184,7 +187,7 @@ function Ecosystem() {
                   </span>
                 </div>
               )}
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

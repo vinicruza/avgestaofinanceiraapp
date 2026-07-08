@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/seo";
 import { CasosDeUso } from "@/components/casos/CasosDeUso";
 
 export const Route = createFileRoute("/casos-de-uso")({
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/casos-de-uso")({
         name: "description",
         content: "Veja para quais empresas e situações a AV Gestão Financeira é indicada.",
       },
-      { property: "og:url", content: "/casos-de-uso" },
+      { property: "og:url", content: siteUrl("/casos-de-uso") },
       { property: "og:title", content: "Casos de Uso | AV Gestão Financeira" },
       {
         property: "og:description",
@@ -17,7 +18,7 @@ export const Route = createFileRoute("/casos-de-uso")({
           "Perfis de empresa e cenários em que a AV entrega mais controle, clareza e previsibilidade para o financeiro.",
       },
     ],
-    links: [{ rel: "canonical", href: "/casos-de-uso" }],
+    links: [{ rel: "canonical", href: siteUrl("/casos-de-uso") }],
   }),
   component: CasosDeUso,
 });

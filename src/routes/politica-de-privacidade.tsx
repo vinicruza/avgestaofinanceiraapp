@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/seo";
 import { LegalPage } from "@/components/site/LegalPage";
 
 function PoliticaPrivacidade() {
@@ -37,7 +38,7 @@ export const Route = createFileRoute("/politica-de-privacidade")({
           "Política de Privacidade da AV Gestão Financeira: como coletamos, tratamos e protegemos dados pessoais.",
       },
     ],
-    links: [{ rel: "canonical", href: "/politica-de-privacidade" }],
+    links: [{ rel: "canonical", href: siteUrl("/politica-de-privacidade") }],
   }),
   component: PoliticaPrivacidade,
 });

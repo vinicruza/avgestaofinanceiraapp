@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/seo";
 import { Sobre } from "@/components/sobre/Sobre";
 
 export const Route = createFileRoute("/sobre")({
@@ -10,7 +11,7 @@ export const Route = createFileRoute("/sobre")({
         content:
           "Conheça a AV Gestão Financeira, nossa proposta, método, tecnologia e visão para o futuro da operação financeira.",
       },
-      { property: "og:url", content: "/sobre" },
+      { property: "og:url", content: siteUrl("/sobre") },
       { property: "og:title", content: "Sobre | AV Gestão Financeira" },
       {
         property: "og:description",
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/sobre")({
           "Quem somos, o que nos torna diferentes, nossos pilares e a visão de futuro da AV Gestão Financeira.",
       },
     ],
-    links: [{ rel: "canonical", href: "/sobre" }],
+    links: [{ rel: "canonical", href: siteUrl("/sobre") }],
   }),
   component: Sobre,
 });

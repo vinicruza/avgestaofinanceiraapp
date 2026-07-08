@@ -12,6 +12,13 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+const SITE_TITLE = "AV Gestão Financeira — Operações financeiras inteligentes";
+const SITE_DESCRIPTION =
+  "BPO financeiro que combina pessoas, processos, tecnologia própria e inteligência artificial para tornar o financeiro da sua empresa previsível, eficiente e escalável. Agende uma demonstração.";
+// TODO: substituir pela imagem social oficial da AV (recomendado 1200x630) hospedada no próprio domínio.
+const SITE_OG_IMAGE =
+  "https://storage.googleapis.com/gpt-engineer-file-uploads/VSj5KZ4UCWSSIbL3GhQiYdfJcOh2/social-images/social-1782946665959-1000251881.webp";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -77,18 +84,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Av App" },
-      { name: "description", content: "AV Gestão Landing is a premium institutional landing page for AV Gestão Financeira." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Av App" },
-      { property: "og:description", content: "AV Gestão Landing is a premium institutional landing page for AV Gestão Financeira." },
+      { title: SITE_TITLE },
+      { name: "description", content: SITE_DESCRIPTION },
+      { name: "author", content: "AV Gestão Financeira" },
+      { property: "og:title", content: SITE_TITLE },
+      { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Av App" },
-      { name: "twitter:description", content: "AV Gestão Landing is a premium institutional landing page for AV Gestão Financeira." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/VSj5KZ4UCWSSIbL3GhQiYdfJcOh2/social-images/social-1782946665959-1000251881.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/VSj5KZ4UCWSSIbL3GhQiYdfJcOh2/social-images/social-1782946665959-1000251881.webp" },
+      { property: "og:site_name", content: "AV Gestão Financeira" },
+      { property: "og:locale", content: "pt_BR" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SITE_TITLE },
+      { name: "twitter:description", content: SITE_DESCRIPTION },
+      { property: "og:image", content: SITE_OG_IMAGE },
+      { name: "twitter:image", content: SITE_OG_IMAGE },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -108,9 +116,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
+        {/* Sem JS: garante que o conteúdo com animação de scroll apareça normalmente */}
+        <noscript>
+          <style>{`.reveal{opacity:1 !important;transform:none !important;}`}</style>
+        </noscript>
       </head>
       <body>
         {children}

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { siteUrl } from "@/lib/seo";
 import { Home } from "@/components/home/Home";
 
 export const Route = createFileRoute("/")({
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/")({
           "A AV Gestão Financeira combina pessoas, processos, plataforma própria e inteligência artificial para organizar a rotina financeira de empresas.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: siteUrl("/") },
       {
         property: "og:title",
         content: "AV Gestão Financeira | Operação financeira com método, tecnologia e IA",
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/")({
           "Pessoas, processos, plataforma própria e IA para transformar o financeiro em uma operação previsível e escalável.",
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: siteUrl("/") }],
   }),
   component: Home,
 });

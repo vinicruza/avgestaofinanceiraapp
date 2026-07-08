@@ -130,15 +130,15 @@ function Clients() {
           Empresas que confiam na AV
         </Reveal>
         <div className="mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:flex lg:flex-nowrap lg:justify-between lg:gap-x-10">
-          {CLIENTS.map((c, i) => (
-            <Reveal key={c.name} delay={i * 80} className="flex items-center justify-center">
+          {CLIENTS.map((c) => (
+            <div key={c.name} className="flex items-center justify-center">
               <img
                 src={c.src}
                 alt={`Logo ${c.name}`}
                 loading="lazy"
-                className={`client-logo max-w-[160px] w-auto object-contain ${c.maxH}`}
+                className={`max-w-[160px] w-auto object-contain ${c.maxH}`}
               />
-            </Reveal>
+            </div>
           ))}
         </div>
         <Reveal as="p" delay={200} className="mt-8 text-center text-xs italic text-brand">e muitas outras.</Reveal>

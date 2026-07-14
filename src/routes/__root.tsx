@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
 const SITE_TITLE = "AV Gestão Financeira — Operações financeiras inteligentes";
 const SITE_DESCRIPTION =
@@ -139,6 +140,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <FloatingWhatsApp />
     </QueryClientProvider>
   );
 }

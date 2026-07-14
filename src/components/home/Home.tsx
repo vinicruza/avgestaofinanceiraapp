@@ -10,6 +10,10 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { Reveal } from "@/components/site/Reveal";
+import { StatsBand } from "@/components/home/StatsBand";
+import { ServicesGrid } from "@/components/home/ServicesGrid";
+import { MetodoSteps } from "@/components/home/MetodoSteps";
+import { BlogTeaser } from "@/components/home/BlogTeaser";
 
 function HeroBackdrop() {
   return (
@@ -199,8 +203,12 @@ export function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
+      <StatsBand />
       <Clients />
       <Ecosystem />
+      <ServicesGrid />
+      <MetodoSteps />
+      <BlogTeaser />
       <SiteFooter />
     </main>
   );

@@ -16,14 +16,96 @@ import {
   Users,
   Wallet,
 } from "lucide-react";
+import { useState } from "react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
-import { DashboardMockup } from "@/components/site/AppMockup";
+import {
+  DashboardMockup,
+  PaymentsMockup,
+  ReceivablesMockup,
+  ContasFixasMockup,
+  RelatoriosMockup,
+  AtividadesMockup,
+  UsuariosMockup,
+} from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
+
+const SCREENS: { label: string; Comp: React.ComponentType; desc: string }[] = [
+  {
+    label: "Dashboard",
+    Comp: DashboardMockup,
+    desc: "Visão geral da operação financeira em tempo real.",
+  },
+  {
+    label: "Pagamentos",
+    Comp: PaymentsMockup,
+    desc: "Pagamentos do dia, provisionamentos e aprovações.",
+  },
+  {
+    label: "Recebimentos",
+    Comp: ReceivablesMockup,
+    desc: "Previsto, recebido, pendente e atrasado em um só lugar.",
+  },
+  {
+    label: "Contas Fixas",
+    Comp: ContasFixasMockup,
+    desc: "Contas recorrentes e vencimentos dos próximos dias.",
+  },
+  { label: "Relatórios", Comp: RelatoriosMockup, desc: "Despesas por período, categoria e setor." },
+  {
+    label: "Atividades",
+    Comp: AtividadesMockup,
+    desc: "Quadro operacional do que precisa ser feito.",
+  },
+  { label: "Usuários", Comp: UsuariosMockup, desc: "Papéis, acessos e status de cada usuário." },
+];
+
+function ScreensSection() {
+  const [active, setActive] = useState(0);
+  const Screen = SCREENS[active].Comp;
+  return (
+    <section className="bg-white">
+      <div className="mx-auto max-w-[1360px] px-6 py-24 lg:px-10">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            <LayoutDashboard className="h-4 w-4" strokeWidth={2} />
+            Telas do produto
+          </p>
+          <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[36px]">
+            Veja a Plataforma AV <span className="text-brand">por dentro.</span>
+          </h2>
+          <p className="mt-4 text-[14.5px] leading-relaxed text-muted-foreground">
+            {SCREENS[active].desc}
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-2">
+          {SCREENS.map((s, i) => (
+            <button
+              key={s.label}
+              onClick={() => setActive(i)}
+              className={`rounded-full px-4 py-2 text-[13px] font-semibold transition ${
+                i === active
+                  ? "bg-brand text-white shadow-[var(--shadow-cta)]"
+                  : "border border-border bg-card text-navy-deep hover:border-brand/30"
+              }`}
+            >
+              {s.label}
+            </button>
+          ))}
+        </div>
+
+        <Reveal key={active} className="mx-auto mt-10 max-w-[900px]">
+          <Screen />
+        </Reveal>
+      </div>
+    </section>
+  );
+}
 
 function Hero() {
   return (
@@ -315,6 +397,7 @@ export function PlataformaAV() {
       <Reveal>
         <ModulesSection />
       </Reveal>
+      <ScreensSection />
       <StatsBand />
       <Reveal>
         <RoutineSection />

@@ -20,35 +20,10 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="cases-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#cases-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
+import { AV_WHATSAPP_URL } from "@/lib/av-config";
 
 type Tone = "brand" | "amber" | "emerald";
 
@@ -98,8 +73,7 @@ function HeroCases() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
         style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
+          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -117,11 +91,41 @@ function HeroCases() {
             <stop offset="1" stopColor="#60a5fa" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <path d="M 60 90 C 180 130, 240 180, 250 230" fill="none" stroke="url(#cases-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 440 70 C 340 130, 300 190, 250 230" fill="none" stroke="url(#cases-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 40 260 C 140 260, 210 240, 250 230" fill="none" stroke="url(#cases-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 460 300 C 360 280, 300 250, 250 230" fill="none" stroke="url(#cases-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 250 420 C 250 340, 250 280, 250 230" fill="none" stroke="url(#cases-conn)" strokeWidth="1" strokeDasharray="3 4" />
+        <path
+          d="M 60 90 C 180 130, 240 180, 250 230"
+          fill="none"
+          stroke="url(#cases-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 440 70 C 340 130, 300 190, 250 230"
+          fill="none"
+          stroke="url(#cases-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 40 260 C 140 260, 210 240, 250 230"
+          fill="none"
+          stroke="url(#cases-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 460 300 C 360 280, 300 250, 250 230"
+          fill="none"
+          stroke="url(#cases-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 250 420 C 250 340, 250 280, 250 230"
+          fill="none"
+          stroke="url(#cases-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
       </svg>
 
       <div className="relative mx-auto aspect-[5/4.8] w-full max-w-[560px]">
@@ -239,8 +243,8 @@ function WhenAV() {
             pesada, manual e pouco previsível.
           </p>
           <p>
-            Nesses casos, a AV entra para estruturar processos, executar rotinas críticas e
-            entregar mais clareza para sócios e gestores.
+            Nesses casos, a AV entra para estruturar processos, executar rotinas críticas e entregar
+            mais clareza para sócios e gestores.
           </p>
         </div>
       </div>
@@ -331,8 +335,7 @@ function ProblemsSection() {
             Problemas comuns
           </p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[36px]">
-            Problemas comuns que a AV ajuda a{" "}
-            <span className="text-brand">resolver.</span>
+            Problemas comuns que a AV ajuda a <span className="text-brand">resolver.</span>
           </h2>
         </div>
 
@@ -355,10 +358,26 @@ function ProblemsSection() {
 }
 
 const STEPS = [
-  { icon: MapPinned, title: "Entendimento da rotina", desc: "Mapeamos como o financeiro funciona hoje." },
-  { icon: Layers, title: "Estruturação dos processos", desc: "Organizamos fluxos, responsabilidades e prazos." },
-  { icon: Users, title: "Execução acompanhada", desc: "A equipe AV executa e registra as rotinas críticas." },
-  { icon: LineChart, title: "Visibilidade para gestão", desc: "A plataforma e os indicadores dão mais clareza para decisão." },
+  {
+    icon: MapPinned,
+    title: "Entendimento da rotina",
+    desc: "Mapeamos como o financeiro funciona hoje.",
+  },
+  {
+    icon: Layers,
+    title: "Estruturação dos processos",
+    desc: "Organizamos fluxos, responsabilidades e prazos.",
+  },
+  {
+    icon: Users,
+    title: "Execução acompanhada",
+    desc: "A equipe AV executa e registra as rotinas críticas.",
+  },
+  {
+    icon: LineChart,
+    title: "Visibilidade para gestão",
+    desc: "A plataforma e os indicadores dão mais clareza para decisão.",
+  },
 ];
 
 function HowSection() {
@@ -375,9 +394,9 @@ function HowSection() {
             <span className="text-brand">O método organiza a operação.</span>
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-            A AV não aplica um modelo genérico. Primeiro entendemos a operação, os responsáveis,
-            os bancos, os prazos, os documentos, os fluxos de aprovação e os principais gargalos.
-            A partir disso, estruturamos uma rotina financeira mais clara, com processos, execução,
+            A AV não aplica um modelo genérico. Primeiro entendemos a operação, os responsáveis, os
+            bancos, os prazos, os documentos, os fluxos de aprovação e os principais gargalos. A
+            partir disso, estruturamos uma rotina financeira mais clara, com processos, execução,
             plataforma, indicadores e inteligência artificial aplicada ao dia a dia.
           </p>
         </div>
@@ -433,7 +452,9 @@ function FinalCta() {
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <a
-              href="#"
+              href={AV_WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-1 self-center text-sm font-semibold text-white/80 hover:text-white"
             >
               Falar com um especialista <ArrowUpRight className="h-4 w-4" />
@@ -453,11 +474,21 @@ export function CasosDeUso() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
-      <WhenAV />
-      <CasesSection />
-      <ProblemsSection />
-      <HowSection />
-      <FinalCta />
+      <Reveal>
+        <WhenAV />
+      </Reveal>
+      <Reveal>
+        <CasesSection />
+      </Reveal>
+      <Reveal>
+        <ProblemsSection />
+      </Reveal>
+      <Reveal>
+        <HowSection />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

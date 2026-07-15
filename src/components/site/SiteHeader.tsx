@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import avLogo from "@/assets/av-logo-horizontal.png.asset.json";
 import { CtaPrimary } from "./ctas";
 import { AV_SCHEDULE_PATH } from "@/lib/av-config";
 
-const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
-  { label: "Soluções", to: "/solucoes", hasMenu: true },
+const NAV: { label: string; to: string }[] = [
+  { label: "Soluções", to: "/solucoes" },
   { label: "Método AV", to: "/metodo-av" },
   { label: "Plataforma AV", to: "/plataforma-av" },
   { label: "IA AV", to: "/ia-av" },
@@ -18,7 +18,9 @@ const NAV: { label: string; to?: string; hasMenu?: boolean }[] = [
 export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const [open, setOpen] = useState(false);
   const isDark = variant === "dark";
-  const textBase = isDark ? "text-white/85 hover:text-white" : "text-navy-deep/75 hover:text-navy-deep";
+  const textBase = isDark
+    ? "text-white/85 hover:text-white"
+    : "text-navy-deep/75 hover:text-navy-deep";
 
   return (
     <header className="relative z-20">
@@ -34,26 +36,15 @@ export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" })
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {NAV.map((item) =>
-            item.to ? (
-              <Link
-                key={item.label}
-                to={item.to}
-                className={`inline-flex items-center gap-1 text-sm font-medium ${textBase} transition`}
-              >
-                {item.label}
-                {item.hasMenu && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
-              </Link>
-            ) : (
-              <button
-                key={item.label}
-                className={`inline-flex items-center gap-1 text-sm font-medium ${textBase} transition`}
-              >
-                {item.label}
-                {item.hasMenu && <ChevronDown className="h-3.5 w-3.5 opacity-70" />}
-              </button>
-            ),
-          )}
+          {NAV.map((item) => (
+            <Link
+              key={item.label}
+              to={item.to}
+              className={`inline-flex items-center gap-1 text-sm font-medium ${textBase} transition`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden lg:block">
@@ -78,26 +69,20 @@ export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" })
           }`}
         >
           <div className="mx-auto flex max-w-[1360px] flex-col gap-1 px-6 py-4">
-            {NAV.map((item) =>
-              item.to ? (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  className={`rounded-md px-3 py-3 text-left text-sm font-medium ${textBase}`}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.label}
-                  className={`rounded-md px-3 py-3 text-left text-sm font-medium ${textBase}`}
-                >
-                  {item.label}
-                </button>
-              ),
-            )}
+            {NAV.map((item) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                onClick={() => setOpen(false)}
+                className={`rounded-md px-3 py-3 text-left text-sm font-medium ${textBase}`}
+              >
+                {item.label}
+              </Link>
+            ))}
             <div className="pt-3">
-              <CtaPrimary to={AV_SCHEDULE_PATH} className="w-full justify-center">Agendar demonstração</CtaPrimary>
+              <CtaPrimary to={AV_SCHEDULE_PATH} className="w-full justify-center">
+                Agendar demonstração
+              </CtaPrimary>
             </div>
           </div>
         </div>

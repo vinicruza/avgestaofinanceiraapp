@@ -27,38 +27,10 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-/* ---------- Hero visuals ---------- */
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="schedule-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#schedule-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
 
 function FloatCard({
   className = "",
@@ -100,8 +72,7 @@ function HeroSchedule() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
         style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
+          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -118,11 +89,41 @@ function HeroSchedule() {
             <stop offset="1" stopColor="#60a5fa" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <path d="M 60 70 C 170 130, 230 190, 250 250" fill="none" stroke="url(#sched-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 440 60 C 340 130, 290 200, 250 250" fill="none" stroke="url(#sched-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 30 280 C 150 280, 210 260, 250 250" fill="none" stroke="url(#sched-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 60 440 C 170 380, 220 300, 250 250" fill="none" stroke="url(#sched-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 440 430 C 340 370, 290 300, 250 250" fill="none" stroke="url(#sched-conn)" strokeWidth="1" strokeDasharray="3 4" />
+        <path
+          d="M 60 70 C 170 130, 230 190, 250 250"
+          fill="none"
+          stroke="url(#sched-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 440 60 C 340 130, 290 200, 250 250"
+          fill="none"
+          stroke="url(#sched-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 30 280 C 150 280, 210 260, 250 250"
+          fill="none"
+          stroke="url(#sched-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 60 440 C 170 380, 220 300, 250 250"
+          fill="none"
+          stroke="url(#sched-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 440 430 C 340 370, 290 300, 250 250"
+          fill="none"
+          stroke="url(#sched-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
       </svg>
 
       <div className="relative mx-auto aspect-[5/5] w-full max-w-[560px]">
@@ -146,11 +147,31 @@ function HeroSchedule() {
           </div>
         </div>
 
-        <FloatCard className="left-0 top-2" icon={Search} meta="Etapa 01" title="Diagnóstico financeiro" />
-        <FloatCard className="right-0 top-0" icon={Workflow} meta="Etapa 02" title="Rotina operacional" />
-        <FloatCard className="-left-2 top-1/2 -translate-y-1/2" icon={MonitorSmartphone} meta="Ferramenta" title="Plataforma AV" />
+        <FloatCard
+          className="left-0 top-2"
+          icon={Search}
+          meta="Etapa 01"
+          title="Diagnóstico financeiro"
+        />
+        <FloatCard
+          className="right-0 top-0"
+          icon={Workflow}
+          meta="Etapa 02"
+          title="Rotina operacional"
+        />
+        <FloatCard
+          className="-left-2 top-1/2 -translate-y-1/2"
+          icon={MonitorSmartphone}
+          meta="Ferramenta"
+          title="Plataforma AV"
+        />
         <FloatCard className="left-0 bottom-2" icon={Target} meta="Estrutura" title="Método AV" />
-        <FloatCard className="right-0 bottom-2" icon={BrainCircuit} meta="Inteligência" title="IA aplicada" />
+        <FloatCard
+          className="right-0 bottom-2"
+          icon={BrainCircuit}
+          meta="Inteligência"
+          title="IA aplicada"
+        />
       </div>
     </div>
   );
@@ -167,8 +188,7 @@ function Hero() {
             Agendar demonstração
           </span>
           <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[52px]">
-            Vamos entender a{" "}
-            <span className="text-brand">rotina financeira</span> da sua empresa?
+            Vamos entender a <span className="text-brand">rotina financeira</span> da sua empresa?
           </h1>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70">
             Preencha o formulário e nossa equipe entrará em contato para{" "}
@@ -284,16 +304,35 @@ function FormAndSteps() {
               <input required name="empresa" className={inputClass} placeholder="Nome da empresa" />
             </Field>
             <Field label="E-mail">
-              <input required type="email" name="email" className={inputClass} placeholder="voce@empresa.com" />
+              <input
+                required
+                type="email"
+                name="email"
+                className={inputClass}
+                placeholder="voce@empresa.com"
+              />
             </Field>
             <Field label="Telefone / WhatsApp">
-              <input required name="telefone" className={inputClass} placeholder="(00) 00000-0000" />
+              <input
+                required
+                name="telefone"
+                className={inputClass}
+                placeholder="(00) 00000-0000"
+              />
             </Field>
             <Field label="Cargo">
-              <input name="cargo" className={inputClass} placeholder="Ex.: Sócio, CFO, Gerente Financeiro" />
+              <input
+                name="cargo"
+                className={inputClass}
+                placeholder="Ex.: Sócio, CFO, Gerente Financeiro"
+              />
             </Field>
             <Field label="Empresas ou unidades">
-              <input name="unidades" className={inputClass} placeholder="Ex.: 1 empresa, 3 unidades" />
+              <input
+                name="unidades"
+                className={inputClass}
+                placeholder="Ex.: 1 empresa, 3 unidades"
+              />
             </Field>
             <Field full label="Principal desafio financeiro">
               <select required name="desafio" className={inputClass} defaultValue="">
@@ -342,9 +381,7 @@ function FormAndSteps() {
             {sent && (
               <div className="sm:col-span-2 flex items-start gap-3 rounded-xl border border-brand/20 bg-brand-soft px-4 py-3 text-[13.5px] text-navy-deep">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 text-brand" />
-                <span>
-                  Recebemos sua solicitação. Nossa equipe entrará em contato em breve.
-                </span>
+                <span>Recebemos sua solicitação. Nossa equipe entrará em contato em breve.</span>
               </div>
             )}
           </form>
@@ -352,8 +389,7 @@ function FormAndSteps() {
 
         <aside className="flex flex-col">
           <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
-            <Sparkles className="h-4 w-4" strokeWidth={2} />
-            O que acontece depois?
+            <Sparkles className="h-4 w-4" strokeWidth={2} />O que acontece depois?
           </p>
           <h3 className="mt-3 font-display text-2xl font-extrabold leading-tight tracking-tight text-navy-deep">
             Uma conversa objetiva, guiada por um especialista AV.
@@ -466,9 +502,9 @@ function ExpectSection() {
             <span className="text-brand">operação financeira.</span>
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-            A demonstração não é apenas uma apresentação comercial. O objetivo é entender como
-            sua empresa opera hoje, quais processos precisam de mais clareza e onde a AV pode
-            gerar valor com equipe, método, plataforma e inteligência artificial.
+            A demonstração não é apenas uma apresentação comercial. O objetivo é entender como sua
+            empresa opera hoje, quais processos precisam de mais clareza e onde a AV pode gerar
+            valor com equipe, método, plataforma e inteligência artificial.
           </p>
         </div>
 
@@ -540,9 +576,15 @@ export function AgendarDemonstracao() {
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
       <FormAndSteps />
-      <AudienceSection />
-      <ExpectSection />
-      <FinalCta />
+      <Reveal>
+        <AudienceSection />
+      </Reveal>
+      <Reveal>
+        <ExpectSection />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

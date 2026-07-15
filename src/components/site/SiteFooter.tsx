@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MessageCircle, Linkedin } from "lucide-react";
 import avLogo from "@/assets/av-logo-horizontal.png.asset.json";
-import { AV_WHATSAPP_URL } from "@/lib/av-config";
+import { AV_WHATSAPP_URL, AV_EMAIL, AV_WHATSAPP_LABEL, AV_LINKEDIN_URL } from "@/lib/av-config";
 
-const AV_EMAIL = "contato@avgestaofinanceira.com.br";
-const AV_WHATSAPP_LABEL = "(11) 97679-0038";
-const AV_LINKEDIN_URL = "https://www.linkedin.com/company/av-gestao-financeira/";
-
-type FooterLink = { label: string; to?: string; href?: string; icon?: React.ComponentType<{ className?: string }> };
+type FooterLink = {
+  label: string;
+  to?: string;
+  href?: string;
+  icon?: React.ComponentType<{ className?: string }>;
+};
 
 const SITE_LINKS: FooterLink[] = [
   { label: "Soluções", to: "/solucoes" },
@@ -21,8 +22,8 @@ const SITE_LINKS: FooterLink[] = [
 
 const SOLUTION_LINKS: FooterLink[] = [
   { label: "BPO Financeiro", to: "/solucoes" },
-  { label: "Gestão de Pagamentos", to: "/solucoes" },
-  { label: "Fluxo de Caixa", to: "/solucoes" },
+  { label: "Método AV", to: "/metodo-av" },
+  { label: "Casos de Uso", to: "/casos-de-uso" },
   { label: "Plataforma AV", to: "/plataforma-av" },
   { label: "IA AV", to: "/ia-av" },
 ];
@@ -104,7 +105,9 @@ export function SiteFooter() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-[1360px] flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-white/50 sm:flex-row lg:px-10">
-          <span>© {new Date().getFullYear()} AV Gestão Financeira. Todos os direitos reservados.</span>
+          <span>
+            © {new Date().getFullYear()} AV Gestão Financeira. Todos os direitos reservados.
+          </span>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link to="/politica-de-privacidade" className="hover:text-white">
               Política de Privacidade

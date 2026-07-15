@@ -18,35 +18,10 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="about-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#about-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
+import { AV_WHATSAPP_URL } from "@/lib/av-config";
 
 function PillarCard({
   className = "",
@@ -88,8 +63,7 @@ function HeroAbout() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
         style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
+          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -106,10 +80,34 @@ function HeroAbout() {
             <stop offset="1" stopColor="#60a5fa" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <path d="M 60 80 C 180 130, 240 180, 250 230" fill="none" stroke="url(#about-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 440 80 C 340 130, 300 190, 250 230" fill="none" stroke="url(#about-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 60 400 C 180 340, 220 280, 250 230" fill="none" stroke="url(#about-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 440 400 C 340 340, 300 280, 250 230" fill="none" stroke="url(#about-conn)" strokeWidth="1" strokeDasharray="3 4" />
+        <path
+          d="M 60 80 C 180 130, 240 180, 250 230"
+          fill="none"
+          stroke="url(#about-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 440 80 C 340 130, 300 190, 250 230"
+          fill="none"
+          stroke="url(#about-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 60 400 C 180 340, 220 280, 250 230"
+          fill="none"
+          stroke="url(#about-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 440 400 C 340 340, 300 280, 250 230"
+          fill="none"
+          stroke="url(#about-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
       </svg>
 
       <div className="relative mx-auto aspect-[5/4.6] w-full max-w-[560px]">
@@ -135,8 +133,18 @@ function HeroAbout() {
 
         <PillarCard className="left-0 top-2" icon={Users} meta="Pilar 01" title="Pessoas" />
         <PillarCard className="right-0 top-0" icon={Workflow} meta="Pilar 02" title="Processos" />
-        <PillarCard className="left-0 bottom-2" icon={MonitorSmartphone} meta="Pilar 03" title="Plataforma" />
-        <PillarCard className="right-0 bottom-2" icon={BrainCircuit} meta="Pilar 04" title="Inteligência Artificial" />
+        <PillarCard
+          className="left-0 bottom-2"
+          icon={MonitorSmartphone}
+          meta="Pilar 03"
+          title="Plataforma"
+        />
+        <PillarCard
+          className="right-0 bottom-2"
+          icon={BrainCircuit}
+          meta="Pilar 04"
+          title="Inteligência Artificial"
+        />
       </div>
     </div>
   );
@@ -153,8 +161,8 @@ function Hero() {
             Sobre a AV
           </span>
           <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[52px]">
-            Construímos uma nova forma de{" "}
-            <span className="text-brand">operar o financeiro</span> das empresas.
+            Construímos uma nova forma de <span className="text-brand">operar o financeiro</span>{" "}
+            das empresas.
           </h1>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70">
             A AV Gestão Financeira une{" "}
@@ -281,8 +289,8 @@ function VisionSection() {
         <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">
           <p>
             Para a AV, financeiro organizado não é apenas ter contas pagas em dia. É ter rotina,
-            método, registros, conferências, indicadores e informações confiáveis para que o dono
-            da empresa consiga decidir com mais segurança.
+            método, registros, conferências, indicadores e informações confiáveis para que o dono da
+            empresa consiga decidir com mais segurança.
           </p>
           <p>
             Quando o financeiro está claro, a gestão deixa de depender de achismo e passa a
@@ -295,10 +303,26 @@ function VisionSection() {
 }
 
 const PILLARS = [
-  { icon: Eye, title: "Clareza", desc: "Informações financeiras organizadas e acessíveis para a gestão." },
-  { icon: ShieldCheck, title: "Controle", desc: "Processos, aprovações e conferências para reduzir falhas operacionais." },
-  { icon: TrendingUp, title: "Previsibilidade", desc: "Acompanhamento do previsto x realizado para antecipar necessidades e decisões." },
-  { icon: Lightbulb, title: "Evolução", desc: "Melhoria contínua com tecnologia, dados e inteligência artificial aplicada." },
+  {
+    icon: Eye,
+    title: "Clareza",
+    desc: "Informações financeiras organizadas e acessíveis para a gestão.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Controle",
+    desc: "Processos, aprovações e conferências para reduzir falhas operacionais.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Previsibilidade",
+    desc: "Acompanhamento do previsto x realizado para antecipar necessidades e decisões.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Evolução",
+    desc: "Melhoria contínua com tecnologia, dados e inteligência artificial aplicada.",
+  },
 ];
 
 function PillarsSection() {
@@ -310,8 +334,7 @@ function PillarsSection() {
             Nossos pilares
           </p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[36px]">
-            O que sustenta a{" "}
-            <span className="text-brand">forma como operamos.</span>
+            O que sustenta a <span className="text-brand">forma como operamos.</span>
           </h2>
         </div>
 
@@ -353,14 +376,13 @@ function FutureSection() {
             Para onde estamos indo
           </p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[40px]">
-            Estamos construindo o{" "}
-            <span className="text-brand">futuro da operação financeira.</span>
+            Estamos construindo o <span className="text-brand">futuro da operação financeira.</span>
           </h2>
         </div>
         <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">
           <p>
-            A AV está evoluindo para unir cada vez mais operação financeira, software e
-            inteligência artificial em um ecossistema próprio.
+            A AV está evoluindo para unir cada vez mais operação financeira, software e inteligência
+            artificial em um ecossistema próprio.
           </p>
           <p>
             Nosso objetivo é entregar uma gestão financeira mais prática, conectada e inteligente,
@@ -395,7 +417,9 @@ function FinalCta() {
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <a
-              href="#"
+              href={AV_WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-1 self-center text-sm font-semibold text-white/80 hover:text-white"
             >
               Falar com um especialista <ArrowUpRight className="h-4 w-4" />
@@ -415,12 +439,24 @@ export function Sobre() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
-      <WhoWeAre />
-      <DifferentialsSection />
-      <VisionSection />
-      <PillarsSection />
-      <FutureSection />
-      <FinalCta />
+      <Reveal>
+        <WhoWeAre />
+      </Reveal>
+      <Reveal>
+        <DifferentialsSection />
+      </Reveal>
+      <Reveal>
+        <VisionSection />
+      </Reveal>
+      <Reveal>
+        <PillarsSection />
+      </Reveal>
+      <Reveal>
+        <FutureSection />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

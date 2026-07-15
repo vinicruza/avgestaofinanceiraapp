@@ -1,6 +1,9 @@
 // Configurações públicas da AV Gestão Financeira.
-// Substitua pelo número oficial quando disponível.
-export const AV_WHATSAPP_NUMBER = "5500000000000"; // formato internacional, apenas dígitos
+export const AV_WHATSAPP_NUMBER = "5511976790038"; // formato internacional, apenas dígitos
+export const AV_WHATSAPP_LABEL = "(11) 97679-0038";
+export const AV_EMAIL = "contato@avgestaofinanceira.com.br";
+export const AV_LINKEDIN_URL = "https://www.linkedin.com/company/av-gestao-financeira/";
+
 export const AV_WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar uma demonstração da AV Gestão Financeira.";
 

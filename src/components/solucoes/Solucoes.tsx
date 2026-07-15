@@ -13,36 +13,11 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
+import { StatsBand } from "@/components/site/StatsBand";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="sol-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#sol-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
 
 function HeroDashboard() {
   return (
@@ -51,8 +26,7 @@ function HeroDashboard() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
         style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
+          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -135,7 +109,14 @@ function HeroDashboard() {
             <div className="text-xs font-semibold text-white">Despesas por Categoria</div>
             <div className="mt-3 flex items-center gap-4">
               <svg viewBox="0 0 42 42" className="h-20 w-20">
-                <circle cx="21" cy="21" r="15.9155" fill="transparent" stroke="#1e293b" strokeWidth="6" />
+                <circle
+                  cx="21"
+                  cy="21"
+                  r="15.9155"
+                  fill="transparent"
+                  stroke="#1e293b"
+                  strokeWidth="6"
+                />
                 <circle
                   cx="21"
                   cy="21"
@@ -168,10 +149,22 @@ function HeroDashboard() {
                 />
               </svg>
               <ul className="grid flex-1 grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-white/75">
-                <li className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-brand" />Pessoal</li>
-                <li className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-emerald-400" />Operacional</li>
-                <li className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-amber-400" />Tributos</li>
-                <li className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-red-400" />Outros</li>
+                <li className="flex items-center gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-brand" />
+                  Pessoal
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  Operacional
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-amber-400" />
+                  Tributos
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <span className="h-2 w-2 rounded-full bg-red-400" />
+                  Outros
+                </li>
               </ul>
             </div>
           </div>
@@ -315,8 +308,8 @@ function ProblemSection() {
           </h2>
           <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
             Muitas empresas crescem, mas continuam operando o financeiro com planilhas soltas,
-            mensagens espalhadas, aprovações manuais e pouca visibilidade sobre o que realmente
-            está acontecendo.
+            mensagens espalhadas, aprovações manuais e pouca visibilidade sobre o que realmente está
+            acontecendo.
           </p>
           <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
             A AV entra para estruturar a rotina, executar processos críticos e entregar informações
@@ -409,18 +402,17 @@ function Ecosystem() {
             Ecossistema AV
           </p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[40px]">
-            As soluções da AV funcionam como um{" "}
-            <span className="text-brand">ecossistema.</span>
+            As soluções da AV funcionam como um <span className="text-brand">ecossistema.</span>
           </h2>
           <p className="mt-6 text-[14.5px] leading-relaxed text-muted-foreground">
-            Não acreditamos em financeiro organizado apenas como contas pagas em dia. Para a AV,
-            uma operação financeira eficiente precisa ter rotina, processo, tecnologia,
-            conferência, acompanhamento e visão gerencial.
+            Não acreditamos em financeiro organizado apenas como contas pagas em dia. Para a AV, uma
+            operação financeira eficiente precisa ter rotina, processo, tecnologia, conferência,
+            acompanhamento e visão gerencial.
           </p>
           <p className="mt-4 text-[14.5px] leading-relaxed text-muted-foreground">
-            Por isso, nossas soluções foram desenhadas para trabalhar juntas: a equipe executa,
-            o método orienta, a plataforma centraliza e a inteligência artificial amplia a
-            capacidade de análise e automação.
+            Por isso, nossas soluções foram desenhadas para trabalhar juntas: a equipe executa, o
+            método orienta, a plataforma centraliza e a inteligência artificial amplia a capacidade
+            de análise e automação.
           </p>
         </div>
         <div className="relative">
@@ -526,11 +518,22 @@ export function Solucoes() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
-      <ProblemSection />
-      <Solutions />
-      <Ecosystem />
-      <Benefits />
-      <FinalCta />
+      <Reveal>
+        <ProblemSection />
+      </Reveal>
+      <Reveal>
+        <Solutions />
+      </Reveal>
+      <StatsBand />
+      <Reveal>
+        <Ecosystem />
+      </Reveal>
+      <Reveal>
+        <Benefits />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

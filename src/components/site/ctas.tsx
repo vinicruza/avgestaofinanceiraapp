@@ -28,7 +28,12 @@ export function CtaPrimary({ children, className = "", to, href }: CommonProps) 
   }
   if (href) {
     return (
-      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className={base}>
+      <a
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel="noreferrer"
+        className={base}
+      >
         {inner}
       </a>
     );
@@ -69,7 +74,12 @@ export function CtaGhost({
   }
   if (href) {
     return (
-      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className={base}>
+      <a
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel="noreferrer"
+        className={base}
+      >
         {inner}
       </a>
     );

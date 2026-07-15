@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MessageCircle, Linkedin } from "lucide-react";
 import avLogo from "@/assets/av-logo-horizontal.png.asset.json";
-import {
-  AV_WHATSAPP_URL,
-  AV_EMAIL,
-  AV_WHATSAPP_LABEL,
-  AV_LINKEDIN_URL,
-} from "@/lib/av-config";
+import { AV_WHATSAPP_URL, AV_EMAIL, AV_WHATSAPP_LABEL, AV_LINKEDIN_URL } from "@/lib/av-config";
 
-type FooterLink = { label: string; to?: string; href?: string; icon?: React.ComponentType<{ className?: string }> };
+type FooterLink = {
+  label: string;
+  to?: string;
+  href?: string;
+  icon?: React.ComponentType<{ className?: string }>;
+};
 
 const SITE_LINKS: FooterLink[] = [
   { label: "Soluções", to: "/solucoes" },
@@ -105,7 +105,9 @@ export function SiteFooter() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-[1360px] flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-white/50 sm:flex-row lg:px-10">
-          <span>© {new Date().getFullYear()} AV Gestão Financeira. Todos os direitos reservados.</span>
+          <span>
+            © {new Date().getFullYear()} AV Gestão Financeira. Todos os direitos reservados.
+          </span>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link to="/politica-de-privacidade" className="hover:text-white">
               Política de Privacidade

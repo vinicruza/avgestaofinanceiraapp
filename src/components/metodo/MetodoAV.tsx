@@ -19,36 +19,10 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="met-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#met-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
 
 const STEPS = [
   { icon: Search, title: "Diagnóstico" },
@@ -65,8 +39,7 @@ function HeroTimeline() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
         style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
+          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -116,8 +89,14 @@ function HeroTimeline() {
               />
             </svg>
             <div className="mt-2 flex items-center gap-3 text-[9px] text-white/60">
-              <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-brand" />Previsto</span>
-              <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />Realizado</span>
+              <span className="flex items-center gap-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                Previsto
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                Realizado
+              </span>
             </div>
           </div>
           <div className="rounded-xl border border-white/20 bg-white/[0.06] p-3 backdrop-blur sm:p-4">
@@ -160,7 +139,10 @@ function HeroTimeline() {
           <div className="mt-2 flex items-center gap-3">
             <span className="text-[11px] font-semibold text-white/85">8 / 10</span>
             <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
-              <div className="absolute inset-y-0 left-0 rounded-full bg-brand" style={{ width: "80%" }} />
+              <div
+                className="absolute inset-y-0 left-0 rounded-full bg-brand"
+                style={{ width: "80%" }}
+              />
             </div>
           </div>
         </div>
@@ -213,8 +195,7 @@ function WhyMethod() {
             Por que método importa
           </p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[40px]">
-            Financeiro organizado não depende de{" "}
-            <span className="text-brand">improviso.</span>
+            Financeiro organizado não depende de <span className="text-brand">improviso.</span>
           </h2>
         </div>
         <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -360,7 +341,10 @@ const BENEFITS = [
   { icon: ShieldCheck, text: "Aprovações passam a ter mais controle e rastreabilidade." },
   { icon: TrendingUp, text: "O fluxo financeiro passa a ser acompanhado com mais clareza." },
   { icon: Users, text: "Sócios e gestores passam a decidir com dados mais confiáveis." },
-  { icon: Target, text: "A operação ganha ritmo, previsibilidade e menos dependência de pessoas específicas." },
+  {
+    icon: Target,
+    text: "A operação ganha ritmo, previsibilidade e menos dependência de pessoas específicas.",
+  },
 ];
 
 function BenefitsSection() {
@@ -373,10 +357,7 @@ function BenefitsSection() {
 
         <ul className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {BENEFITS.map((b) => (
-            <li
-              key={b.text}
-              className="flex flex-col items-center gap-4 text-center"
-            >
+            <li key={b.text} className="flex flex-col items-center gap-4 text-center">
               <span className="grid h-14 w-14 place-items-center rounded-full border border-border bg-white text-brand shadow-[var(--shadow-card)]">
                 <b.icon className="h-6 w-6" strokeWidth={1.75} />
               </span>
@@ -408,8 +389,8 @@ function FinalCta() {
         </div>
         <div>
           <p className="text-[15px] leading-relaxed text-white/75">
-            Conheça como a AV Gestão Financeira pode estruturar sua rotina financeira com
-            processo, execução, tecnologia e inteligência aplicada.
+            Conheça como a AV Gestão Financeira pode estruturar sua rotina financeira com processo,
+            execução, tecnologia e inteligência aplicada.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
@@ -432,11 +413,21 @@ export function MetodoAV() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
-      <WhyMethod />
-      <StepsSection />
-      <PillarsSection />
-      <BenefitsSection />
-      <FinalCta />
+      <Reveal>
+        <WhyMethod />
+      </Reveal>
+      <Reveal>
+        <StepsSection />
+      </Reveal>
+      <Reveal>
+        <PillarsSection />
+      </Reveal>
+      <Reveal>
+        <BenefitsSection />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

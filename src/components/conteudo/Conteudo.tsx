@@ -17,36 +17,10 @@ import {
 import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="content-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#content-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
 
 function TopicCard({
   className = "",
@@ -88,8 +62,7 @@ function HeroContent() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
         style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
+          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -106,11 +79,41 @@ function HeroContent() {
             <stop offset="1" stopColor="#60a5fa" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <path d="M 60 90 C 180 130, 240 180, 250 230" fill="none" stroke="url(#content-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 440 70 C 340 130, 300 190, 250 230" fill="none" stroke="url(#content-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 40 260 C 140 260, 210 240, 250 230" fill="none" stroke="url(#content-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 460 300 C 360 280, 300 250, 250 230" fill="none" stroke="url(#content-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 250 420 C 250 340, 250 280, 250 230" fill="none" stroke="url(#content-conn)" strokeWidth="1" strokeDasharray="3 4" />
+        <path
+          d="M 60 90 C 180 130, 240 180, 250 230"
+          fill="none"
+          stroke="url(#content-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 440 70 C 340 130, 300 190, 250 230"
+          fill="none"
+          stroke="url(#content-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 40 260 C 140 260, 210 240, 250 230"
+          fill="none"
+          stroke="url(#content-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 460 300 C 360 280, 300 250, 250 230"
+          fill="none"
+          stroke="url(#content-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 250 420 C 250 340, 250 280, 250 230"
+          fill="none"
+          stroke="url(#content-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
       </svg>
 
       <div className="relative mx-auto aspect-[5/4.8] w-full max-w-[560px]">
@@ -134,11 +137,36 @@ function HeroContent() {
           </div>
         </div>
 
-        <TopicCard className="left-0 top-0" icon={Workflow} meta="Tema 01" title="Processos financeiros" />
-        <TopicCard className="right-0 top-0" icon={ClipboardCheck} meta="Tema 02" title="BPO Financeiro" />
-        <TopicCard className="left-0 top-[46%]" icon={BrainCircuit} meta="Tema 03" title="IA aplicada" />
-        <TopicCard className="right-0 top-[46%]" icon={LineChart} meta="Tema 04" title="Fluxo de caixa" />
-        <TopicCard className="left-1/2 bottom-0 -translate-x-1/2" icon={Fuel} meta="Tema 05" title="Gestão para postos" />
+        <TopicCard
+          className="left-0 top-0"
+          icon={Workflow}
+          meta="Tema 01"
+          title="Processos financeiros"
+        />
+        <TopicCard
+          className="right-0 top-0"
+          icon={ClipboardCheck}
+          meta="Tema 02"
+          title="BPO Financeiro"
+        />
+        <TopicCard
+          className="left-0 top-[46%]"
+          icon={BrainCircuit}
+          meta="Tema 03"
+          title="IA aplicada"
+        />
+        <TopicCard
+          className="right-0 top-[46%]"
+          icon={LineChart}
+          meta="Tema 04"
+          title="Fluxo de caixa"
+        />
+        <TopicCard
+          className="left-1/2 bottom-0 -translate-x-1/2"
+          icon={Fuel}
+          meta="Tema 05"
+          title="Gestão para postos"
+        />
       </div>
     </div>
   );
@@ -221,8 +249,8 @@ function TopicsSection() {
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
             A AV compartilha aprendizados, reflexões e orientações práticas para empresas que
-            precisam estruturar melhor sua operação financeira, reduzir improvisos e tomar
-            decisões com mais segurança.
+            precisam estruturar melhor sua operação financeira, reduzir improvisos e tomar decisões
+            com mais segurança.
           </p>
         </div>
 
@@ -319,9 +347,7 @@ function ArticlesSection() {
                 </span>
                 <span className="text-[11px] font-semibold text-muted-foreground">Artigo</span>
               </div>
-              <h3 className="mt-5 text-[17px] font-bold leading-snug text-navy-deep">
-                {a.title}
-              </h3>
+              <h3 className="mt-5 text-[17px] font-bold leading-snug text-navy-deep">{a.title}</h3>
               <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-muted-foreground">
                 {a.desc}
               </p>
@@ -349,8 +375,7 @@ function AppliedSection() {
             Conteúdo aplicado à rotina real
           </p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[40px]">
-            Não falamos de teoria{" "}
-            <span className="text-brand">distante da operação.</span>
+            Não falamos de teoria <span className="text-brand">distante da operação.</span>
           </h2>
         </div>
         <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -379,7 +404,8 @@ function FinalCta() {
           </span>
           <div>
             <h2 className="font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white lg:text-[40px]">
-              Quer levar esse nível de <span className="text-brand">organização</span> para sua empresa?
+              Quer levar esse nível de <span className="text-brand">organização</span> para sua
+              empresa?
             </h2>
           </div>
         </div>
@@ -413,10 +439,18 @@ export function Conteudo() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
-      <TopicsSection />
-      <ArticlesSection />
-      <AppliedSection />
-      <FinalCta />
+      <Reveal>
+        <TopicsSection />
+      </Reveal>
+      <Reveal>
+        <ArticlesSection />
+      </Reveal>
+      <Reveal>
+        <AppliedSection />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

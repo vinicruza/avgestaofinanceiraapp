@@ -18,7 +18,9 @@ const NAV: { label: string; to: string }[] = [
 export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" }) {
   const [open, setOpen] = useState(false);
   const isDark = variant === "dark";
-  const textBase = isDark ? "text-white/85 hover:text-white" : "text-navy-deep/75 hover:text-navy-deep";
+  const textBase = isDark
+    ? "text-white/85 hover:text-white"
+    : "text-navy-deep/75 hover:text-navy-deep";
 
   return (
     <header className="relative z-20">
@@ -78,7 +80,9 @@ export function SiteHeader({ variant = "dark" }: { variant?: "dark" | "light" })
               </Link>
             ))}
             <div className="pt-3">
-              <CtaPrimary to={AV_SCHEDULE_PATH} className="w-full justify-center">Agendar demonstração</CtaPrimary>
+              <CtaPrimary to={AV_SCHEDULE_PATH} className="w-full justify-center">
+                Agendar demonstração
+              </CtaPrimary>
             </div>
           </div>
         </div>

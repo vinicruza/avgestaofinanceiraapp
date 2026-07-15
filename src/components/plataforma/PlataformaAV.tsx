@@ -19,36 +19,11 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
+import { StatsBand } from "@/components/site/StatsBand";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="plat-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#plat-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
 
 function HeroDashboard() {
   return (
@@ -57,8 +32,7 @@ function HeroDashboard() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
         style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
+          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -90,7 +64,9 @@ function HeroDashboard() {
               <div className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
                 Fluxo de Caixa
               </div>
-              <div className="text-[11px] text-white/50">Previsto x Realizado — últimos 30 dias</div>
+              <div className="text-[11px] text-white/50">
+                Previsto x Realizado — últimos 30 dias
+              </div>
             </div>
             <span className="rounded-md bg-brand/20 px-2 py-1 text-[10px] font-semibold text-brand">
               +12,3%
@@ -207,12 +183,16 @@ function Hero() {
             Plataforma AV
           </span>
           <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[52px]">
-            A tecnologia que{" "}
-            <span className="text-brand">centraliza a operação financeira</span> da sua empresa.
+            A tecnologia que <span className="text-brand">centraliza a operação financeira</span> da
+            sua empresa.
           </h1>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70">
-            A Plataforma AV reúne <strong className="font-semibold text-white">processos, documentos, aprovações, indicadores</strong> e acompanhamento
-            financeiro em um único ambiente, dando mais clareza para sócios, gestores e equipe operacional.
+            A Plataforma AV reúne{" "}
+            <strong className="font-semibold text-white">
+              processos, documentos, aprovações, indicadores
+            </strong>{" "}
+            e acompanhamento financeiro em um único ambiente, dando mais clareza para sócios,
+            gestores e equipe operacional.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
@@ -343,13 +323,13 @@ function RoutineSection() {
           </h2>
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
             <p>
-              A Plataforma AV foi pensada para apoiar a rotina real do financeiro: o que precisa
-              ser pago, o que já foi conferido, o que depende de aprovação, quais documentos estão
+              A Plataforma AV foi pensada para apoiar a rotina real do financeiro: o que precisa ser
+              pago, o que já foi conferido, o que depende de aprovação, quais documentos estão
               anexados e quais números precisam ser acompanhados.
             </p>
             <p>
-              Ela não substitui o método e a equipe. Ela fortalece a operação, dando visibilidade
-              e rastreabilidade para tudo que acontece.
+              Ela não substitui o método e a equipe. Ela fortalece a operação, dando visibilidade e
+              rastreabilidade para tudo que acontece.
             </p>
           </div>
         </div>
@@ -375,7 +355,11 @@ function RoutineSection() {
 const ECO = [
   { icon: Users, title: "Equipe AV", desc: "Executa e acompanha a rotina financeira." },
   { icon: ClipboardCheck, title: "Método AV", desc: "Define processos, prazos e governança." },
-  { icon: MonitorSmartphone, title: "Plataforma AV", desc: "Centraliza dados, documentos e indicadores." },
+  {
+    icon: MonitorSmartphone,
+    title: "Plataforma AV",
+    desc: "Centraliza dados, documentos e indicadores.",
+  },
   { icon: BrainCircuit, title: "IA AV", desc: "Apoia automações, análises e alertas." },
 ];
 
@@ -392,8 +376,8 @@ function EcosystemSection() {
             <span className="text-brand">tecnologia, execução e inteligência.</span>
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-            A Plataforma AV é parte do ecossistema da AV Gestão Financeira. Ela conecta a equipe
-            que executa, o método que organiza e a inteligência artificial que apoia análises,
+            A Plataforma AV é parte do ecossistema da AV Gestão Financeira. Ela conecta a equipe que
+            executa, o método que organiza e a inteligência artificial que apoia análises,
             automações e acompanhamento da rotina.
           </p>
         </div>
@@ -437,7 +421,8 @@ function FinalCta() {
           </span>
           <div>
             <h2 className="font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white lg:text-[40px]">
-              Quer ter mais <span className="text-brand">visibilidade</span> sobre sua operação financeira?
+              Quer ter mais <span className="text-brand">visibilidade</span> sobre sua operação
+              financeira?
             </h2>
           </div>
         </div>
@@ -471,11 +456,22 @@ export function PlataformaAV() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
-      <WhyPlatform />
-      <ModulesSection />
-      <RoutineSection />
-      <EcosystemSection />
-      <FinalCta />
+      <Reveal>
+        <WhyPlatform />
+      </Reveal>
+      <Reveal>
+        <ModulesSection />
+      </Reveal>
+      <StatsBand />
+      <Reveal>
+        <RoutineSection />
+      </Reveal>
+      <Reveal>
+        <EcosystemSection />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

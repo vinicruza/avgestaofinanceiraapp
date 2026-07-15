@@ -18,36 +18,10 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="ia-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#ia-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
 
 function HeroAI() {
   return (
@@ -56,8 +30,7 @@ function HeroAI() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-0"
         style={{
-          background:
-            "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
+          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
           filter: "blur(30px)",
         }}
       />
@@ -76,10 +49,34 @@ function HeroAI() {
             <stop offset="1" stopColor="#60a5fa" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <path d="M 60 90 C 180 120, 260 180, 250 230" fill="none" stroke="url(#ia-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 440 80 C 340 140, 300 190, 250 230" fill="none" stroke="url(#ia-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 60 380 C 160 340, 220 300, 250 230" fill="none" stroke="url(#ia-conn)" strokeWidth="1" strokeDasharray="3 4" />
-        <path d="M 440 400 C 340 340, 300 290, 250 230" fill="none" stroke="url(#ia-conn)" strokeWidth="1" strokeDasharray="3 4" />
+        <path
+          d="M 60 90 C 180 120, 260 180, 250 230"
+          fill="none"
+          stroke="url(#ia-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 440 80 C 340 140, 300 190, 250 230"
+          fill="none"
+          stroke="url(#ia-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 60 380 C 160 340, 220 300, 250 230"
+          fill="none"
+          stroke="url(#ia-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
+        <path
+          d="M 440 400 C 340 340, 300 290, 250 230"
+          fill="none"
+          stroke="url(#ia-conn)"
+          strokeWidth="1"
+          strokeDasharray="3 4"
+        />
       </svg>
 
       <div className="relative mx-auto aspect-[5/4.6] w-full max-w-[560px]">
@@ -150,11 +147,7 @@ function FloatCard({
   tone?: "brand" | "amber" | "emerald";
 }) {
   const dot =
-    tone === "amber"
-      ? "bg-amber-400"
-      : tone === "emerald"
-        ? "bg-emerald-400"
-        : "bg-brand";
+    tone === "amber" ? "bg-amber-400" : tone === "emerald" ? "bg-emerald-400" : "bg-brand";
   const iconColor =
     tone === "amber" ? "text-amber-300" : tone === "emerald" ? "text-emerald-300" : "text-brand";
   return (
@@ -188,8 +181,8 @@ function Hero() {
             IA AV
           </span>
           <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[52px]">
-            Inteligência artificial aplicada à{" "}
-            <span className="text-brand">rotina financeira</span> da sua empresa.
+            Inteligência artificial aplicada à <span className="text-brand">rotina financeira</span>{" "}
+            da sua empresa.
           </h1>
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70">
             A IA AV apoia a operação financeira com{" "}
@@ -221,8 +214,8 @@ function WhyAI() {
             IA no financeiro, sem complicar a operação
           </p>
           <h2 className="mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[40px]">
-            A inteligência artificial deve{" "}
-            <span className="text-brand">simplificar a rotina</span>, não complicar.
+            A inteligência artificial deve <span className="text-brand">simplificar a rotina</span>,
+            não complicar.
           </h2>
         </div>
         <div className="space-y-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -306,10 +299,22 @@ function AreasSection() {
 }
 
 const ECO = [
-  { icon: ClipboardCheck, title: "Método AV", desc: "Define os processos e critérios da operação." },
-  { icon: MonitorSmartphone, title: "Plataforma AV", desc: "Centraliza dados, documentos e indicadores." },
+  {
+    icon: ClipboardCheck,
+    title: "Método AV",
+    desc: "Define os processos e critérios da operação.",
+  },
+  {
+    icon: MonitorSmartphone,
+    title: "Plataforma AV",
+    desc: "Centraliza dados, documentos e indicadores.",
+  },
   { icon: Users, title: "Equipe AV", desc: "Executa, acompanha e valida a rotina financeira." },
-  { icon: BrainCircuit, title: "IA AV", desc: "Apoia automações, análises e alertas inteligentes." },
+  {
+    icon: BrainCircuit,
+    title: "IA AV",
+    desc: "Apoia automações, análises e alertas inteligentes.",
+  },
 ];
 
 function EcosystemSection() {
@@ -412,7 +417,8 @@ function FinalCta() {
           </span>
           <div>
             <h2 className="font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white lg:text-[40px]">
-              Quer aplicar <span className="text-brand">inteligência artificial</span> na rotina financeira da sua empresa?
+              Quer aplicar <span className="text-brand">inteligência artificial</span> na rotina
+              financeira da sua empresa?
             </h2>
           </div>
         </div>
@@ -446,11 +452,21 @@ export function IaAV() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
-      <WhyAI />
-      <AreasSection />
-      <EcosystemSection />
-      <OutcomesSection />
-      <FinalCta />
+      <Reveal>
+        <WhyAI />
+      </Reveal>
+      <Reveal>
+        <AreasSection />
+      </Reveal>
+      <Reveal>
+        <EcosystemSection />
+      </Reveal>
+      <Reveal>
+        <OutcomesSection />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

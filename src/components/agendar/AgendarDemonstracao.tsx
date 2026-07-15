@@ -27,38 +27,10 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-/* ---------- Hero visuals ---------- */
-
-function HeroBackdrop() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="schedule-l" x1="0" x2="1">
-          <stop offset="0" stopColor="#3b82f6" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: 14 }).map((_, i) => (
-        <path
-          key={i}
-          d={`M -100 ${200 + i * 55} C 300 ${120 + i * 55}, 900 ${340 + i * 55}, 1700 ${180 + i * 55}`}
-          fill="none"
-          stroke="url(#schedule-l)"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
 
 function FloatCard({
   className = "",
@@ -604,9 +576,15 @@ export function AgendarDemonstracao() {
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
       <FormAndSteps />
-      <AudienceSection />
-      <ExpectSection />
-      <FinalCta />
+      <Reveal>
+        <AudienceSection />
+      </Reveal>
+      <Reveal>
+        <ExpectSection />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
       <SiteFooter />
     </main>
   );

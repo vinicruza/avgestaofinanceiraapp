@@ -2,7 +2,6 @@ import {
   ArrowUpRight,
   BarChart3,
   BrainCircuit,
-  CalendarDays,
   CheckCircle2,
   ClipboardCheck,
   FileText,
@@ -21,156 +20,10 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
+import { DashboardMockup } from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-function HeroDashboard() {
-  return (
-    <div className="relative">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{
-          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
-          filter: "blur(30px)",
-        }}
-      />
-      <div className="relative">
-        {/* KPI row */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-4">
-          {[
-            { label: "Saldo consolidado", value: "R$ 4,82M", trend: "+8,4%" },
-            { label: "A pagar (7 dias)", value: "R$ 612k", trend: "23 títulos" },
-            { label: "A receber (7 dias)", value: "R$ 894k", trend: "31 títulos" },
-          ].map((k) => (
-            <div
-              key={k.label}
-              className="rounded-xl border border-white/10 bg-white/[0.05] p-3 backdrop-blur sm:p-4"
-            >
-              <div className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
-                {k.label}
-              </div>
-              <div className="mt-1 text-base font-bold text-white sm:text-lg">{k.value}</div>
-              <div className="mt-1 text-[10px] text-emerald-300/90">{k.trend}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Chart card */}
-        <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.05] p-4 backdrop-blur">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
-                Fluxo de Caixa
-              </div>
-              <div className="text-[11px] text-white/50">
-                Previsto x Realizado — últimos 30 dias
-              </div>
-            </div>
-            <span className="rounded-md bg-brand/20 px-2 py-1 text-[10px] font-semibold text-brand">
-              +12,3%
-            </span>
-          </div>
-          <svg viewBox="0 0 320 90" className="mt-3 h-20 w-full">
-            <defs>
-              <linearGradient id="plat-area" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0" stopColor="oklch(0.58 0.19 258)" stopOpacity="0.45" />
-                <stop offset="1" stopColor="oklch(0.58 0.19 258)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M0 70 C 30 55, 60 75, 90 45 S 150 25, 180 50 240 70, 270 30 300 45, 320 25 L 320 90 L 0 90 Z"
-              fill="url(#plat-area)"
-            />
-            <path
-              d="M0 70 C 30 55, 60 75, 90 45 S 150 25, 180 50 240 70, 270 30 300 45, 320 25"
-              fill="none"
-              stroke="oklch(0.58 0.19 258)"
-              strokeWidth="2"
-            />
-            <path
-              d="M0 78 C 30 68, 60 80, 90 60 S 150 40, 180 62 240 76, 270 46 300 60, 320 40"
-              fill="none"
-              stroke="#22c55e"
-              strokeWidth="2"
-              strokeDasharray="3 3"
-            />
-          </svg>
-          <div className="mt-2 flex items-center gap-4 text-[10px] text-white/60">
-            <span className="flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              Previsto
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              Realizado
-            </span>
-          </div>
-        </div>
-
-        {/* Bottom row: approvals + payments table */}
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-5">
-          <div className="rounded-xl border border-white/10 bg-white/[0.05] p-4 backdrop-blur sm:col-span-2">
-            <div className="flex items-center justify-between">
-              <div className="text-[10px] font-semibold uppercase tracking-wider text-white/70">
-                Aprovações pendentes
-              </div>
-              <span className="grid h-5 w-5 place-items-center rounded-full bg-amber-400/20 text-[10px] font-bold text-amber-300">
-                4
-              </span>
-            </div>
-            <ul className="mt-3 space-y-2 text-[11px] text-white/80">
-              {[
-                { n: "Fornecedor Alpha", v: "R$ 42.180" },
-                { n: "Marketing — Meta", v: "R$ 12.400" },
-                { n: "Serviços TI", v: "R$ 6.900" },
-              ].map((i) => (
-                <li key={i.n} className="flex items-center justify-between">
-                  <span className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-                    {i.n}
-                  </span>
-                  <span className="font-semibold text-white">{i.v}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-xl border border-white/10 bg-white/[0.05] p-4 backdrop-blur sm:col-span-3">
-            <div className="flex items-center justify-between">
-              <div className="text-[10px] font-semibold uppercase tracking-wider text-white/70">
-                Pagamentos do dia
-              </div>
-              <div className="flex items-center gap-1 text-[10px] text-white/60">
-                <CalendarDays className="h-3.5 w-3.5" />
-                Hoje
-              </div>
-            </div>
-            <table className="mt-3 w-full text-left text-[11px] text-white/80">
-              <tbody>
-                {[
-                  { s: "Pago", c: "text-emerald-300", d: "Energia — CPFL", v: "R$ 8.240" },
-                  { s: "Pago", c: "text-emerald-300", d: "Aluguel — Sede", v: "R$ 24.000" },
-                  { s: "Agendado", c: "text-brand", d: "Fornecedor Beta", v: "R$ 15.780" },
-                  { s: "Conferir", c: "text-amber-300", d: "Insumos — NF 4821", v: "R$ 3.420" },
-                ].map((r) => (
-                  <tr key={r.d} className="border-t border-white/5">
-                    <td className="py-1.5 pr-2">
-                      <span className={`text-[10px] font-semibold ${r.c}`}>{r.s}</span>
-                    </td>
-                    <td className="py-1.5 pr-2 text-white/85">{r.d}</td>
-                    <td className="py-1.5 text-right font-semibold text-white">{r.v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function Hero() {
   return (
@@ -200,7 +53,7 @@ function Hero() {
           </div>
         </div>
         <div className="relative flex items-center">
-          <HeroDashboard />
+          <DashboardMockup />
         </div>
       </div>
     </section>

@@ -22,7 +22,7 @@ import pitstopPlusLogo from "@/assets/clients/pitstop-plus.png.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
-import { DashboardMockup } from "@/components/site/AppMockup";
+import { DashboardMockup, PaymentsMockup } from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { Reveal } from "@/components/site/Reveal";
@@ -300,86 +300,6 @@ function Ecosystem() {
 
 /* ------------------------------------------------- Platform + IA (tech) */
 
-function PlatformDashboard() {
-  return (
-    <div className="relative">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{
-          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
-          filter: "blur(30px)",
-        }}
-      />
-      <div className="relative grid gap-4">
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { label: "Saldo consolidado", value: "R$ 4,82M", trend: "+8,4%" },
-            { label: "A pagar (7 dias)", value: "R$ 612k", trend: "23 títulos" },
-            { label: "A receber (7 dias)", value: "R$ 894k", trend: "31 títulos" },
-          ].map((k) => (
-            <div
-              key={k.label}
-              className="rounded-xl border border-white/10 bg-white/[0.05] p-3 backdrop-blur sm:p-4"
-            >
-              <div className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
-                {k.label}
-              </div>
-              <div className="mt-1 text-base font-bold text-white sm:text-lg">{k.value}</div>
-              <div className="mt-1 text-[10px] text-emerald-300/90">{k.trend}</div>
-            </div>
-          ))}
-        </div>
-        <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-4 backdrop-blur">
-          <div className="flex items-center justify-between">
-            <div className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
-              Fluxo de Caixa · Previsto x Realizado
-            </div>
-            <span className="rounded-md bg-brand/20 px-2 py-1 text-[10px] font-semibold text-brand">
-              +12,3%
-            </span>
-          </div>
-          <svg viewBox="0 0 320 90" className="mt-3 h-20 w-full">
-            <defs>
-              <linearGradient id="home-area" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0" stopColor="oklch(0.58 0.19 258)" stopOpacity="0.45" />
-                <stop offset="1" stopColor="oklch(0.58 0.19 258)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M0 70 C 30 55, 60 75, 90 45 S 150 25, 180 50 240 70, 270 30 300 45, 320 25 L 320 90 L 0 90 Z"
-              fill="url(#home-area)"
-            />
-            <path
-              d="M0 70 C 30 55, 60 75, 90 45 S 150 25, 180 50 240 70, 270 30 300 45, 320 25"
-              fill="none"
-              stroke="oklch(0.58 0.19 258)"
-              strokeWidth="2"
-            />
-            <path
-              d="M0 78 C 30 68, 60 80, 90 60 S 150 40, 180 62 240 76, 270 46 300 60, 320 40"
-              fill="none"
-              stroke="#22c55e"
-              strokeWidth="2"
-              strokeDasharray="3 3"
-            />
-          </svg>
-          <div className="mt-2 flex items-center gap-4 text-[10px] text-white/60">
-            <span className="flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              Previsto
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              Realizado
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function PlatformAndAI() {
   return (
     <section id="plataforma" className="relative hero-bg overflow-hidden">
@@ -423,7 +343,7 @@ function PlatformAndAI() {
           </Reveal>
 
           <Reveal delay={150}>
-            <PlatformDashboard />
+            <PaymentsMockup />
           </Reveal>
         </div>
       </div>

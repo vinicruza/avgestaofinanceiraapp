@@ -13,7 +13,6 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import heroMockup from "@/assets/hero-mockup.png";
 import ipirangaLogo from "@/assets/clients/ipiranga.png.asset.json";
 import petrobrasLogo from "@/assets/clients/petrobras.png.asset.json";
 import brManiaLogo from "@/assets/clients/br-mania.png.asset.json";
@@ -23,6 +22,7 @@ import pitstopPlusLogo from "@/assets/clients/pitstop-plus.png.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
+import { DashboardMockup } from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { Reveal } from "@/components/site/Reveal";
@@ -118,13 +118,9 @@ function Hero() {
               filter: "blur(30px)",
             }}
           />
-          <img
-            src={heroMockup}
-            alt="Dashboard da Plataforma AV em notebook e celular"
-            width={1280}
-            height={960}
-            className="float-slow relative w-full max-w-[820px] drop-shadow-[0_40px_60px_rgba(0,0,0,0.55)]"
-          />
+          <div className="float-slow relative w-full max-w-[720px]">
+            <DashboardMockup />
+          </div>
         </div>
       </div>
     </section>

@@ -20,155 +20,9 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
+import { WhatsAppMockup } from "@/components/site/AppMockup";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-function HeroAI() {
-  return (
-    <div className="relative">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{
-          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
-          filter: "blur(30px)",
-        }}
-      />
-
-      {/* Connecting lines (decorative) */}
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        viewBox="0 0 500 460"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id="ia-conn" x1="0" x2="1">
-            <stop offset="0" stopColor="#60a5fa" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.6" />
-            <stop offset="1" stopColor="#60a5fa" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M 60 90 C 180 120, 260 180, 250 230"
-          fill="none"
-          stroke="url(#ia-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 440 80 C 340 140, 300 190, 250 230"
-          fill="none"
-          stroke="url(#ia-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 60 380 C 160 340, 220 300, 250 230"
-          fill="none"
-          stroke="url(#ia-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 440 400 C 340 340, 300 290, 250 230"
-          fill="none"
-          stroke="url(#ia-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-      </svg>
-
-      <div className="relative mx-auto aspect-[5/4.6] w-full max-w-[560px]">
-        {/* Center IA core */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="relative grid place-items-center">
-            <div
-              aria-hidden
-              className="absolute inset-0 -m-6 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.55), transparent 70%)",
-                filter: "blur(18px)",
-              }}
-            />
-            <div className="relative grid h-28 w-28 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur">
-              <BrainCircuit className="h-12 w-12 text-brand" strokeWidth={1.6} />
-              <span className="absolute -bottom-3 rounded-full bg-brand px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-[var(--shadow-cta)]">
-                IA AV
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Floating cards */}
-        <FloatCard
-          className="left-0 top-2"
-          icon={BellRing}
-          tone="amber"
-          title="Alerta inteligente"
-          desc="Fornecedor Alpha vence em 2 dias — sem aprovação."
-        />
-        <FloatCard
-          className="right-0 top-0"
-          icon={FileSearch}
-          title="Análise de pagamento"
-          desc="Divergência entre NF e boleto identificada."
-        />
-        <FloatCard
-          className="left-2 bottom-4"
-          icon={LayoutGrid}
-          title="Organização automática"
-          desc="24 documentos categorizados nesta manhã."
-        />
-        <FloatCard
-          className="right-0 bottom-2"
-          icon={LineChart}
-          tone="emerald"
-          title="Resumo financeiro"
-          desc="Caixa +8,4% vs. previsto — 30 dias."
-        />
-      </div>
-    </div>
-  );
-}
-
-function FloatCard({
-  className = "",
-  icon: Icon,
-  title,
-  desc,
-  tone = "brand",
-}: {
-  className?: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  title: string;
-  desc: string;
-  tone?: "brand" | "amber" | "emerald";
-}) {
-  const dot =
-    tone === "amber" ? "bg-amber-400" : tone === "emerald" ? "bg-emerald-400" : "bg-brand";
-  const iconColor =
-    tone === "amber" ? "text-amber-300" : tone === "emerald" ? "text-emerald-300" : "text-brand";
-  return (
-    <div
-      className={`absolute w-[210px] rounded-xl border border-white/10 bg-white/[0.06] p-3 backdrop-blur-md shadow-[0_10px_30px_-12px_oklch(0.1_0.05_264_/_0.6)] ${className}`}
-    >
-      <div className="flex items-center gap-2">
-        <span className={`grid h-8 w-8 place-items-center rounded-lg bg-white/[0.06] ${iconColor}`}>
-          <Icon className="h-4 w-4" strokeWidth={1.75} />
-        </span>
-        <div className="flex items-center gap-1.5">
-          <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-white/70">
-            {title}
-          </span>
-        </div>
-      </div>
-      <p className="mt-2 text-[11.5px] leading-snug text-white/80">{desc}</p>
-    </div>
-  );
-}
 
 function Hero() {
   return (
@@ -197,7 +51,7 @@ function Hero() {
           </div>
         </div>
         <div className="relative flex items-center justify-center">
-          <HeroAI />
+          <WhatsAppMockup />
         </div>
       </div>
     </section>

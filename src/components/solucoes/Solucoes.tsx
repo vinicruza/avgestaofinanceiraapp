@@ -9,215 +9,15 @@ import {
   Target,
   TrendingUp,
   Users,
-  Wallet,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
+import { DREMockup } from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
-
-function HeroDashboard() {
-  return (
-    <div className="relative">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{
-          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
-          filter: "blur(30px)",
-        }}
-      />
-      <div className="relative grid gap-4">
-        {/* Top row: 3 KPI cards */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-4">
-          {[
-            {
-              label: "Fluxo de Caixa",
-              sub: "Previsto (30 dias)",
-              value: "R$ 4.238.720,50",
-              delta: "↑ 12,4%",
-              deltaLabel: "vs mês anterior",
-              deltaColor: "text-emerald-400",
-            },
-            {
-              label: "Contas a Pagar",
-              sub: "Vencendo (7 dias)",
-              value: "R$ 1.245.780,90",
-              delta: "15 vencidos",
-              deltaLabel: "",
-              deltaColor: "text-red-400",
-            },
-            {
-              label: "Contas a Receber",
-              sub: "A Receber (30 dias)",
-              value: "R$ 3.450.980,20",
-              delta: "↑ 8,1%",
-              deltaLabel: "vs mês anterior",
-              deltaColor: "text-emerald-400",
-            },
-          ].map((k) => (
-            <div
-              key={k.label}
-              className="rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.6)] backdrop-blur sm:p-4"
-            >
-              <div className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
-                {k.label}
-              </div>
-              <div className="mt-0.5 text-[10px] text-white/50">{k.sub}</div>
-              <div className="mt-2 text-sm font-bold text-white sm:text-base">{k.value}</div>
-              <div className={`mt-1 text-[10px] font-semibold ${k.deltaColor}`}>
-                {k.delta}
-                {k.deltaLabel && <span className="ml-1 text-white/50">{k.deltaLabel}</span>}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Middle: chart + donut */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur">
-            <div className="flex items-center justify-between">
-              <div className="text-xs font-semibold text-white">Resumo Financeiro</div>
-              <div className="flex items-center gap-3 text-[10px] text-white/70">
-                <span className="flex items-center gap-1">
-                  <span className="h-2 w-2 rounded-full bg-brand" /> Receitas
-                </span>
-                <span className="flex items-center gap-1">
-                  <span className="h-2 w-2 rounded-full bg-red-400" /> Despesas
-                </span>
-              </div>
-            </div>
-            <svg viewBox="0 0 300 110" className="mt-3 h-24 w-full">
-              <path
-                d="M0 70 C 30 40, 60 90, 90 55 S 150 30, 180 60 210 85, 240 45 270 60, 300 40"
-                fill="none"
-                stroke="oklch(0.58 0.19 258)"
-                strokeWidth="2"
-              />
-              <path
-                d="M0 85 C 30 75, 60 95, 90 80 S 150 70, 180 88 210 100, 240 82 270 90, 300 75"
-                fill="none"
-                stroke="#f87171"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur">
-            <div className="text-xs font-semibold text-white">Despesas por Categoria</div>
-            <div className="mt-3 flex items-center gap-4">
-              <svg viewBox="0 0 42 42" className="h-20 w-20">
-                <circle
-                  cx="21"
-                  cy="21"
-                  r="15.9155"
-                  fill="transparent"
-                  stroke="#1e293b"
-                  strokeWidth="6"
-                />
-                <circle
-                  cx="21"
-                  cy="21"
-                  r="15.9155"
-                  fill="transparent"
-                  stroke="oklch(0.58 0.19 258)"
-                  strokeWidth="6"
-                  strokeDasharray="42 100"
-                  strokeDashoffset="25"
-                />
-                <circle
-                  cx="21"
-                  cy="21"
-                  r="15.9155"
-                  fill="transparent"
-                  stroke="#22c55e"
-                  strokeWidth="6"
-                  strokeDasharray="24 100"
-                  strokeDashoffset="-17"
-                />
-                <circle
-                  cx="21"
-                  cy="21"
-                  r="15.9155"
-                  fill="transparent"
-                  stroke="#f59e0b"
-                  strokeWidth="6"
-                  strokeDasharray="20 100"
-                  strokeDashoffset="-41"
-                />
-              </svg>
-              <ul className="grid flex-1 grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-white/75">
-                <li className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-brand" />
-                  Pessoal
-                </li>
-                <li className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  Operacional
-                </li>
-                <li className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-amber-400" />
-                  Tributos
-                </li>
-                <li className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-red-400" />
-                  Outros
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom: two lists */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur">
-            <div className="flex items-center justify-between text-xs font-semibold text-white">
-              <span>Pagamentos do Dia</span>
-              <span className="text-brand">R$ 124.440,00</span>
-            </div>
-            <ul className="mt-3 space-y-2 text-[11px] text-white/75">
-              {[
-                ["NF 1845 — Fornecedor ABC", "R$ 12.460,00", "Pago", "text-emerald-400"],
-                ["NF 1846 — Fornecedor XYZ", "R$ 8.750,00", "Pago", "text-emerald-400"],
-                ["NF 1847 — Fornecedor LMN", "R$ 5.230,00", "Programado", "text-amber-400"],
-              ].map(([n, v, s, c]) => (
-                <li key={n} className="flex items-center justify-between">
-                  <span className="truncate pr-2">{n}</span>
-                  <span className="flex shrink-0 items-center gap-2">
-                    <span className="text-white/85">{v}</span>
-                    <span className={`${c} text-[10px] font-semibold`}>● {s}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-3 text-right text-[10px] font-semibold text-brand">Ver todos</div>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur">
-            <div className="flex items-center justify-between text-xs font-semibold text-white">
-              <span>Aprovações Pendentes</span>
-              <span className="text-white/60">18</span>
-            </div>
-            <ul className="mt-3 space-y-2 text-[11px] text-white/75">
-              {[
-                ["Pagamento — NF 1848", "R$ 12.460,00"],
-                ["Pagamento — NF 1849", "R$ 8.750,00"],
-                ["Pagamento — NF 1850", "R$ 5.230,00"],
-              ].map(([n, v]) => (
-                <li key={n} className="flex items-center justify-between">
-                  <span className="truncate pr-2">{n}</span>
-                  <span className="shrink-0 text-white/85">{v}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-3 text-right text-[10px] font-semibold text-brand">Ver todos</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 const HERO_MINI = [
   { icon: Users, label: "Pessoas", label2: "especializadas" },
@@ -269,7 +69,7 @@ function Hero() {
         </div>
 
         <div className="relative flex items-center">
-          <HeroDashboard />
+          <DREMockup />
         </div>
       </div>
     </section>

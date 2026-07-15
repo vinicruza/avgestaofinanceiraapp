@@ -14,9 +14,11 @@ import {
   Wallet,
   Workflow,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
+import { AV_WHATSAPP_URL } from "@/lib/av-config";
 
 function HeroBackdrop() {
   return (
@@ -296,12 +298,12 @@ function ArticlesSection() {
               <span className="text-brand">sócios, gestores e financeiro.</span>
             </h2>
           </div>
-          <a
-            href="#"
+          <Link
+            to="/agendar-demonstracao"
             className="inline-flex items-center gap-1 text-sm font-semibold text-brand hover:text-brand-strong"
           >
             Ver todos os conteúdos <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -323,12 +325,12 @@ function ArticlesSection() {
               <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-muted-foreground">
                 {a.desc}
               </p>
-              <a
-                href="#"
+              <Link
+                to="/agendar-demonstracao"
                 className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-brand transition group-hover:gap-2.5"
               >
                 Ler conteúdo <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </article>
           ))}
         </div>
@@ -389,7 +391,9 @@ function FinalCta() {
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <a
-              href="#"
+              href={AV_WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-1 self-center text-sm font-semibold text-white/80 hover:text-white"
             >
               Falar com um especialista <ArrowUpRight className="h-4 w-4" />

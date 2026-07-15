@@ -21,6 +21,7 @@ import {
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
+import { AV_WHATSAPP_URL } from "@/lib/av-config";
 
 function HeroBackdrop() {
   return (
@@ -433,7 +434,9 @@ function FinalCta() {
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <a
-              href="#"
+              href={AV_WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-1 self-center text-sm font-semibold text-white/80 hover:text-white"
             >
               Falar com um especialista <ArrowUpRight className="h-4 w-4" />

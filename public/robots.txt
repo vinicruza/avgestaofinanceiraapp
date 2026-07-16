@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avgestaofinanceira.com.br/sitemap.xml

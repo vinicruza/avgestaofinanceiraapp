@@ -11,13 +11,15 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { siteUrl } from "../lib/seo";
+import avLogo from "../assets/av-logo-horizontal.png.asset.json";
 
 const SITE_TITLE = "AV Gestão Financeira — Operações financeiras inteligentes";
 const SITE_DESCRIPTION =
   "BPO financeiro que combina pessoas, processos, tecnologia própria e inteligência artificial para tornar o financeiro da sua empresa previsível, eficiente e escalável. Agende uma demonstração.";
-// TODO: substituir pela imagem social oficial da AV (recomendado 1200x630) hospedada no próprio domínio.
-const SITE_OG_IMAGE =
-  "https://storage.googleapis.com/gpt-engineer-file-uploads/VSj5KZ4UCWSSIbL3GhQiYdfJcOh2/social-images/social-1782946665959-1000251881.webp";
+// Imagem social (Open Graph / Twitter) — logo oficial da AV, servido no próprio
+// domínio. URL absoluta é obrigatória para o compartilhamento em redes sociais.
+const SITE_OG_IMAGE = siteUrl(avLogo.url);
 
 function NotFoundComponent() {
   return (

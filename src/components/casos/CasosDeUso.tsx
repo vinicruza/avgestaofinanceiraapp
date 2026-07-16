@@ -23,169 +23,16 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
+import { HeroCardGrid, type HeroCardItem } from "@/components/site/HeroCardGrid";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
 
-type Tone = "brand" | "amber" | "emerald";
-
-function ProfileCard({
-  className = "",
-  icon: Icon,
-  title,
-  meta,
-  tone = "brand",
-}: {
-  className?: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  title: string;
-  meta: string;
-  tone?: Tone;
-}) {
-  const dot =
-    tone === "amber" ? "bg-amber-400" : tone === "emerald" ? "bg-emerald-400" : "bg-brand";
-  const iconColor =
-    tone === "amber" ? "text-amber-300" : tone === "emerald" ? "text-emerald-300" : "text-brand";
-  return (
-    <div
-      className={`absolute w-[220px] rounded-xl border border-white/10 bg-white/[0.06] p-3.5 backdrop-blur-md shadow-[0_10px_30px_-12px_oklch(0.1_0.05_264_/_0.6)] ${className}`}
-    >
-      <div className="flex items-center gap-2.5">
-        <span className={`grid h-9 w-9 place-items-center rounded-lg bg-white/[0.06] ${iconColor}`}>
-          <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
-        </span>
-        <div>
-          <div className="flex items-center gap-1.5">
-            <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-            <span className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
-              {meta}
-            </span>
-          </div>
-          <div className="text-[12.5px] font-semibold leading-tight text-white">{title}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HeroCases() {
-  return (
-    <div className="relative">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{
-          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
-          filter: "blur(30px)",
-        }}
-      />
-
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        viewBox="0 0 500 460"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id="cases-conn" x1="0" x2="1">
-            <stop offset="0" stopColor="#60a5fa" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.55" />
-            <stop offset="1" stopColor="#60a5fa" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M 60 90 C 180 130, 240 180, 250 230"
-          fill="none"
-          stroke="url(#cases-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 440 70 C 340 130, 300 190, 250 230"
-          fill="none"
-          stroke="url(#cases-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 40 260 C 140 260, 210 240, 250 230"
-          fill="none"
-          stroke="url(#cases-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 460 300 C 360 280, 300 250, 250 230"
-          fill="none"
-          stroke="url(#cases-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 250 420 C 250 340, 250 280, 250 230"
-          fill="none"
-          stroke="url(#cases-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-      </svg>
-
-      <div className="relative mx-auto aspect-[5/4.8] w-full max-w-[560px]">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="relative grid place-items-center">
-            <div
-              aria-hidden
-              className="absolute inset-0 -m-6 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.55), transparent 70%)",
-                filter: "blur(18px)",
-              }}
-            />
-            <div className="relative grid h-28 w-28 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur">
-              <Target className="h-12 w-12 text-brand" strokeWidth={1.6} />
-              <span className="absolute -bottom-3 whitespace-nowrap rounded-full bg-brand px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-[var(--shadow-cta)]">
-                Casos de Uso
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <ProfileCard
-          className="left-0 top-0"
-          icon={Wallet}
-          meta="Perfil 01"
-          title="Muitas contas a pagar"
-        />
-        <ProfileCard
-          className="right-0 top-0"
-          icon={Building2}
-          meta="Perfil 02"
-          title="Múltiplas unidades"
-          tone="emerald"
-        />
-        <ProfileCard
-          className="left-0 top-[46%]"
-          icon={ClipboardCheck}
-          meta="Perfil 03"
-          title="Aprovações financeiras"
-          tone="amber"
-        />
-        <ProfileCard
-          className="right-0 top-[46%]"
-          icon={TrendingUp}
-          meta="Perfil 04"
-          title="Precisa de previsibilidade"
-        />
-        <ProfileCard
-          className="left-1/2 bottom-0 -translate-x-1/2"
-          icon={Fuel}
-          meta="Perfil 05"
-          title="Postos de combustíveis"
-          tone="emerald"
-        />
-      </div>
-    </div>
-  );
-}
+const PROFILE_ITEMS: HeroCardItem[] = [
+  { icon: Wallet, meta: "Perfil 01", title: "Muitas contas a pagar" },
+  { icon: Building2, meta: "Perfil 02", title: "Múltiplas unidades" },
+  { icon: ClipboardCheck, meta: "Perfil 03", title: "Aprovações financeiras" },
+  { icon: TrendingUp, meta: "Perfil 04", title: "Precisa de previsibilidade" },
+  { icon: Fuel, meta: "Perfil 05", title: "Postos de combustíveis" },
+];
 
 function Hero() {
   return (
@@ -215,7 +62,7 @@ function Hero() {
           </div>
         </div>
         <div className="relative flex items-center justify-center">
-          <HeroCases />
+          <HeroCardGrid items={PROFILE_ITEMS} />
         </div>
       </div>
     </section>

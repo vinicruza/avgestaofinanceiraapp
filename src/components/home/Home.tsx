@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   ArrowUpRight,
-  BellRing,
   BrainCircuit,
   CheckCircle2,
   ClipboardCheck,

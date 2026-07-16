@@ -9,8 +9,8 @@ function PoliticaPrivacidade() {
       subtitle="Como a AV Gestão Financeira coleta, utiliza e protege as informações compartilhadas pelos visitantes e clientes."
     >
       <p>
-        Esta política descreve, de forma resumida, como tratamos dados pessoais coletados por
-        meio deste site institucional. O conteúdo detalhado será atualizado em breve.
+        Esta política descreve, de forma resumida, como tratamos dados pessoais coletados por meio
+        deste site institucional. O conteúdo detalhado será atualizado em breve.
       </p>
       <p>
         Utilizamos informações fornecidas em formulários (nome, e-mail, telefone e empresa)

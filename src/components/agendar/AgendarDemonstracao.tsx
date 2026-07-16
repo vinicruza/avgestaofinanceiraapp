@@ -293,7 +293,7 @@ function FormAndSteps() {
             Solicite uma conversa com a AV Gestão Financeira.
           </h2>
           <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">
-            Retornaremos o contato em até 1 dia útil para entender a sua operação.
+            Preencha o formulário e nossa equipe entrará em contato para entender a sua operação.
           </p>
 
           <form className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2" onSubmit={handleSubmit}>

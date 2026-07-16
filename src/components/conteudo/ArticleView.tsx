@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { CtaPrimary, CtaGhost } from "@/components/site/ctas";
 import { Reveal } from "@/components/site/Reveal";
+import { PostCover } from "@/components/conteudo/PostCover";
 import type { Block, BlogPost } from "@/content/blog";
 
 function formatDate(iso: string): string {
@@ -89,6 +90,10 @@ export function ArticleView({ post }: { post: BlogPost }) {
 
       <section className="bg-white">
         <div className="mx-auto max-w-[820px] px-6 py-16 lg:px-10">
+          <PostCover
+            kind={post.cover}
+            className="mb-10 aspect-[16/7] w-full rounded-2xl ring-1 ring-black/5"
+          />
           <Reveal>
             <article>
               {post.body.map((block, i) => (

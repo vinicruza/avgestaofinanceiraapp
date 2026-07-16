@@ -503,10 +503,6 @@ function FinalCta() {
               Falar pelo WhatsApp
             </a>
           </div>
-          <div className="mt-4 flex items-center gap-2 text-[12px] text-white/60">
-            <CheckCircle2 className="h-4 w-4 text-brand" />
-            Resposta em até 1 dia útil.
-          </div>
         </Reveal>
       </div>
     </section>

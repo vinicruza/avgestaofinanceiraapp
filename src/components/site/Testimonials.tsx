@@ -1,32 +1,48 @@
-import { Quote, MessageSquareQuote } from "lucide-react";
+import { MessageSquareQuote } from "lucide-react";
 import { AV_TESTIMONIALS, type AvTestimonial } from "@/lib/av-testimonials";
 import { Reveal } from "@/components/site/Reveal";
 
 function Card({ t, i }: { t: AvTestimonial; i: number }) {
   const draft = !t.ready;
   return (
-    <Reveal delay={i * 110}>
+    <Reveal delay={i * 110} className="h-full">
       <figure
-        className={`flex h-full flex-col rounded-2xl border bg-card p-6 shadow-[var(--shadow-card)] ${
-          draft ? "border-dashed border-brand/30" : "border-border"
+        className={`relative flex h-full flex-col overflow-hidden rounded-2xl bg-navy-deep p-7 shadow-[0_24px_60px_-24px_rgba(10,15,40,0.55)] ring-1 ${
+          draft ? "ring-brand/30" : "ring-white/10"
         }`}
       >
+        {/* brilho decorativo no canto */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full"
+          style={{
+            background:
+              "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
+            filter: "blur(24px)",
+          }}
+        />
+
         {draft && (
-          <span className="mb-3 inline-flex w-fit items-center gap-1 rounded-full bg-brand-soft px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand">
+          <span className="relative mb-3 inline-flex w-fit items-center gap-1 rounded-full bg-brand/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand">
             Depoimento a preencher
           </span>
         )}
-        <Quote className="h-7 w-7 text-brand/30" strokeWidth={1.75} />
-        <blockquote className="mt-3 flex-1 text-[14.5px] leading-relaxed text-navy-deep">
+
+        <h3 className="relative font-display text-xl font-extrabold leading-snug tracking-tight text-white">
+          “{t.headline}”
+        </h3>
+
+        <blockquote className="relative mt-4 flex-1 text-[14.5px] italic leading-relaxed text-white/70">
           {t.quote}
         </blockquote>
-        <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand-soft text-sm font-bold text-brand">
+
+        <figcaption className="relative mt-7 flex items-center gap-3 border-t border-white/10 pt-5">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/10 text-sm font-bold text-brand">
             {t.initials}
           </span>
           <span className="leading-tight">
-            <span className="block text-[14px] font-bold text-navy-deep">{t.name}</span>
-            <span className="block text-[12.5px] text-muted-foreground">{t.role}</span>
+            <span className="block text-[14px] font-bold text-white">{t.name}</span>
+            <span className="block text-[12.5px] text-white/55">{t.role}</span>
           </span>
         </figcaption>
       </figure>
@@ -52,7 +68,7 @@ export function Testimonials({
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 items-stretch gap-5 md:grid-cols-3">
           {AV_TESTIMONIALS.map((t, i) => (
             <Card key={i} t={t} i={i} />
           ))}

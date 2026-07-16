@@ -5,7 +5,10 @@ import { Reveal } from "@/components/site/Reveal";
 function Card({ t, i }: { t: AvTestimonial; i: number }) {
   const draft = !t.ready;
   return (
-    <Reveal delay={i * 110} className="h-full">
+    <Reveal
+      delay={i * 110}
+      className="h-full min-w-[85%] shrink-0 snap-center sm:min-w-[48%] md:min-w-0"
+    >
       <figure
         className={`relative flex h-full flex-col overflow-hidden rounded-2xl bg-navy-deep p-7 shadow-[0_24px_60px_-24px_rgba(10,15,40,0.55)] ring-1 ${
           draft ? "ring-brand/30" : "ring-white/10"
@@ -68,11 +71,19 @@ export function Testimonials({
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 items-stretch gap-5 md:grid-cols-3">
+        {/*
+          Mobile/tablet: carrossel horizontal com scroll-snap (deslize para o lado).
+          Desktop (md+): grade de 3 colunas.
+        */}
+        <div className="mt-14 flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-3 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
           {AV_TESTIMONIALS.map((t, i) => (
             <Card key={i} t={t} i={i} />
           ))}
         </div>
+
+        <p className="mt-4 text-center text-[11px] text-muted-foreground md:hidden">
+          Deslize para o lado para ver mais →
+        </p>
       </div>
     </section>
   );

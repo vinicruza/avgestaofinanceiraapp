@@ -2,7 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { siteUrl } from "@/lib/seo";
 import { Conteudo } from "@/components/conteudo/Conteudo";
 
+type ConteudoSearch = { post?: string };
+
 export const Route = createFileRoute("/conteudo")({
+  validateSearch: (search: Record<string, unknown>): ConteudoSearch => ({
+    post: typeof search.post === "string" ? search.post : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Conteúdo | AV Gestão Financeira" },

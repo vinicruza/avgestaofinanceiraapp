@@ -1,9 +1,11 @@
 import {
+  ArrowRight,
   ArrowUpRight,
   BookOpen,
   BrainCircuit,
   Building2,
   ClipboardCheck,
+  Clock,
   Cpu,
   Fuel,
   Gauge,
@@ -13,12 +15,25 @@ import {
   Wallet,
   Workflow,
 } from "lucide-react";
+import type { ComponentType } from "react";
+import { Link, useSearch } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
+import { AV_POSTS, getPost } from "@/content/blog";
+import { ArticleView } from "@/components/conteudo/ArticleView";
+
+const CATEGORY_ICON: Record<string, ComponentType<{ className?: string; strokeWidth?: number }>> = {
+  Tecnologia: Cpu,
+  Processos: Workflow,
+  "Fluxo de Caixa": LineChart,
+  "Gestão Financeira": Wallet,
+  "Postos de Combustíveis": Fuel,
+  "IA AV": BrainCircuit,
+};
 
 function TopicCard({
   className = "",
@@ -271,88 +286,52 @@ function TopicsSection() {
   );
 }
 
-const ARTICLES = [
-  {
-    icon: Wallet,
-    category: "Gestão Financeira",
-    title: "Financeiro organizado não é apenas ter tudo pago",
-    desc: "Entenda por que rotina, processo e visibilidade são essenciais para uma gestão financeira mais confiável.",
-  },
-  {
-    icon: Workflow,
-    category: "Processos",
-    title: "Como reduzir decisões no escuro dentro da empresa",
-    desc: "Veja como informações financeiras organizadas ajudam sócios e gestores a decidirem com mais segurança.",
-  },
-  {
-    icon: Cpu,
-    category: "Tecnologia",
-    title: "O papel da tecnologia no BPO financeiro moderno",
-    desc: "Como plataformas, dados e automações tornam a operação financeira mais eficiente.",
-  },
-  {
-    icon: BrainCircuit,
-    category: "IA AV",
-    title: "IA aplicada ao financeiro: por onde começar?",
-    desc: "Entenda como a inteligência artificial pode apoiar tarefas, análises, alertas e organização de informações.",
-  },
-  {
-    icon: LineChart,
-    category: "Fluxo de Caixa",
-    title: "Fluxo de caixa: previsto x realizado na prática",
-    desc: "Por que acompanhar o previsto e o realizado é essencial para evitar surpresas financeiras.",
-  },
-  {
-    icon: Fuel,
-    category: "Postos de Combustíveis",
-    title: "DRE de posto precisa conversar com a operação",
-    desc: "Uma visão prática sobre como financeiro, estoque, cartões, despesas e operação precisam estar conectados.",
-  },
-];
-
 function ArticlesSection() {
   return (
     <section id="conteudos-destaque" className="bg-[oklch(0.985_0.005_258)]">
       <div className="mx-auto max-w-[1360px] px-6 py-24 lg:px-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
-              Conteúdos em destaque
-            </p>
-            <h2 className="mt-4 max-w-2xl font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[36px]">
-              Leituras rápidas para{" "}
-              <span className="text-brand">sócios, gestores e financeiro.</span>
-            </h2>
-          </div>
-          <span className="inline-flex items-center gap-2 self-start rounded-full border border-brand/20 bg-brand-soft px-3 py-1.5 text-[12px] font-semibold text-brand">
-            Novos conteúdos em breve
-          </span>
-        </div>
+        <Reveal>
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-brand">
+            Conteúdos em destaque
+          </p>
+          <h2 className="mt-4 max-w-2xl font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-navy-deep lg:text-[36px]">
+            Leituras rápidas para <span className="text-brand">sócios, gestores e financeiro.</span>
+          </h2>
+        </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {ARTICLES.map((a) => (
-            <article
-              key={a.title}
-              className="group flex flex-col rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-2 rounded-full bg-brand-soft px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
-                  <a.icon className="h-3.5 w-3.5" strokeWidth={2} />
-                  {a.category}
-                </span>
-                <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-700">
-                  Em breve
-                </span>
-              </div>
-              <h3 className="mt-5 text-[17px] font-bold leading-snug text-navy-deep">{a.title}</h3>
-              <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-muted-foreground">
-                {a.desc}
-              </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-muted-foreground">
-                Disponível em breve
-              </span>
-            </article>
-          ))}
+          {AV_POSTS.map((p, i) => {
+            const Icon = CATEGORY_ICON[p.category] ?? BookOpen;
+            return (
+              <Reveal key={p.slug} delay={(i % 3) * 90}>
+                <Link
+                  to="/conteudo"
+                  search={{ post: p.slug }}
+                  className="group flex h-full flex-col rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-lg"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-brand-soft px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
+                      <Icon className="h-3.5 w-3.5" strokeWidth={2} />
+                      {p.category}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-muted-foreground">
+                      <Clock className="h-3.5 w-3.5" />
+                      {p.readingMinutes} min
+                    </span>
+                  </div>
+                  <h3 className="mt-5 text-[17px] font-bold leading-snug text-navy-deep">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-muted-foreground">
+                    {p.excerpt}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-brand transition group-hover:gap-2.5">
+                    Ler artigo <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -430,15 +409,20 @@ function FinalCta() {
 }
 
 export function Conteudo() {
+  const { post } = useSearch({ from: "/conteudo" });
+  const article = post ? getPost(post) : undefined;
+
+  if (article) {
+    return <ArticleView post={article} />;
+  }
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
       <Reveal>
         <TopicsSection />
       </Reveal>
-      <Reveal>
-        <ArticlesSection />
-      </Reveal>
+      <ArticlesSection />
       <Reveal>
         <AppliedSection />
       </Reveal>

@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   ArrowUpRight,
   BookOpen,
   BrainCircuit,
@@ -14,7 +13,6 @@ import {
   Wallet,
   Workflow,
 } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
@@ -326,12 +324,9 @@ function ArticlesSection() {
               <span className="text-brand">sócios, gestores e financeiro.</span>
             </h2>
           </div>
-          <Link
-            to="/agendar-demonstracao"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-brand hover:text-brand-strong"
-          >
-            Ver todos os conteúdos <ArrowUpRight className="h-4 w-4" />
-          </Link>
+          <span className="inline-flex items-center gap-2 self-start rounded-full border border-brand/20 bg-brand-soft px-3 py-1.5 text-[12px] font-semibold text-brand">
+            Novos conteúdos em breve
+          </span>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -345,18 +340,17 @@ function ArticlesSection() {
                   <a.icon className="h-3.5 w-3.5" strokeWidth={2} />
                   {a.category}
                 </span>
-                <span className="text-[11px] font-semibold text-muted-foreground">Artigo</span>
+                <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-700">
+                  Em breve
+                </span>
               </div>
               <h3 className="mt-5 text-[17px] font-bold leading-snug text-navy-deep">{a.title}</h3>
               <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-muted-foreground">
                 {a.desc}
               </p>
-              <Link
-                to="/agendar-demonstracao"
-                className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-brand transition group-hover:gap-2.5"
-              >
-                Ler conteúdo <ArrowRight className="h-4 w-4" />
-              </Link>
+              <span className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-muted-foreground">
+                Disponível em breve
+              </span>
             </article>
           ))}
         </div>

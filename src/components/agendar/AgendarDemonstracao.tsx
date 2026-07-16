@@ -31,6 +31,7 @@ import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
+import { submitLead } from "@/lib/av-supabase";
 
 function FloatCard({
   className = "",
@@ -270,15 +271,35 @@ const inputClass =
 function FormAndSteps() {
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const value = (k: string) => String(data.get(k) ?? "").trim();
+
     setSubmitting(true);
-    // Interface pronta — integração posterior com backend.
-    await new Promise((r) => setTimeout(r, 700));
-    setSubmitting(false);
-    setSent(true);
-    (e.target as HTMLFormElement).reset();
+    setError(false);
+    try {
+      await submitLead({
+        nome: value("nome"),
+        empresa: value("empresa"),
+        email: value("email"),
+        telefone: value("telefone"),
+        cargo: value("cargo"),
+        unidades: value("unidades"),
+        desafio: value("desafio"),
+        mensagem: value("mensagem"),
+      });
+      setSent(true);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -382,6 +403,21 @@ function FormAndSteps() {
               <div className="sm:col-span-2 flex items-start gap-3 rounded-xl border border-brand/20 bg-brand-soft px-4 py-3 text-[13.5px] text-navy-deep">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 text-brand" />
                 <span>Recebemos sua solicitação. Nossa equipe entrará em contato em breve.</span>
+              </div>
+            )}
+
+            {error && (
+              <div className="sm:col-span-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-[13.5px] text-red-700">
+                Não conseguimos enviar sua solicitação agora. Tente novamente em instantes ou{" "}
+                <a
+                  href={AV_WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold underline"
+                >
+                  fale com a gente pelo WhatsApp
+                </a>
+                .
               </div>
             )}
           </form>

@@ -10,9 +10,13 @@ export type Block =
   | { type: "ul"; items: string[] }
   | { type: "quote"; text: string };
 
+export type CoverKind = "payments" | "reconciliation" | "cashflow" | "organization" | "fuel";
+
 export type BlogPost = {
   slug: string;
   category: string;
+  /** Ilustração de capa (ver PostCover). */
+  cover: CoverKind;
   title: string;
   excerpt: string;
   /** Data de publicação (ISO). */
@@ -30,6 +34,7 @@ export const AV_POSTS: BlogPost[] = [
   {
     slug: "tecnospeed-api-pagamentos",
     category: "Tecnologia",
+    cover: "payments",
     title: "Tecnospeed no sistema AV: a API de pagamentos que vai automatizar o contas a pagar",
     excerpt:
       "Estamos integrando a API de pagamentos da Tecnospeed (PlugBank) à Plataforma AV. Entenda o que muda quando pagar deixa de ser tarefa manual e vira um fluxo automático, seguro e conciliado.",
@@ -99,6 +104,7 @@ export const AV_POSTS: BlogPost[] = [
   {
     slug: "conciliacao-bancaria-automatica",
     category: "Processos",
+    cover: "reconciliation",
     title: "Conciliação bancária automática: menos erro, mais controle",
     excerpt:
       "Conferir extrato no fim do mês, na mão, é retrabalho e risco. Veja como a conciliação automática — com Open Finance e IA — muda o jogo da rotina financeira.",
@@ -138,6 +144,7 @@ export const AV_POSTS: BlogPost[] = [
   {
     slug: "fluxo-de-caixa-previsto-realizado",
     category: "Fluxo de Caixa",
+    cover: "cashflow",
     title: "Fluxo de caixa: previsto x realizado na prática",
     excerpt:
       "Saldo em conta não é fluxo de caixa. Entenda por que comparar o previsto com o realizado é o que evita surpresas e sustenta boas decisões.",
@@ -181,6 +188,7 @@ export const AV_POSTS: BlogPost[] = [
   {
     slug: "financeiro-organizado-nao-e-so-pagar",
     category: "Gestão Financeira",
+    cover: "organization",
     title: "Financeiro organizado não é apenas ter tudo pago",
     excerpt:
       "Pagar em dia é o mínimo. Financeiro organizado é ter rotina, processo e visibilidade — para decidir com segurança, não no escuro.",
@@ -214,6 +222,7 @@ export const AV_POSTS: BlogPost[] = [
   {
     slug: "dre-de-posto-conversa-com-operacao",
     category: "Postos de Combustíveis",
+    cover: "fuel",
     title: "DRE de posto precisa conversar com a operação",
     excerpt:
       "Um DRE que não bate com a pista, a loja e o estoque vira relatório de gaveta. Veja por que financeiro e operação precisam falar a mesma língua.",

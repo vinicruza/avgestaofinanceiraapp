@@ -561,10 +561,6 @@ function FinalCta() {
               Falar pelo WhatsApp <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
-          <div className="mt-4 flex items-center gap-2 text-[12px] text-white/60">
-            <Gauge className="h-4 w-4 text-brand" />
-            Resposta em até 1 dia útil.
-          </div>
         </div>
       </div>
     </section>

@@ -9,8 +9,8 @@ function TermosDeUso() {
       subtitle="Regras e condições para navegação e uso das informações disponibilizadas neste site institucional."
     >
       <p>
-        Este site é mantido pela AV Gestão Financeira e tem finalidade informativa. As
-        informações apresentadas podem ser atualizadas a qualquer momento, sem aviso prévio.
+        Este site é mantido pela AV Gestão Financeira e tem finalidade informativa. As informações
+        apresentadas podem ser atualizadas a qualquer momento, sem aviso prévio.
       </p>
       <p>
         O conteúdo, marcas e materiais visuais são de propriedade da AV Gestão Financeira e não

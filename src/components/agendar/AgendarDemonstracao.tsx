@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   BrainCircuit,
   Building2,
-  CalendarCheck,
   CheckCircle2,
   ClipboardList,
   Compass,
@@ -30,153 +29,17 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
+import { HeroCardGrid, type HeroCardItem } from "@/components/site/HeroCardGrid";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
 import { submitLead } from "@/lib/av-supabase";
 
-function FloatCard({
-  className = "",
-  icon: Icon,
-  title,
-  meta,
-}: {
-  className?: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  title: string;
-  meta: string;
-}) {
-  return (
-    <div
-      className={`absolute w-[220px] rounded-xl border border-white/10 bg-white/[0.06] p-3.5 backdrop-blur-md shadow-[0_10px_30px_-12px_oklch(0.1_0.05_264_/_0.6)] ${className}`}
-    >
-      <div className="flex items-center gap-2.5">
-        <span className="grid h-9 w-9 place-items-center rounded-lg bg-white/[0.06] text-brand">
-          <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
-        </span>
-        <div>
-          <div className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            <span className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
-              {meta}
-            </span>
-          </div>
-          <div className="text-[12.5px] font-semibold leading-tight text-white">{title}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HeroSchedule() {
-  return (
-    <div className="relative">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-0"
-        style={{
-          background: "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
-          filter: "blur(30px)",
-        }}
-      />
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        viewBox="0 0 500 500"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id="sched-conn" x1="0" x2="1">
-            <stop offset="0" stopColor="#60a5fa" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#60a5fa" stopOpacity="0.55" />
-            <stop offset="1" stopColor="#60a5fa" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M 60 70 C 170 130, 230 190, 250 250"
-          fill="none"
-          stroke="url(#sched-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 440 60 C 340 130, 290 200, 250 250"
-          fill="none"
-          stroke="url(#sched-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 30 280 C 150 280, 210 260, 250 250"
-          fill="none"
-          stroke="url(#sched-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 60 440 C 170 380, 220 300, 250 250"
-          fill="none"
-          stroke="url(#sched-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-        <path
-          d="M 440 430 C 340 370, 290 300, 250 250"
-          fill="none"
-          stroke="url(#sched-conn)"
-          strokeWidth="1"
-          strokeDasharray="3 4"
-        />
-      </svg>
-
-      <div className="relative mx-auto aspect-[5/5] w-full max-w-[560px]">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="relative grid place-items-center">
-            <div
-              aria-hidden
-              className="absolute inset-0 -m-6 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.55), transparent 70%)",
-                filter: "blur(18px)",
-              }}
-            />
-            <div className="relative grid h-28 w-28 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur">
-              <CalendarCheck className="h-12 w-12 text-brand" strokeWidth={1.6} />
-              <span className="absolute -bottom-3 whitespace-nowrap rounded-full bg-brand px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-[var(--shadow-cta)]">
-                Demonstração
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <FloatCard
-          className="left-0 top-2"
-          icon={Search}
-          meta="Etapa 01"
-          title="Diagnóstico financeiro"
-        />
-        <FloatCard
-          className="right-0 top-0"
-          icon={Workflow}
-          meta="Etapa 02"
-          title="Rotina operacional"
-        />
-        <FloatCard
-          className="-left-2 top-1/2 -translate-y-1/2"
-          icon={MonitorSmartphone}
-          meta="Ferramenta"
-          title="Plataforma AV"
-        />
-        <FloatCard className="left-0 bottom-2" icon={Target} meta="Estrutura" title="Método AV" />
-        <FloatCard
-          className="right-0 bottom-2"
-          icon={BrainCircuit}
-          meta="Inteligência"
-          title="IA aplicada"
-        />
-      </div>
-    </div>
-  );
-}
+const SCHEDULE_ITEMS: HeroCardItem[] = [
+  { icon: Search, meta: "Etapa 01", title: "Diagnóstico financeiro" },
+  { icon: Workflow, meta: "Etapa 02", title: "Rotina operacional" },
+  { icon: MonitorSmartphone, meta: "Ferramenta", title: "Plataforma AV" },
+  { icon: Target, meta: "Estrutura", title: "Método AV" },
+  { icon: BrainCircuit, meta: "Inteligência", title: "IA aplicada" },
+];
 
 function Hero() {
   return (
@@ -207,7 +70,7 @@ function Hero() {
           </div>
         </div>
         <div className="relative flex items-center justify-center">
-          <HeroSchedule />
+          <HeroCardGrid items={SCHEDULE_ITEMS} />
         </div>
       </div>
     </section>

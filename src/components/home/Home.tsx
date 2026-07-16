@@ -24,6 +24,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { DashboardMockup, PaymentsMockup } from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
+import { Testimonials } from "@/components/site/Testimonials";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { Reveal } from "@/components/site/Reveal";
 import { AV_AI_HIGHLIGHTS } from "@/lib/av-stats";
@@ -525,6 +526,7 @@ export function Home() {
       <PlatformAndAI />
       <Niche />
       <Method />
+      <Testimonials />
       <FinalCta />
       <SiteFooter />
     </main>

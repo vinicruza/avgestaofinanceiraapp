@@ -31,6 +31,7 @@ import {
   UsuariosMockup,
 } from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
+import { Testimonials } from "@/components/site/Testimonials";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
 
@@ -405,6 +406,7 @@ export function PlataformaAV() {
       <Reveal>
         <EcosystemSection />
       </Reveal>
+      <Testimonials className="bg-white" />
       <Reveal>
         <FinalCta />
       </Reveal>

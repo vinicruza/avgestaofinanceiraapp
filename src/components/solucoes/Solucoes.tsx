@@ -16,6 +16,7 @@ import { HeroBackdrop } from "@/components/site/HeroBackdrop";
 import { Reveal } from "@/components/site/Reveal";
 import { DREMockup } from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
+import { Testimonials } from "@/components/site/Testimonials";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
 import { AV_WHATSAPP_URL } from "@/lib/av-config";
 
@@ -331,6 +332,7 @@ export function Solucoes() {
       <Reveal>
         <Benefits />
       </Reveal>
+      <Testimonials />
       <Reveal>
         <FinalCta />
       </Reveal>

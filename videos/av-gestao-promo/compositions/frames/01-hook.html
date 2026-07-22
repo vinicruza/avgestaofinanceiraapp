@@ -1,0 +1,84 @@
+<template>
+  <div id="root" data-composition-id="01-hook" data-start="0" data-duration="5.6" data-width="1080" data-height="1080">
+    <style>
+      @font-face { font-family:"Inter"; font-weight:400; font-style:normal; font-display:block; src:url("assets/fonts/Inter-400.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:500; font-style:normal; font-display:block; src:url("assets/fonts/Inter-500.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:600; font-style:normal; font-display:block; src:url("assets/fonts/Inter-600.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:700; font-style:normal; font-display:block; src:url("assets/fonts/Inter-700.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:800; font-style:normal; font-display:block; src:url("assets/fonts/Inter-800.woff2") format("woff2"); }
+
+      #root {
+        position:absolute; inset:0; width:1080px; height:1080px; overflow:hidden;
+        background:transparent; font-family:"Inter",sans-serif;
+        --bg:#0b1120; --bg2:#141d33; --primary:#3a6df5; --primary2:#5b86ff;
+        --text:#ffffff; --muted:#aab4cc; --light:#6b7591;
+      }
+      #root .clip { position:absolute; }
+
+      #root .hk-bg { inset:0; width:1080px; height:1080px;
+        background:
+          radial-gradient(760px 620px at 50% 40%, rgba(91,134,255,0.22), rgba(11,17,32,0) 62%),
+          radial-gradient(900px 700px at 82% 6%, rgba(58,109,245,0.18), rgba(11,17,32,0) 60%),
+          linear-gradient(180deg,#0d1526 0%,#0b1120 100%);
+      }
+      #root .hk-glow { left:50%; top:40%; width:640px; height:640px; margin:-320px 0 0 -320px;
+        border-radius:50%; background:radial-gradient(closest-side, rgba(91,134,255,0.30), rgba(11,17,32,0) 70%);
+        filter:blur(6px); }
+
+      #root .hk-stage { inset:0; width:1080px; height:1080px;
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+        text-align:center; padding:0 96px 120px; }
+      #root .hk-eyebrow { color:var(--primary); font-weight:600; font-size:21px;
+        letter-spacing:0.24em; text-transform:uppercase; margin-bottom:34px; }
+      #root .hk-h1 { color:var(--text); font-weight:800; font-size:86px; line-height:1.06;
+        letter-spacing:-0.02em; }
+      #root .hk-h1 .hk-word { display:inline-block; }
+      #root .hk-accent { color:var(--primary2); font-weight:800; font-size:86px; line-height:1.06;
+        letter-spacing:-0.02em; display:inline-block; position:relative; margin-top:4px; }
+      #root .hk-underline { position:absolute; left:0; bottom:-14px; height:6px; width:100%;
+        transform-origin:left center; border-radius:3px;
+        background:linear-gradient(90deg,var(--primary),var(--primary2)); }
+      #root .hk-mono { position:absolute; left:64px; top:60px; display:flex; align-items:center; gap:12px; }
+      #root .hk-mono .hk-badge { width:52px; height:52px; border-radius:13px;
+        background:linear-gradient(135deg,var(--primary),var(--primary2));
+        display:flex; align-items:center; justify-content:center;
+        color:#fff; font-weight:800; font-size:23px; letter-spacing:-0.01em; }
+      #root .hk-mono .hk-name { color:var(--muted); font-weight:600; font-size:17px; letter-spacing:0.02em; }
+    </style>
+
+    <div class="clip hk-bg" data-start="0" data-duration="5.6" data-track-index="0">
+      <div class="hk-glow" aria-hidden="true"></div>
+    </div>
+
+    <div class="clip hk-stage" data-start="0" data-duration="5.6" data-track-index="1">
+      <div class="hk-mono">
+        <div class="hk-badge">AV</div>
+        <div class="hk-name">Gestão Financeira</div>
+      </div>
+      <div class="hk-eyebrow">Operações financeiras</div>
+      <div class="hk-h1">
+        <div class="hk-line1"><span class="hk-word">Construímos</span></div>
+        <div class="hk-line2"><span class="hk-word">operações</span> <span class="hk-word">financeiras</span></div>
+        <span class="hk-accent">inteligentes.<span class="hk-underline"></span></span>
+      </div>
+    </div>
+
+    <script>
+      (function(){
+        window.__timelines = window.__timelines || {};
+        var tl = gsap.timeline({ paused: true });
+        var q = function(s){ return document.querySelectorAll('[data-composition-id="01-hook"] ' + s); };
+        tl.fromTo('[data-composition-id="01-hook"] .hk-glow', { opacity:0, scale:0.82 }, { opacity:1, scale:1, duration:1.1, ease:"power2.out" }, 0);
+        tl.fromTo('[data-composition-id="01-hook"] .hk-mono', { opacity:0, y:-10 }, { opacity:1, y:0, duration:0.7, ease:"power3.out" }, 0.35);
+        tl.fromTo('[data-composition-id="01-hook"] .hk-eyebrow', { opacity:0, y:18 }, { opacity:1, y:0, duration:0.7, ease:"power3.out" }, 0.4);
+        tl.fromTo('[data-composition-id="01-hook"] .hk-line1 .hk-word', { opacity:0, y:34 }, { opacity:1, y:0, duration:0.6, ease:"power3.out", stagger:0.08 }, 1.2);
+        tl.fromTo('[data-composition-id="01-hook"] .hk-line2 .hk-word', { opacity:0, y:34 }, { opacity:1, y:0, duration:0.6, ease:"power3.out", stagger:0.09 }, 1.95);
+        tl.fromTo('[data-composition-id="01-hook"] .hk-accent', { opacity:0, scale:0.7 }, { opacity:1, scale:1, duration:0.62, ease:"power3.out" }, 3.25);
+        tl.fromTo('[data-composition-id="01-hook"] .hk-underline', { scaleX:0 }, { scaleX:1, duration:0.55, ease:"power3.out" }, 3.6);
+        // held read: one slow finite glow bloom, no repeat/yoyo
+        tl.fromTo('[data-composition-id="01-hook"] .hk-glow', { scale:1 }, { scale:1.06, duration:1.2, ease:"sine.out" }, 3.8);
+        window.__timelines["01-hook"] = tl;
+      })();
+    </script>
+  </div>
+</template>

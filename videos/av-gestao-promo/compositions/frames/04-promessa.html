@@ -1,0 +1,63 @@
+<template>
+  <div id="root" data-composition-id="04-promessa" data-start="0" data-duration="4.4" data-width="1080" data-height="1080">
+    <style>
+      @font-face { font-family:"Inter"; font-weight:400; font-style:normal; font-display:block; src:url("assets/fonts/Inter-400.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:500; font-style:normal; font-display:block; src:url("assets/fonts/Inter-500.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:600; font-style:normal; font-display:block; src:url("assets/fonts/Inter-600.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:700; font-style:normal; font-display:block; src:url("assets/fonts/Inter-700.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:800; font-style:normal; font-display:block; src:url("assets/fonts/Inter-800.woff2") format("woff2"); }
+
+      #root {
+        position:absolute; inset:0; width:1080px; height:1080px; overflow:hidden;
+        background:transparent; font-family:"Inter",sans-serif;
+        --bg:#0b1120; --primary:#3a6df5; --primary2:#5b86ff;
+        --text:#ffffff; --muted:#aab4cc; --light:#6b7591;
+      }
+      #root .clip { position:absolute; }
+      #root .pm-bg { inset:0; width:1080px; height:1080px;
+        background:
+          radial-gradient(720px 600px at 50% 44%, rgba(91,134,255,0.22), rgba(11,17,32,0) 62%),
+          linear-gradient(180deg,#0d1526 0%,#0b1120 100%); }
+      #root .pm-stage { inset:0; width:1080px; height:1080px; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; text-align:center; padding:0 100px 120px; }
+      #root .pm-lead { color:var(--text); font-weight:700; font-size:60px; letter-spacing:-0.02em; line-height:1.14; max-width:820px; }
+      #root .pm-lead .pm-word { display:inline-block; }
+      #root .pm-keys { margin-top:44px; display:flex; align-items:center; gap:26px; }
+      #root .pm-key { color:var(--primary2); font-weight:800; font-size:66px; letter-spacing:-0.02em; }
+      #root .pm-dot { width:12px; height:12px; border-radius:50%; background:var(--light); }
+    </style>
+
+    <div class="clip pm-bg" data-start="0" data-duration="4.4" data-track-index="0"></div>
+
+    <div class="clip pm-stage" data-start="0" data-duration="4.4" data-track-index="1">
+      <div class="pm-lead">
+        <span class="pm-word">Seu</span> <span class="pm-word">financeiro</span> <span class="pm-word">vira</span> <span class="pm-word">uma</span> <span class="pm-word">operação</span>
+      </div>
+      <div class="pm-keys">
+        <span class="pm-key pm-k1">previsível</span>
+        <span class="pm-dot pm-d1"></span>
+        <span class="pm-key pm-k2">eficiente</span>
+        <span class="pm-dot pm-d2"></span>
+        <span class="pm-key pm-k3">escalável</span>
+      </div>
+    </div>
+
+    <script>
+      (function(){
+        window.__timelines = window.__timelines || {};
+        var tl = gsap.timeline({ paused: true });
+        var C = '[data-composition-id="04-promessa"] ';
+        tl.fromTo(C+'.pm-bg', { opacity:0.7 }, { opacity:1, duration:1.0, ease:"power2.out" }, 0);
+        tl.fromTo(C+'.pm-lead .pm-word', { opacity:0, y:26 }, { opacity:1, y:0, duration:0.6, ease:"power3.out", stagger:0.11 }, 0.2);
+        tl.fromTo(C+'.pm-k1', { opacity:0, scale:0.8 }, { opacity:1, scale:1, duration:0.5, ease:"power3.out" }, 1.5);
+        tl.fromTo(C+'.pm-d1', { opacity:0 }, { opacity:1, duration:0.3 }, 1.75);
+        tl.fromTo(C+'.pm-k2', { opacity:0, scale:0.8 }, { opacity:1, scale:1, duration:0.5, ease:"power3.out" }, 2.0);
+        tl.fromTo(C+'.pm-d2', { opacity:0 }, { opacity:1, duration:0.3 }, 2.25);
+        tl.fromTo(C+'.pm-k3', { opacity:0, scale:0.8 }, { opacity:1, scale:1, duration:0.5, ease:"power3.out" }, 2.5);
+        // held read: soft finite glow bloom
+        tl.fromTo(C+'.pm-bg', { scale:1 }, { scale:1.04, duration:1.2, ease:"sine.out" }, 3.0);
+        window.__timelines["04-promessa"] = tl;
+      })();
+    </script>
+  </div>
+</template>

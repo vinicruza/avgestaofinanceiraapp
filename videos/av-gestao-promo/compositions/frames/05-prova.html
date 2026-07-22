@@ -1,0 +1,86 @@
+<template>
+  <div id="root" data-composition-id="05-prova" data-start="0" data-duration="5" data-width="1080" data-height="1080">
+    <style>
+      @font-face { font-family:"Inter"; font-weight:400; font-style:normal; font-display:block; src:url("assets/fonts/Inter-400.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:500; font-style:normal; font-display:block; src:url("assets/fonts/Inter-500.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:600; font-style:normal; font-display:block; src:url("assets/fonts/Inter-600.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:700; font-style:normal; font-display:block; src:url("assets/fonts/Inter-700.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:800; font-style:normal; font-display:block; src:url("assets/fonts/Inter-800.woff2") format("woff2"); }
+
+      #root {
+        position:absolute; inset:0; width:1080px; height:1080px; overflow:hidden;
+        background:transparent; font-family:"Inter",sans-serif;
+        --bg:#0b1120; --primary:#3a6df5; --primary2:#5b86ff;
+        --text:#ffffff; --muted:#aab4cc; --light:#6b7591;
+        --card:rgba(58,109,245,0.08); --border:rgba(120,150,220,0.22);
+      }
+      #root .clip { position:absolute; }
+      #root .pv-bg { inset:0; width:1080px; height:1080px;
+        background:
+          radial-gradient(760px 620px at 50% 42%, rgba(91,134,255,0.18), rgba(11,17,32,0) 64%),
+          linear-gradient(180deg,#0d1526 0%,#0b1120 100%); }
+      #root .pv-stage { inset:0; width:1080px; height:1080px; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; padding:70px 110px 120px; }
+      #root .pv-eyebrow { color:var(--primary); font-weight:600; font-size:22px; letter-spacing:0.24em;
+        text-transform:uppercase; margin-bottom:44px; }
+      #root .pv-rows { display:flex; flex-direction:column; gap:22px; width:100%; max-width:820px; }
+      #root .pv-row { background:var(--card); border:1.5px solid var(--border); border-radius:20px;
+        padding:26px 40px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+      #root .pv-num { color:var(--primary2); font-weight:800; font-size:82px; letter-spacing:-0.03em;
+        font-variant-numeric:tabular-nums; line-height:1; white-space:nowrap; }
+      #root .pv-num .pv-suf { font-size:44px; font-weight:700; margin-left:6px; }
+      #root .pv-lab { color:var(--muted); font-weight:500; font-size:30px; letter-spacing:-0.01em;
+        text-align:right; max-width:380px; line-height:1.15; }
+      #root .pv-clients { margin-top:46px; color:var(--light); font-weight:500; font-size:27px; letter-spacing:-0.01em; text-align:center; }
+      #root .pv-clients b { color:var(--muted); font-weight:600; }
+    </style>
+
+    <div class="clip pv-bg" data-start="0" data-duration="5" data-track-index="0"></div>
+
+    <div class="clip pv-stage" data-start="0" data-duration="5" data-track-index="1">
+      <div class="pv-eyebrow">Em produção, não promessa</div>
+      <div class="pv-rows">
+        <div class="pv-row pv-r1">
+          <div class="pv-num"><span class="pv-n" data-to="37">0</span></div>
+          <div class="pv-lab">postos e redes atendidos</div>
+        </div>
+        <div class="pv-row pv-r2">
+          <div class="pv-num">+<span class="pv-n" data-to="19">0</span><span class="pv-suf">mil</span></div>
+          <div class="pv-lab">pagamentos executados</div>
+        </div>
+        <div class="pv-row pv-r3">
+          <div class="pv-num">+<span class="pv-n" data-to="20">0</span><span class="pv-suf">mil</span></div>
+          <div class="pv-lab">lançamentos conciliados</div>
+        </div>
+      </div>
+      <div class="pv-clients">Confiada por redes como <b>Ipiranga</b>, <b>Petrobras</b> e <b>ampm</b>.</div>
+    </div>
+
+    <script>
+      (function(){
+        window.__timelines = window.__timelines || {};
+        var tl = gsap.timeline({ paused: true });
+        var C = '[data-composition-id="05-prova"] ';
+        var root = document.querySelector('[data-composition-id="05-prova"]');
+        tl.fromTo(C+'.pv-eyebrow', { opacity:0, y:16 }, { opacity:1, y:0, duration:0.7, ease:"power3.out" }, 0.2);
+
+        function countRow(rowSel, at){
+          tl.fromTo(C+rowSel, { opacity:0, y:22, scale:0.96 }, { opacity:1, y:0, scale:1, duration:0.55, ease:"power3.out" }, at);
+          var el = root.querySelector(rowSel + ' .pv-n');
+          var end = parseInt(el.getAttribute('data-to'), 10);
+          var proxy = { v:0 };
+          tl.to(proxy, { v:end, duration:1.0, ease:"power2.out",
+            onUpdate:function(){ el.textContent = Math.round(proxy.v); },
+            onComplete:function(){ el.textContent = end; } }, at+0.05);
+        }
+        countRow('.pv-r1', 1.0);
+        countRow('.pv-r2', 1.6);
+        countRow('.pv-r3', 2.3);
+
+        tl.fromTo(C+'.pv-clients', { opacity:0, y:16 }, { opacity:1, y:0, duration:0.6, ease:"power3.out" }, 3.5);
+        tl.fromTo(C+'.pv-bg', { scale:1 }, { scale:1.03, duration:1.4, ease:"sine.out" }, 3.1);
+        window.__timelines["05-prova"] = tl;
+      })();
+    </script>
+  </div>
+</template>

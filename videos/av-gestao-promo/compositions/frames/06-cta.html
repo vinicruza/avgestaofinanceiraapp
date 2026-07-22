@@ -1,0 +1,67 @@
+<template>
+  <div id="root" data-composition-id="06-cta" data-start="0" data-duration="4" data-width="1080" data-height="1080">
+    <style>
+      @font-face { font-family:"Inter"; font-weight:400; font-style:normal; font-display:block; src:url("assets/fonts/Inter-400.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:500; font-style:normal; font-display:block; src:url("assets/fonts/Inter-500.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:600; font-style:normal; font-display:block; src:url("assets/fonts/Inter-600.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:700; font-style:normal; font-display:block; src:url("assets/fonts/Inter-700.woff2") format("woff2"); }
+      @font-face { font-family:"Inter"; font-weight:800; font-style:normal; font-display:block; src:url("assets/fonts/Inter-800.woff2") format("woff2"); }
+
+      #root {
+        position:absolute; inset:0; width:1080px; height:1080px; overflow:hidden;
+        background:transparent; font-family:"Inter",sans-serif;
+        --bg:#0b1120; --primary:#3a6df5; --primary2:#5b86ff;
+        --text:#ffffff; --muted:#aab4cc; --light:#6b7591;
+      }
+      #root .clip { position:absolute; }
+      #root .ct-bg { inset:0; width:1080px; height:1080px;
+        background:
+          radial-gradient(700px 620px at 50% 42%, rgba(91,134,255,0.26), rgba(11,17,32,0) 62%),
+          linear-gradient(180deg,#0d1526 0%,#0b1120 100%); }
+      #root .ct-glow { left:50%; top:38%; width:560px; height:560px; margin:-280px 0 0 -280px; border-radius:50%;
+        background:radial-gradient(closest-side, rgba(91,134,255,0.34), rgba(11,17,32,0) 70%); filter:blur(4px); }
+      #root .ct-stage { inset:0; width:1080px; height:1080px; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; text-align:center; padding:0 100px 110px; }
+      #root .ct-badge { width:120px; height:120px; border-radius:28px;
+        background:linear-gradient(135deg,var(--primary),var(--primary2));
+        display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:54px;
+        letter-spacing:-0.02em; box-shadow:0 24px 70px -24px rgba(58,109,245,0.75); }
+      #root .ct-name { margin-top:30px; color:var(--text); font-weight:800; font-size:58px; letter-spacing:-0.02em; }
+      #root .ct-tag { margin-top:16px; color:var(--muted); font-weight:500; font-size:30px; letter-spacing:-0.01em; }
+      #root .ct-tag b { color:var(--primary2); font-weight:700; }
+      #root .ct-pill { margin-top:44px; background:linear-gradient(135deg,var(--primary),var(--primary2)); color:#fff;
+        font-weight:700; font-size:32px; letter-spacing:-0.01em; padding:24px 52px; border-radius:100px;
+        box-shadow:0 20px 50px -18px rgba(58,109,245,0.8); }
+      #root .ct-site { margin-top:30px; color:var(--light); font-weight:500; font-size:26px; letter-spacing:0.01em; }
+    </style>
+
+    <div class="clip ct-bg" data-start="0" data-duration="4" data-track-index="0">
+      <div class="ct-glow" aria-hidden="true"></div>
+    </div>
+
+    <div class="clip ct-stage" data-start="0" data-duration="4" data-track-index="1">
+      <div class="ct-badge">AV</div>
+      <div class="ct-name">AV Gestão Financeira</div>
+      <div class="ct-tag">Construímos operações financeiras <b>inteligentes.</b></div>
+      <div class="ct-pill">Agendar demonstração</div>
+      <div class="ct-site">avgestaofinanceira.com.br</div>
+    </div>
+
+    <script>
+      (function(){
+        window.__timelines = window.__timelines || {};
+        var tl = gsap.timeline({ paused: true });
+        var C = '[data-composition-id="06-cta"] ';
+        tl.fromTo(C+'.ct-glow', { opacity:0, scale:0.7 }, { opacity:1, scale:1, duration:1.0, ease:"power2.out" }, 0);
+        tl.fromTo(C+'.ct-badge', { opacity:0, scale:0.7 }, { opacity:1, scale:1, duration:0.7, ease:"power3.out" }, 0.15);
+        tl.fromTo(C+'.ct-name', { opacity:0, y:22 }, { opacity:1, y:0, duration:0.6, ease:"power3.out" }, 1.2);
+        tl.fromTo(C+'.ct-tag', { opacity:0, y:18 }, { opacity:1, y:0, duration:0.55, ease:"power3.out" }, 1.6);
+        tl.fromTo(C+'.ct-pill', { opacity:0, scale:0.82, y:14 }, { opacity:1, scale:1, y:0, duration:0.6, ease:"power3.out" }, 2.4);
+        tl.fromTo(C+'.ct-site', { opacity:0, y:14 }, { opacity:1, y:0, duration:0.5, ease:"power3.out" }, 2.9);
+        // final frame: gentle settle, one finite glow bloom
+        tl.fromTo(C+'.ct-glow', { scale:1 }, { scale:1.05, duration:1.1, ease:"sine.out" }, 3.0);
+        window.__timelines["06-cta"] = tl;
+      })();
+    </script>
+  </div>
+</template>

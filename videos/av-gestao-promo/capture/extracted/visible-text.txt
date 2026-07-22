@@ -1,0 +1,45 @@
+AV GESTÃO FINANCEIRA — conteúdo real do site (reconstruído do código-fonte do app)
+
+# Hero
+Sobretítulo: Operações financeiras
+Título: Construímos operações financeiras inteligentes.
+Subtítulo: Combinamos pessoas, processos, tecnologia própria e inteligência artificial para transformar o financeiro da sua empresa em uma operação previsível, eficiente e escalável.
+CTA primário: Agendar demonstração
+CTA secundário: Conheça a Plataforma AV
+
+# Trust (hero)
+37 postos atendidos
++19 mil pagamentos executados
+IA em produção
+
+# Os 4 diferenciais (OS 4 PILARES — ângulo do vídeo)
+1. Pessoas especializadas
+2. Processos padronizados
+3. Tecnologia proprietária
+4. Inteligência artificial
+
+# Empresas que confiam na AV
+Ipiranga · Petrobras · BR Mania · ampm · Pit Stop · Pit Stop+ Conveniência · e muitas outras.
+
+# O que a AV resolve (dores)
+- Planilhas soltas: dados espalhados, versões diferentes e risco alto de erros e retrabalho.
+- Aprovações manuais: processos lentos, dependentes de pessoas e sem trilha de auditoria.
+- Pouca visibilidade: falta de informação clara para saber o que realmente acontece no financeiro.
+
+# Números reais (prova social — contadores animados)
+37 — Postos e redes atendidos
++19 mil — Pagamentos executados com controle
++20 mil — Lançamentos bancários conciliados
++2 mil — Entregas de combustível acompanhadas
+
+# Integrações em produção
+Open Finance (Pluggy) · PagBank · Tecnospeed · SGA
+
+# IA que já roda na operação
+- Agente de pagamentos via WhatsApp
+- Categorização automática de lançamentos
+- Alertas inteligentes de vencimento e divergência
+- Conciliação bancária assistida por IA
+
+# Contato / CTA
+Agendar demonstração — avgestaofinanceira.com.br

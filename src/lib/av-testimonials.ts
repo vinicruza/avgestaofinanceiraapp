@@ -31,7 +31,8 @@ export const AV_TESTIMONIALS: AvTestimonial[] = [
     name: "Bryan Guglielmo",
     role: "Sócio · Rede Pit Stop",
     initials: "BG",
-    ready: true,
+    // Aguardando autorização do cliente para publicação. Mudar para true quando liberado.
+    ready: false,
   },
   {
     headline: "Uma equipe que transmite confiança",
@@ -40,7 +41,8 @@ export const AV_TESTIMONIALS: AvTestimonial[] = [
     name: "Flavio Cava",
     role: "Sócio · Rede Ipiranga",
     initials: "FC",
-    ready: true,
+    // Aguardando autorização do cliente para publicação. Mudar para true quando liberado.
+    ready: false,
   },
   {
     headline: "Tudo centralizado e mais organizado",

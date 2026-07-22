@@ -59,6 +59,10 @@ export function Testimonials({
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
+  // Só exibe depoimentos autorizados (ready: true). Sem autorização, o card
+  // fica guardado no arquivo av-testimonials.ts, mas não vai ao ar.
+  const posts = AV_TESTIMONIALS.filter((t) => t.ready);
+
   function handleScroll() {
     const el = scrollerRef.current;
     if (!el) return;
@@ -86,6 +90,17 @@ export function Testimonials({
     el.scrollTo({ left, behavior: "smooth" });
   }
 
+  if (posts.length === 0) return null;
+
+  const gridCols =
+    posts.length >= 3 ? "md:grid-cols-3" : posts.length === 2 ? "md:grid-cols-2" : "md:grid-cols-1";
+  const gridMax =
+    posts.length >= 3
+      ? ""
+      : posts.length === 2
+        ? "md:mx-auto md:max-w-[860px]"
+        : "md:mx-auto md:max-w-[460px]";
+
   return (
     <section className={className}>
       <div className="mx-auto max-w-[1360px] px-6 py-24 lg:px-10">
@@ -101,32 +116,34 @@ export function Testimonials({
 
         {/*
           Mobile/tablet: carrossel horizontal com scroll-snap (deslize para o lado).
-          Desktop (md+): grade de 3 colunas.
+          Desktop (md+): grade (colunas conforme a quantidade de depoimentos).
         */}
         <div
           ref={scrollerRef}
           onScroll={handleScroll}
-          className="mt-14 flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-3 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden"
+          className={`mt-14 flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] md:grid ${gridCols} ${gridMax} md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden`}
         >
-          {AV_TESTIMONIALS.map((t, i) => (
-            <Card key={i} t={t} i={i} />
+          {posts.map((t, i) => (
+            <Card key={t.name} t={t} i={i} />
           ))}
         </div>
 
-        {/* Bolinhas indicadoras (apenas no mobile/tablet) */}
-        <div className="mt-6 flex justify-center gap-2 md:hidden">
-          {AV_TESTIMONIALS.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => goTo(i)}
-              aria-label={`Ver depoimento ${i + 1}`}
-              className={`h-2 rounded-full transition-all ${
-                active === i ? "w-6 bg-brand" : "w-2 bg-navy-deep/20 hover:bg-navy-deep/40"
-              }`}
-            />
-          ))}
-        </div>
+        {/* Bolinhas indicadoras (apenas no mobile/tablet, com mais de um depoimento) */}
+        {posts.length > 1 && (
+          <div className="mt-6 flex justify-center gap-2 md:hidden">
+            {posts.map((t, i) => (
+              <button
+                key={t.name}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Ver depoimento ${i + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  active === i ? "w-6 bg-brand" : "w-2 bg-navy-deep/20 hover:bg-navy-deep/40"
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

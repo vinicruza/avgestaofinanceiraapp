@@ -129,13 +129,15 @@ function Hero() {
 
 /* --------------------------------------------------------------- Clients */
 
-const CLIENTS = [
+const CLIENTS: { name: string; src: string; maxH: string; dark?: boolean }[] = [
   { name: "Ipiranga", src: ipirangaLogo.url, maxH: "h-10" },
   { name: "Petrobras", src: petrobrasLogo.url, maxH: "h-8" },
   { name: "BR Mania", src: brManiaLogo.url, maxH: "h-12" },
   { name: "ampm", src: ampmLogo.url, maxH: "h-12" },
   { name: "Pit Stop", src: pitstopLogo.url, maxH: "h-12" },
-  { name: "Pit Stop+ Conveniência", src: pitstopPlusLogo.url, maxH: "h-12" },
+  // Logo em versão negativa (letras claras) — exibido sobre fundo escuro para
+  // ficar legível na faixa branca de clientes.
+  { name: "Pit Stop+ Conveniência", src: pitstopPlusLogo.url, maxH: "h-10", dark: true },
 ];
 
 function Clients() {
@@ -150,7 +152,12 @@ function Clients() {
         </Reveal>
         <div className="mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:flex lg:flex-nowrap lg:justify-between lg:gap-x-10">
           {CLIENTS.map((c) => (
-            <div key={c.name} className="flex items-center justify-center">
+            <div
+              key={c.name}
+              className={`flex items-center justify-center ${
+                c.dark ? "rounded-xl bg-navy-deep px-4 py-3" : ""
+              }`}
+            >
               <img
                 src={c.src}
                 alt={`Logo ${c.name}`}

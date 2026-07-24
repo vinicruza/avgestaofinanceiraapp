@@ -18,10 +18,11 @@ import brManiaLogo from "@/assets/clients/br-mania.png.asset.json";
 import ampmLogo from "@/assets/clients/ampm.png.asset.json";
 import pitstopLogo from "@/assets/clients/pitstop.png.asset.json";
 import pitstopPlusLogo from "@/assets/clients/pitstop-plus.png.asset.json";
+import avLogo3d from "@/assets/av-logo-3d.png";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
-import { DashboardMockup, PaymentsMockup } from "@/components/site/AppMockup";
+import { PaymentsMockup } from "@/components/site/AppMockup";
 import { StatsBand } from "@/components/site/StatsBand";
 import { Testimonials } from "@/components/site/Testimonials";
 import { CtaGhost, CtaPrimary } from "@/components/site/ctas";
@@ -114,12 +115,18 @@ function Hero() {
             className="pointer-events-none absolute inset-0 -z-0"
             style={{
               background:
-                "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.35), transparent 70%)",
-              filter: "blur(30px)",
+                "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
+              filter: "blur(40px)",
             }}
           />
-          <div className="float-slow relative w-full max-w-[720px]">
-            <DashboardMockup />
+          <div className="float-slow relative w-full max-w-[600px]">
+            <img
+              src={avLogo3d}
+              alt="Logo 3D da AV Gestão Financeira"
+              className="w-full drop-shadow-[0_40px_80px_rgba(10,15,40,0.45)]"
+              width={1200}
+              height={689}
+            />
           </div>
         </div>
       </div>

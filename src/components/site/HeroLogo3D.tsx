@@ -51,7 +51,7 @@ export function HeroLogo3D() {
       auto-rotate-delay={0}
       rotation-per-second="16deg"
       interaction-prompt="none"
-      camera-orbit="18deg 74deg 60%"
+      camera-orbit="18deg 74deg 54%"
       min-camera-orbit="auto 55deg 25%"
       max-camera-orbit="auto 100deg 300%"
       field-of-view="26deg"
@@ -61,7 +61,7 @@ export function HeroLogo3D() {
       disable-zoom
       disable-pan
       className="drop-shadow-[0_40px_80px_rgba(10,15,40,0.45)]"
-      style={{ width: "100%", aspectRatio: "1200 / 689" }}
+      style={{ width: "100%", aspectRatio: "3 / 2" }}
     />
   );
 }

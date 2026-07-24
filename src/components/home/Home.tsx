@@ -119,7 +119,7 @@ function Hero() {
               filter: "blur(40px)",
             }}
           />
-          <div className="relative w-full max-w-[600px]">
+          <div className="relative w-full max-w-[720px]">
             <HeroLogo3D />
           </div>
         </div>

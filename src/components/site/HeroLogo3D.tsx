@@ -51,9 +51,9 @@ export function HeroLogo3D() {
       auto-rotate-delay={0}
       rotation-per-second="16deg"
       interaction-prompt="none"
-      camera-orbit="18deg 74deg 105%"
-      min-camera-orbit="auto 55deg auto"
-      max-camera-orbit="auto 100deg auto"
+      camera-orbit="18deg 74deg 60%"
+      min-camera-orbit="auto 55deg 25%"
+      max-camera-orbit="auto 100deg 300%"
       field-of-view="26deg"
       shadow-intensity={0}
       environment-image="neutral"

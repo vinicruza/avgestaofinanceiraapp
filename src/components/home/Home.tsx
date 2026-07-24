@@ -51,8 +51,9 @@ function Hero() {
       <HeroBackdrop />
       <SiteHeader variant="dark" />
 
-      <div className="relative mx-auto grid max-w-[1360px] grid-cols-1 gap-10 px-6 pb-24 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.8fr)] lg:gap-8 lg:px-10 lg:pt-10">
-        <div className="flex flex-col justify-center">
+      <div className="relative mx-auto max-w-[1360px] px-6 pb-24 pt-6 lg:px-10 lg:pt-10">
+        {/* Bloco de texto centralizado no topo */}
+        <div className="mx-auto max-w-3xl text-center">
           <Reveal
             as="span"
             className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand"
@@ -64,64 +65,63 @@ function Hero() {
             delay={80}
             className="mt-5 font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[64px]"
           >
-            Construímos
-            <br />
-            operações financeiras <span className="text-brand">inteligentes.</span>
+            Construímos operações financeiras <span className="text-brand">inteligentes.</span>
           </Reveal>
           <Reveal
             as="p"
             delay={160}
-            className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70"
+            className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-white/70"
           >
             Combinamos pessoas, processos, tecnologia própria e inteligência artificial para
             transformar o financeiro da sua empresa em uma operação{" "}
             <span className="font-semibold text-white">previsível, eficiente e escalável.</span>
           </Reveal>
 
-          <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
+          <Reveal delay={240} className="mt-8 flex flex-wrap justify-center gap-3">
             <CtaPrimary to="/agendar-demonstracao">Agendar demonstração</CtaPrimary>
             <CtaGhost href="#plataforma">Conheça a Plataforma AV</CtaGhost>
           </Reveal>
-
-          <Reveal delay={320} className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-            {HERO_TRUST.map((t) => (
-              <div key={t.label} className="flex items-baseline gap-2">
-                <span className="font-display text-xl font-extrabold text-white">{t.value}</span>
-                <span className="text-[12px] uppercase tracking-wider text-white/50">
-                  {t.label}
-                </span>
-              </div>
-            ))}
-          </Reveal>
-
-          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
-            {DIFFERENTIALS.map(({ icon: Icon, label, label2 }, i) => (
-              <Reveal key={label} delay={400 + i * 90} className="flex items-center gap-3">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/5 text-brand">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} />
-                </span>
-                <div className="text-[13px] leading-tight text-white/85">
-                  <div>{label}</div>
-                  <div className="text-white/60">{label2}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
 
-        <div className="relative flex items-center justify-center lg:justify-end">
+        {/* Logo 3D grande, centralizado, ocupando a largura */}
+        <div className="relative mx-auto mt-10 w-full max-w-[1240px] lg:mt-14">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 -z-0"
             style={{
               background:
                 "radial-gradient(closest-side, oklch(0.58 0.19 258 / 0.4), transparent 70%)",
-              filter: "blur(40px)",
+              filter: "blur(50px)",
             }}
           />
-          <div className="relative w-full max-w-[960px] lg:-mr-4">
-            <HeroLogo3D />
-          </div>
+          <HeroLogo3D />
+        </div>
+
+        {/* Prova de confiança + diferenciais, centralizados abaixo */}
+        <Reveal
+          delay={120}
+          className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 lg:mt-8"
+        >
+          {HERO_TRUST.map((t) => (
+            <div key={t.label} className="flex items-baseline gap-2">
+              <span className="font-display text-xl font-extrabold text-white">{t.value}</span>
+              <span className="text-[12px] uppercase tracking-wider text-white/50">{t.label}</span>
+            </div>
+          ))}
+        </Reveal>
+
+        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
+          {DIFFERENTIALS.map(({ icon: Icon, label, label2 }, i) => (
+            <Reveal key={label} delay={200 + i * 90} className="flex items-center gap-3">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/5 text-brand">
+                <Icon className="h-5 w-5" strokeWidth={1.75} />
+              </span>
+              <div className="text-[13px] leading-tight text-white/85">
+                <div>{label}</div>
+                <div className="text-white/60">{label2}</div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

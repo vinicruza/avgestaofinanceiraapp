@@ -51,7 +51,7 @@ function Hero() {
       <HeroBackdrop />
       <SiteHeader variant="dark" />
 
-      <div className="relative mx-auto grid max-w-[1360px] grid-cols-1 gap-10 px-6 pb-24 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-8 lg:px-10 lg:pt-10">
+      <div className="relative mx-auto grid max-w-[1360px] grid-cols-1 gap-10 px-6 pb-24 pt-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] lg:gap-8 lg:px-10 lg:pt-10">
         <div className="flex flex-col justify-center">
           <Reveal
             as="span"
@@ -119,7 +119,7 @@ function Hero() {
               filter: "blur(40px)",
             }}
           />
-          <div className="relative w-full max-w-[720px]">
+          <div className="relative w-full max-w-[820px]">
             <HeroLogo3D />
           </div>
         </div>

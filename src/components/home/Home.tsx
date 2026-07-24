@@ -18,7 +18,7 @@ import brManiaLogo from "@/assets/clients/br-mania.png.asset.json";
 import ampmLogo from "@/assets/clients/ampm.png.asset.json";
 import pitstopLogo from "@/assets/clients/pitstop.png.asset.json";
 import pitstopPlusLogo from "@/assets/clients/pitstop-plus.png.asset.json";
-import avLogo3d from "@/assets/av-logo-3d.png";
+import { HeroLogo3D } from "@/components/site/HeroLogo3D";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { HeroBackdrop } from "@/components/site/HeroBackdrop";
@@ -119,14 +119,8 @@ function Hero() {
               filter: "blur(40px)",
             }}
           />
-          <div className="float-slow relative w-full max-w-[600px]">
-            <img
-              src={avLogo3d}
-              alt="Logo 3D da AV Gestão Financeira"
-              className="w-full drop-shadow-[0_40px_80px_rgba(10,15,40,0.45)]"
-              width={1200}
-              height={689}
-            />
+          <div className="relative w-full max-w-[600px]">
+            <HeroLogo3D />
           </div>
         </div>
       </div>

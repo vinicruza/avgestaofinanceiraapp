@@ -1,0 +1,37 @@
+{
+  "id": "avpetro360",
+  "displayName": "AVPetro360",
+  "status": "placeholder_pending_brand_approval",
+  "source": "Nenhum manual de marca ou logo real da AVPetro360 foi encontrado neste repositório em 2026-07-31. Paleta abaixo e um layout provisorio, coerente com a familia AV (mesma tipografia e estrutura), mas DEVE ser substituida/validada pelo time de marca antes de uso comercial.",
+  "palette": {
+    "background": { "css": "#0d1b1a", "hex": "#0d1b1a" },
+    "backgroundSoft": { "css": "#12302c", "hex": "#12302c" },
+    "surface": { "css": "#1c453e", "hex": "#1c453e" },
+    "accent": { "css": "#f2994a", "hex": "#f2994a" },
+    "accentStrong": { "css": "#d97a1f", "hex": "#d97a1f" },
+    "accentSoft": { "css": "#fdece0", "hex": "#fdece0" },
+    "text": { "css": "#ffffff", "hex": "#ffffff" },
+    "textMuted": { "css": "#a9c0bb", "hex": "#a9c0bb" }
+  },
+  "typography": {
+    "fontFamily": "'Inter', 'Helvetica Neue', Arial, sans-serif",
+    "eyebrowWeight": 700,
+    "headlineWeight": 700,
+    "bodyWeight": 400
+  },
+  "logos": {
+    "mark": {
+      "file": "assets/logos/avpetro360/PENDING-add-real-logo.png",
+      "sha256": null,
+      "note": "NENHUM logo real da AVPetro360 foi fornecido ainda. Nao existe nenhum arquivo de imagem em assets/logos/avpetro360/. Este pipeline NUNCA deve desenhar/recriar um logo: adicione o arquivo PNG real fornecido pela marca em assets/logos/avpetro360/, atualize 'file' e 'sha256' aqui, e so entao gere artes para a AVPetro360. Ate la, a validacao de logo deve falhar de proposito."
+    }
+  },
+  "cta": {
+    "bg": { "css": "#f2994a", "hex": "#f2994a" },
+    "text": { "css": "#0d1b1a", "hex": "#0d1b1a" }
+  },
+  "contrastRequirements": {
+    "minRatioNormalText": 4.5,
+    "minRatioLargeText": 3.0
+  }
+}

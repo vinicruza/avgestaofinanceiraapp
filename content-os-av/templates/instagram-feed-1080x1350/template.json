@@ -1,0 +1,21 @@
+{
+  "id": "instagram-feed-1080x1350",
+  "displayName": "Instagram Feed 4:5",
+  "width": 1080,
+  "height": 1350,
+  "html": "template.html",
+  "css": "template.css",
+  "requiredFields": ["content.headline", "content.cta.label"],
+  "optionalFields": ["content.eyebrow", "content.subheadline", "content.body"],
+  "maxLengths": {
+    "content.eyebrow": 40,
+    "content.headline": 90,
+    "content.subheadline": 120,
+    "content.body": 220,
+    "content.cta.label": 24
+  },
+  "logoSlot": {
+    "position": "top-left",
+    "maxHeightPx": 72
+  }
+}

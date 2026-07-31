@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "id": "av-fechamento-mensal-2026-08",
+    "brand": "av-gestao-financeira",
+    "template": "instagram-feed-1080x1350",
+    "createdAt": "2026-07-31",
+    "author": "marketing@avgestaofinanceira.com.br",
+    "notes": "Post de lançamento do fechamento mensal automático."
+  },
+  "content": {
+    "eyebrow": "Novidade AV",
+    "headline": "Seu fechamento mensal pronto em minutos, não em dias",
+    "subheadline": "Relatórios financeiros automáticos, direto do seu ERP.",
+    "body": "Sem planilha. Sem retrabalho. Sem surpresa no fim do mês.",
+    "cta": {
+      "label": "Agende uma demonstração"
+    }
+  },
+  "visual": {
+    "logo": "mark",
+    "showBrandName": true
+  }
+}

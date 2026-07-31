@@ -1,0 +1,14 @@
+{
+  "name": "content-os-av",
+  "private": true,
+  "version": "0.1.0",
+  "description": "MVP de geração determinística de artes (PNG) para AV Gestão Financeira e AVPetro360, a partir de briefings em JSON.",
+  "type": "module",
+  "scripts": {
+    "render": "node src/cli.mjs",
+    "render:example": "node src/cli.mjs briefs/example-briefing.json"
+  },
+  "dependencies": {
+    "playwright": "1.56.1"
+  }
+}

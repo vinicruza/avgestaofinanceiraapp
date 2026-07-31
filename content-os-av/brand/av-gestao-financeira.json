@@ -1,0 +1,40 @@
+{
+  "id": "av-gestao-financeira",
+  "displayName": "AV Gestão Financeira",
+  "source": "Paleta extraída de src/styles.css (tokens --navy-deep, --brand, --ink etc.) do site oficial em 2026-07-31.",
+  "palette": {
+    "background": { "css": "oklch(0.16 0.05 264)", "hex": "#040c22" },
+    "backgroundSoft": { "css": "oklch(0.22 0.07 264)", "hex": "#09183b" },
+    "surface": { "css": "oklch(0.32 0.08 264)", "hex": "#1d315b" },
+    "accent": { "css": "oklch(0.58 0.19 258)", "hex": "#2275e8" },
+    "accentStrong": { "css": "oklch(0.5 0.2 260)", "hex": "#0559d2" },
+    "accentSoft": { "css": "oklch(0.94 0.03 258)", "hex": "#dfecff" },
+    "text": { "css": "#ffffff", "hex": "#ffffff" },
+    "textMuted": { "css": "oklch(0.7 0.03 258)", "hex": "#a9b4c6" }
+  },
+  "typography": {
+    "fontFamily": "'Inter', 'Helvetica Neue', Arial, sans-serif",
+    "eyebrowWeight": 700,
+    "headlineWeight": 700,
+    "bodyWeight": 400
+  },
+  "logos": {
+    "mark": {
+      "file": "assets/logos/av-gestao-financeira/av-logo-mark.png",
+      "sha256": "d7e3676038d08481efe53b379de1ab6576ca5e2289d972b5fc38768347aa3db6",
+      "nativeWidth": 1200,
+      "nativeHeight": 689,
+      "minRenderWidthPx": 160,
+      "safeAreaPx": 56,
+      "note": "Arquivo real copiado de src/assets/av-logo-3d.png. Nunca recriar, redesenhar ou vetorizar este logo."
+    }
+  },
+  "cta": {
+    "bg": { "css": "oklch(0.5 0.2 260)", "hex": "#0559d2" },
+    "text": { "css": "#ffffff", "hex": "#ffffff" }
+  },
+  "contrastRequirements": {
+    "minRatioNormalText": 4.5,
+    "minRatioLargeText": 3.0
+  }
+}

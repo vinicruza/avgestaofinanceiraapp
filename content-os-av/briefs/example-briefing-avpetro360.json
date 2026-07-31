@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "id": "avpetro360-dre-conversa-operacao",
+    "brand": "avpetro360",
+    "template": "instagram-feed-1080x1350",
+    "createdAt": "2026-07-31",
+    "author": "marketing@avgestaofinanceira.com.br",
+    "notes": "Post de exemplo para a AVPetro360, usando o logo e a paleta reais adicionados em 2026-07-31."
+  },
+  "content": {
+    "eyebrow": "AVPetro360",
+    "headline": "DRE de posto precisa conversar com a operação",
+    "subheadline": "Estoque, vendas, despesas e conciliação no mesmo lugar.",
+    "body": "Menos retrabalho, mais previsibilidade para decidir.",
+    "cta": {
+      "label": "Acompanhe o AVPetro360"
+    }
+  },
+  "visual": {
+    "logo": "mark",
+    "showBrandName": true
+  }
+}

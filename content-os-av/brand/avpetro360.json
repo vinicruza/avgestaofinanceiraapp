@@ -1,17 +1,21 @@
 {
   "id": "avpetro360",
   "displayName": "AVPetro360",
-  "status": "placeholder_pending_brand_approval",
-  "source": "Nenhum manual de marca ou logo real da AVPetro360 foi encontrado neste repositório em 2026-07-31. Paleta abaixo e um layout provisorio, coerente com a familia AV (mesma tipografia e estrutura), mas DEVE ser substituida/validada pelo time de marca antes de uso comercial.",
+  "source": "Logo real e paleta extraída por amostragem de pixels dos posts de referência e do arquivo de logo enviados pelo usuário em 2026-07-31 (ver assets/logos/avpetro360/ e assets/references/avpetro360/). Cores medidas diretamente dos arquivos reais, não estimadas.",
   "palette": {
-    "background": { "css": "#0d1b1a", "hex": "#0d1b1a" },
-    "backgroundSoft": { "css": "#12302c", "hex": "#12302c" },
-    "surface": { "css": "#1c453e", "hex": "#1c453e" },
-    "accent": { "css": "#f2994a", "hex": "#f2994a" },
-    "accentStrong": { "css": "#d97a1f", "hex": "#d97a1f" },
-    "accentSoft": { "css": "#fdece0", "hex": "#fdece0" },
-    "text": { "css": "#ffffff", "hex": "#ffffff" },
-    "textMuted": { "css": "#a9c0bb", "hex": "#a9c0bb" }
+    "background": { "css": "#f7f8fa", "hex": "#f7f8fa" },
+    "backgroundSoft": { "css": "#eef1f5", "hex": "#eef1f5" },
+    "surface": { "css": "#083870", "hex": "#083870" },
+    "accent": { "css": "#2858c0", "hex": "#2858c0" },
+    "accentStrong": { "css": "#083870", "hex": "#083870" },
+    "accentSoft": { "css": "#e7edf9", "hex": "#e7edf9" },
+    "accentAlt": {
+      "css": "#901028",
+      "hex": "#901028",
+      "note": "Vermelho/bordô do triângulo 'A' do logo. Não usado no template atual; disponível para futuros templates que precisem do segundo tom da marca."
+    },
+    "text": { "css": "#0d1b2a", "hex": "#0d1b2a" },
+    "textMuted": { "css": "#4b5a6b", "hex": "#4b5a6b" }
   },
   "typography": {
     "fontFamily": "'Inter', 'Helvetica Neue', Arial, sans-serif",
@@ -21,17 +25,20 @@
   },
   "logos": {
     "mark": {
-      "file": "assets/logos/avpetro360/PENDING-add-real-logo.png",
-      "sha256": null,
-      "note": "NENHUM logo real da AVPetro360 foi fornecido ainda. Nao existe nenhum arquivo de imagem em assets/logos/avpetro360/. Este pipeline NUNCA deve desenhar/recriar um logo: adicione o arquivo PNG real fornecido pela marca em assets/logos/avpetro360/, atualize 'file' e 'sha256' aqui, e so entao gere artes para a AVPetro360. Ate la, a validacao de logo deve falhar de proposito."
+      "file": "assets/logos/avpetro360/avpetro360-logo-mark.png",
+      "sha256": "ea37ab89701b6c5b3acac991428ad7d8fea3bfca16844d48bbdc78656676a097",
+      "nativeWidth": 1060,
+      "nativeHeight": 866,
+      "note": "Arquivo real fornecido pelo usuário em 2026-07-31 (PNG com transparência real). Nunca recriar, redesenhar ou vetorizar este logo."
     }
   },
   "cta": {
-    "bg": { "css": "#f2994a", "hex": "#f2994a" },
-    "text": { "css": "#0d1b1a", "hex": "#0d1b1a" }
+    "bg": { "css": "#083870", "hex": "#083870" },
+    "text": { "css": "#ffffff", "hex": "#ffffff" }
   },
   "contrastRequirements": {
     "minRatioNormalText": 4.5,
     "minRatioLargeText": 3.0
-  }
+  },
+  "designNote": "Os posts de referência da AVPetro360 (assets/references/avpetro360/) usam fundo claro/branco, painéis navy e fotos de posto de combustível — um estilo diferente do template 'instagram-feed-1080x1350' atual, que foi desenhado para fundo escuro (dark hero). A paleta acima já reflete as cores reais da marca, mas o template pode precisar de uma variante clara para ficar fiel aos posts de referência. Ver task/README para detalhes."
 }

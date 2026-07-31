@@ -19,16 +19,23 @@ regras de marca e aciona o motor determinístico em `content-os-av/`.
 O logo usado em qualquer arte tem que ser um arquivo real, binário, já
 existente em `content-os-av/assets/logos/<marca>/`.
 
-- AV Gestão Financeira: logo real disponível em
+- AV Gestão Financeira: logo real (mark) em
   `content-os-av/assets/logos/av-gestao-financeira/av-logo-mark.png`
-  (cópia de `src/assets/av-logo-3d.png`, proveniência em `SOURCE.md` na
-  mesma pasta).
-- AVPetro360: **nenhum logo real foi fornecido ainda**. Não existe arquivo
-  em `content-os-av/assets/logos/avpetro360/`. Se pedirem uma arte da
-  AVPetro360, primeiro peça o arquivo real do logo (ver
-  `content-os-av/assets/logos/avpetro360/README.md`) — não prossiga
-  desenhando um substituto. O pipeline já falha sozinho nesse caso; isso é
-  esperado, não um bug.
+  (cópia de `src/assets/av-logo-3d.png`). Também existe uma variante
+  horizontal em cinza (`av-wordmark-grey.png`, ver `SOURCE.md` na mesma
+  pasta) pensada para fundo claro — nenhum template hoje a usa.
+- AVPetro360: logo real em
+  `content-os-av/assets/logos/avpetro360/avpetro360-logo-mark.png`,
+  fornecido pelo usuário em 2026-07-31. Se um dia esse arquivo for removido
+  ou trocado sem atualizar `brand/avpetro360.json`, o pipeline volta a
+  falhar sozinho na validação de logo — isso é esperado, não um bug. Nunca
+  substitua um logo ausente desenhando algo no lugar; sempre peça o
+  arquivo real.
+
+Cada marca também tem uma pasta de **referências visuais** (posts reais
+completos, não são logos) em `content-os-av/assets/references/<marca>/`,
+usada só para calibrar `brand/*.json` e futuros templates — nunca é
+consumida pelo pipeline de render.
 
 ## Direção visual (separada do conteúdo)
 
@@ -40,11 +47,14 @@ arquivo de logo, cores do CTA e os requisitos mínimos de contraste (WCAG AA).
 - **AV Gestão Financeira** (`av-gestao-financeira.json`): paleta extraída
   dos tokens reais do site (`src/styles.css` — `--navy-deep`, `--brand`,
   `--ink` etc.), não inventada.
-- **AVPetro360** (`avpetro360.json`): marcado como
-  `"status": "placeholder_pending_brand_approval"`. É uma paleta
-  provisória, coerente com a família AV, mas **precisa ser validada pelo
-  time de marca** antes de qualquer uso comercial — trate como rascunho,
-  avise o usuário disso se ele pedir uma arte da AVPetro360.
+- **AVPetro360** (`avpetro360.json`): paleta extraída por amostragem de
+  pixel do logo real e dos posts de referência (fundo claro, azul
+  `#2858c0`, navy `#083870`, bordô `#901028` como acento secundário) — não
+  é mais placeholder. Os posts de referência da AVPetro360 usam fundo
+  claro com cards/fotos; o template `instagram-feed-1080x1350` atual é de
+  fundo escuro e funciona com essa paleta, mas fica menos fiel ao estilo já
+  usado pela marca do que ficaria um template dedicado de fundo claro — se
+  o usuário pedir muitas artes da AVPetro360, sugira criar esse template.
 
 Nunca misture texto de conteúdo dentro dos arquivos de `brand/` — conteúdo
 vem só do briefing.

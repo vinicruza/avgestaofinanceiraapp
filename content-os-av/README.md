@@ -24,6 +24,7 @@ content-os-av/
 ├── briefs/            briefings de exemplo/reais (conteúdo)
 ├── brand/             direção visual por marca (cor, tipografia, logo, CTA)
 ├── assets/logos/       logos reais (binários), um subdiretório por marca
+├── assets/references/  posts reais de referência (apoio visual, não são logos)
 ├── templates/          estrutura HTML/CSS por formato (ex.: feed 1080x1350)
 ├── src/                engine de montagem, validadores, CLI
 ├── renders/            PNG + relatório de validação gerados (git-ignored)
@@ -58,12 +59,19 @@ Novos formatos: ver seção "Adicionando um novo template" em
 ## Marcas
 
 - **AV Gestão Financeira** — pronta para uso: paleta extraída dos tokens
-  reais do site (`src/styles.css`), logo real já copiado para
-  `assets/logos/av-gestao-financeira/`.
-- **AVPetro360** — bloqueada de propósito: não há logo real no repositório
-  ainda, e a paleta em `brand/avpetro360.json` é um placeholder
-  (`status: "placeholder_pending_brand_approval"`). Ver
-  `assets/logos/avpetro360/README.md` para destravar.
+  reais do site (`src/styles.css`), logo real (mark) em
+  `assets/logos/av-gestao-financeira/av-logo-mark.png`, mais uma variante
+  horizontal em cinza (`av-wordmark-grey.png`, pensada para fundo claro,
+  ainda não usada pelo template atual).
+- **AVPetro360** — pronta para uso: logo real em
+  `assets/logos/avpetro360/avpetro360-logo-mark.png`, paleta extraída por
+  amostragem de pixel dos posts de referência reais em
+  `assets/references/avpetro360/` (fundo claro, azul/navy, ver
+  `designNote` em `brand/avpetro360.json`). O template atual foi desenhado
+  para fundo escuro (estilo "hero"); funciona com a paleta clara da
+  AVPetro360, mas um template dedicado de fundo claro (com cards/fotos,
+  como nos posts de referência) ficaria mais fiel ao estilo já usado pela
+  marca — ver exemplo gerado em `briefs/example-briefing-avpetro360.json`.
 
 ## Integrações futuras
 

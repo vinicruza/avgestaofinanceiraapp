@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "id": "av-gestao-conciliacao-001",
+    "brand": "av-gestao-financeira",
+    "template": "instagram-feed-1080x1350",
+    "createdAt": "2026-07-31",
+    "author": "marketing@avgestaofinanceira.com.br",
+    "notes": "Post sobre conciliação bancária automática."
+  },
+  "content": {
+    "eyebrow": "Conciliação bancária",
+    "headline": "Concilie suas contas sem abrir 5 planilhas",
+    "subheadline": "Extrato, banco e ERP conferidos automaticamente, todo dia.",
+    "body": "Menos tempo caçando diferença de centavo. Mais tempo decidindo.",
+    "cta": {
+      "label": "Fale com a AV"
+    }
+  },
+  "visual": {
+    "logo": "mark",
+    "showBrandName": true,
+    "baseImagePrompt": "Foto still, estilo editorial corporativo: profissional financeiro conferindo um extrato bancário impresso ao lado de um notebook aberto mostrando um painel de conciliação (colunas 'Banco' e 'Sistema' com valores batendo, ícone de check verde). Ambiente de escritório moderno, tons navy/azul escuro predominantes, luz de janela ao entardecer ao fundo, sem texto nem logotipos visíveis na cena. Enquadramento vertical 4:5, deixando o terço superior esquerdo mais limpo para sobrepor headline e CTA. Sem marcas d'água, sem logos de terceiros, sem texto renderizado pela IA."
+  }
+}

@@ -75,5 +75,17 @@ export function assembleHtml({ template, brand, brief, logoDataUri }) {
 
   let html = applyConditionals(template.html, conditionals);
   html = applyVars(html, rawVars, textVars);
+
+  // O template atual não tem slot de foto — se o briefing trouxer um
+  // prompt de imagem-base, ele só documenta a intenção (para um designer ou
+  // uma futura versão do template com foto), sem gerar nenhum pixel aqui.
+  if (visual.baseImagePrompt) {
+    const safePrompt = String(visual.baseImagePrompt).replaceAll('--', '—');
+    html = html.replace(
+      '<!doctype html>',
+      `<!doctype html>\n<!-- baseImagePrompt (apenas documentação, não renderizado): ${safePrompt} -->`,
+    );
+  }
+
   return html;
 }

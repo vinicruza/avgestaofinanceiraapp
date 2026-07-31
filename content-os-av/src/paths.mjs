@@ -7,4 +7,5 @@ export const BRAND_DIR = path.join(ROOT_DIR, 'brand');
 export const TEMPLATES_DIR = path.join(ROOT_DIR, 'templates');
 export const BRIEFS_DIR = path.join(ROOT_DIR, 'briefs');
 export const RENDERS_DIR = path.join(ROOT_DIR, 'renders');
+export const REPORTS_DIR = path.join(ROOT_DIR, 'reports');
 export const ASSETS_DIR = path.join(ROOT_DIR, 'assets');

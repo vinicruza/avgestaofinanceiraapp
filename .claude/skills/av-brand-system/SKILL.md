@@ -68,14 +68,24 @@ vem só do briefing.
    - `content`: `eyebrow` (opcional), `headline` (obrigatório), `subheadline`
      (opcional), `body` (opcional), `cta.label` (obrigatório).
    - `visual.logo`: variante do logo (`"mark"` por padrão).
+   - `visual.baseImagePrompt` (opcional): prompt descritivo de uma possível
+     imagem-base/foto de fundo. O template atual não tem slot de foto, então
+     isso só fica documentado no HTML (comentário) e no relatório — nenhum
+     pixel é gerado a partir dele.
 2. Rode o gerador:
    ```bash
    cd content-os-av
    npm install   # só na primeira vez
    node src/cli.mjs briefs/<seu-briefing>.json
    ```
-3. O PNG final e um relatório de validação (`*.report.json`) aparecem em
-   `content-os-av/renders/`.
+3. Saída:
+   - `content-os-av/renders/<briefing-id>.png` — a arte final.
+   - `content-os-av/renders/<briefing-id>.html` — o HTML montado (para
+     depuração/auditoria).
+   - `content-os-av/reports/<briefing-id>.json` — validações técnicas
+     automáticas + `manualVisualReview` (preenchido à mão depois de olhar o
+     PNG gerado — sempre faça essa checagem visual antes de considerar a
+     arte pronta, o pipeline não enxerga a própria imagem).
 
 ## Validação automática (não pule)
 
@@ -99,8 +109,8 @@ contorne a validação para "forçar" uma saída.
 ## O que este pipeline nunca faz
 
 - Não publica nada automaticamente em nenhuma rede social ou canal. A saída
-  é só um arquivo local em `content-os-av/renders/`; publicação é manual e
-  fora do escopo deste skill.
+  é só arquivos locais em `content-os-av/renders/` e `content-os-av/reports/`;
+  publicação é manual e fora do escopo deste skill.
 - Não desenha logos.
 - Não decide layout "na hora" — a montagem (`content-os-av/src/`) é
   puramente determinística: mesmo briefing + mesma marca + mesmo template

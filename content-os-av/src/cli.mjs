@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
-import { RENDERS_DIR, ROOT_DIR } from './paths.mjs';
+import { RENDERS_DIR, REPORTS_DIR, ROOT_DIR } from './paths.mjs';
 import { loadBrief } from './brief-loader.mjs';
 import { loadBrand } from './brand-loader.mjs';
 import { loadTemplate } from './template-loader.mjs';
@@ -17,9 +17,10 @@ import { validateText, validateContrast, validateLogo, validateDimensions } from
 // (estrutura HTML/CSS) -> HTML montado -> screenshot determinístico -> PNG.
 //
 // Este script NUNCA publica nada (sem chamadas a APIs de redes sociais,
-// Notion, Telegram etc.). Ele só escreve arquivos locais em renders/.
-// Integrações futuras (OpenClaw, Notion, Telegram, Supabase) são stubs em
-// integrations/ e não são chamadas por este pipeline.
+// Notion, Telegram etc.). Ele só escreve arquivos locais em renders/ (PNG +
+// HTML montado) e reports/ (validação). Integrações futuras (OpenClaw,
+// Notion, Telegram, Supabase) são stubs em integrations/ e não são chamadas
+// por este pipeline.
 
 function fail(report) {
   console.error('\n✗ Geração ABORTADA — validação falhou:\n');
@@ -71,25 +72,40 @@ async function main() {
   const dimensionsResult = validateDimensions(pngBuffer, template.meta.width, template.meta.height);
 
   fs.mkdirSync(RENDERS_DIR, { recursive: true });
+  fs.mkdirSync(REPORTS_DIR, { recursive: true });
+
   const outPng = path.join(RENDERS_DIR, `${brief.meta.id}.png`);
+  const outHtml = path.join(RENDERS_DIR, `${brief.meta.id}.html`);
+  const outReport = path.join(REPORTS_DIR, `${brief.meta.id}.json`);
+
   fs.writeFileSync(outPng, pngBuffer);
+  fs.writeFileSync(outHtml, html);
 
   const report = {
     briefId: brief.meta.id,
     brand: brand.id,
     template: template.meta.id,
     generatedAt: new Date().toISOString(),
-    outputFile: path.relative(ROOT_DIR, outPng),
+    outputFiles: {
+      png: path.relative(ROOT_DIR, outPng),
+      html: path.relative(ROOT_DIR, outHtml),
+      report: path.relative(ROOT_DIR, outReport),
+    },
     pngSha256: crypto.createHash('sha256').update(pngBuffer).digest('hex'),
     logo: { file: logoResult.file, sha256: logoResult.sha256 },
+    creative: {
+      baseImagePrompt: brief.visual?.baseImagePrompt ?? null,
+      note:
+        'O template atual não tem slot de foto — este prompt documenta a intenção de imagem-base para um designer ou uma futura versão do template, e não gerou nenhum pixel neste render.',
+    },
     validations: {
       text: textResult,
       contrast: contrastResult,
       logo: { ok: logoResult.ok, errors: logoResult.errors },
       dimensions: dimensionsResult,
     },
+    manualVisualReview: null,
   };
-  const outReport = path.join(RENDERS_DIR, `${brief.meta.id}.report.json`);
   fs.writeFileSync(outReport, JSON.stringify(report, null, 2));
 
   const allOk = dimensionsResult.ok; // pre-render checks já passaram acima
@@ -101,8 +117,9 @@ async function main() {
   console.log('✓ Contraste dentro do WCAG AA');
   console.log('✓ Logo real verificado (sem desenho/geração)');
   console.log(`✓ Dimensão final: ${dimensionsResult.width}x${dimensionsResult.height}`);
-  console.log(`\nPNG gerado: ${outPng}`);
-  console.log(`Relatório:  ${outReport}`);
+  console.log(`\nPNG gerado:  ${outPng}`);
+  console.log(`HTML gerado: ${outHtml}`);
+  console.log(`Relatório:   ${outReport}`);
   console.log('\nNada foi publicado. Revise o PNG antes de postar manualmente.\n');
 }
 

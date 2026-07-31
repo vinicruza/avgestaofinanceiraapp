@@ -14,8 +14,8 @@ MVP para gerar artes profissionais (PNG) da **AV Gestão Financeira** e da
 - **Validação automática antes de considerar qualquer PNG "pronto"**:
   dimensão do arquivo gerado, presença/hash do logo real, contraste WCAG AA
   e limites de texto do template.
-- **Nada é publicado automaticamente.** A saída é um arquivo local em
-  `renders/`. Postar é uma decisão manual, fora deste pipeline.
+- **Nada é publicado automaticamente.** A saída são arquivos locais em
+  `renders/` e `reports/`. Postar é uma decisão manual, fora deste pipeline.
 
 ## Estrutura
 
@@ -27,7 +27,8 @@ content-os-av/
 ├── assets/references/  posts reais de referência (apoio visual, não são logos)
 ├── templates/          estrutura HTML/CSS por formato (ex.: feed 1080x1350)
 ├── src/                engine de montagem, validadores, CLI
-├── renders/            PNG + relatório de validação gerados (git-ignored)
+├── renders/            PNG + HTML montado gerados (git-ignored)
+├── reports/            relatório de validação (técnica + revisão visual) por briefing (git-ignored)
 └── integrations/        stubs para OpenClaw, Notion, Telegram, Supabase
 ```
 
@@ -39,14 +40,20 @@ npm install                                   # primeira vez
 node src/cli.mjs briefs/example-briefing.json
 ```
 
-Saída, em `renders/`:
+Saída:
 
-- `<briefing-id>.png` — a arte final, no tamanho exato do template.
-- `<briefing-id>.report.json` — resultado de todas as validações
-  (texto, contraste, logo, dimensão).
+- `renders/<briefing-id>.png` — a arte final, no tamanho exato do template.
+- `renders/<briefing-id>.html` — o HTML já montado (marca + template +
+  conteúdo), útil para auditoria/depuração sem precisar re-renderizar.
+- `reports/<briefing-id>.json` — validações técnicas automáticas (texto,
+  contraste, logo, dimensão) mais um campo `creative.baseImagePrompt`
+  (se o briefing tiver `visual.baseImagePrompt`, documentando a intenção de
+  imagem-base para um designer/futuro template com foto — não é gerado
+  nenhum pixel a partir dele) e um campo `manualVisualReview` preenchido à
+  mão depois de olhar o PNG gerado (não é uma verificação automatizada).
 
-Se qualquer validação falhar, o comando termina com código de saída ≠ 0,
-imprime os erros, e **não** produz um PNG "válido" — corrija o
+Se qualquer validação técnica falhar, o comando termina com código de saída
+≠ 0, imprime os erros, e **não** produz nenhum arquivo de saída — corrija o
 briefing/marca/template e rode de novo.
 
 ## Formatos suportados hoje
